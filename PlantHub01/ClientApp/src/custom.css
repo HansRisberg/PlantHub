@@ -16,3 +16,9 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.content {
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+}

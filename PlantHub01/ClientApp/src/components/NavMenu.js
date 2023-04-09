@@ -21,6 +21,12 @@ export const NavMenu = () => {
               <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink tag={Link} className="text-dark" to="/profile">Profile</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} className="text-dark" to="/login">Login</NavLink>
+              </NavItem>
             </ul>
           </Collapse>
         </Navbar>

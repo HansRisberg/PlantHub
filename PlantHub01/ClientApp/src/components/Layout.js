@@ -5,7 +5,7 @@ export const Layout = ({ children }) => {
     return (
       <div>
         <NavMenu />
-        <Container tag="main">
+        <Container tag="main" className="content">
           {children}
         </Container>
       </div>
