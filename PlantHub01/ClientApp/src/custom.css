@@ -17,8 +17,17 @@ code {
   border-color: #1861ac;
 }
 
+body {
+    background-color: #40513B;
+}
+
+.navBar {
+    background-color: #609966;
+}
+
 .content {
-    max-width: 1000px;
+    background-color: #F7FDF6;
+    max-width: 1200px;
     margin-right: auto;
     margin-left: auto;
 }

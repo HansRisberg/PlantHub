@@ -1,9 +1,9 @@
-﻿import heroImage from "../assets/cover.jpg";
+﻿import heroImage from "../assets/heroPlant.jpg";
 
 export const Hero = () => {
     return (
         <div>
-            <img src={heroImage} width="100%" style={{ borderRadius: "5px", marginBottom: "30px" }} />
+            <img src={heroImage} width="400px" style={{ borderRadius: "150px", marginBottom: "30px", position: "relative", left: "700px", marginTop: "30px" }} />
         </div>
     )
 }

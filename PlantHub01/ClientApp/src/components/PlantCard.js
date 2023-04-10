@@ -23,7 +23,7 @@ export const PlantCard = ({ plant }) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Get cutting</Button>
+                <Button size="small" style={{ color: "#40513B"}}>Get cutting</Button>
             </CardActions>
         </Card>
     )
