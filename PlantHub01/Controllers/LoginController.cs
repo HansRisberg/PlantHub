@@ -25,10 +25,10 @@ namespace PlantHub01.Controllers
             
             if (userLogin == null)
             {
-                return BadRequest("User not found");
+                return BadRequest();
             }
 
-            return Ok();
+            return NoContent();
         }
     }
 }

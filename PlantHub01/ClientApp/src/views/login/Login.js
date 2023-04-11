@@ -10,25 +10,33 @@ export const Login = () => {
 
     async function handleLogin(event) {
         event.preventDefault();
-        const requestBody = { "Username": user };
-        const test = JSON.stringify(requestBody);
-        console.log(test);
-        let jsonResponse = await fetch("https://localhost:7062/login", {
+
+        const requestOptions = {
             method: "POST",
-            //headers: {
-            //    "Content-Type": "application/json",
-            //},
-            body: JSON.stringify(requestBody),
-        })
-            //.then((response) => response.json())
-            //.then((result) => {
-            //    if (result.message === "OK") {
-            //        alert("you are logged in")
-            //    } else {
-            //        alert("Wrong username")
-            //    }
-            //})
-        let response = jsonResponse.json();
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({ "Username": user })
+        }
+
+        let response = await fetch("https://localhost:7062/login", requestOptions);
+        console.log(response);
+        let jsonResponse = response.json();
+        console.log(jsonResponse);
+
+        //const data = await response.json();
+        //console.log(data);
+
+        //if (data.message)
+        //    .then((response) => response.json())
+        //    .then((result) => {
+        //        if (result.message === "OK") {
+        //            alert("you are logged in")
+        //        } else {
+        //            alert("Wrong username")
+        //        }
+        //    })
     }
 
     return (
