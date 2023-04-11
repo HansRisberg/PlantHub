@@ -3,9 +3,10 @@ import { NavMenu } from './NavMenu';
 
 export const Layout = ({ children }) => {
     return (
-      <div>
-        <NavMenu />
+        <div> 
+            <NavMenu />
         <Container tag="main" className="content">
+            
           {children}
         </Container>
       </div>
