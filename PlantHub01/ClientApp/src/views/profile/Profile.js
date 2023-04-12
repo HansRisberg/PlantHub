@@ -40,12 +40,22 @@ const data = [
 export const Profile = () => {
 
     return (
+        //<div className="container">
+        //    <h1>Bella Delfi</h1>
+        //    <div className="profile" style={{ display: "flex", flexDirection: "row", wordWrap:"break-word"}}>
+        //    <div className="test" width="200px">Hiee, my name is Bella, and I'm an ESFJ, Libra, plantmommy and knitlover! I recently went through a break-up, and though it was sad I am now ready to mingle with all you other plant people and expand my collection.</div>
+        //    <div><img alt="Bella" src={profileImage} width="400px" /></div>
+        //    </div>
         <div className="container">
-        <div className="profile">
-            <h1>Bella Delfi</h1>
-            <img src={profileImage} width="400px" />
-            <p width="600px" text>Hiee, my name is Bella, and I'm an ESFJ, Libra, plantmommy and knitlover! I recently went through a break-up, and though it was sad I am now ready to mingle with all you other plant people and expand my collection.</p>
-        </div>
+  <h1>Bella Delfi</h1>
+  <div className="profile" style={{ display: "flex", flexDirection: "row", wordWrap: "break-word"}}>
+    <div style={{ width: "600px" }}>
+      Hiee, my name is Bella, and I'm an ESFJ, Libra, plantmommy and knitlover! I recently went through a break-up, and though it was sad I am now ready to mingle with all you other plant people and expand my collection.
+    </div>
+    <div style={{ marginLeft: "10px", position: "relative", width: "400px", height: "600px"}}>
+      <img alt="Bella" src={profileImage} style={{ width: "100%", maxHeight: "100%", position: "absolute", top: 0, left: 0}} />
+    </div>
+  </div>
             <h1>My Plants:</h1>
         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
                 {data.map((plant) => {
