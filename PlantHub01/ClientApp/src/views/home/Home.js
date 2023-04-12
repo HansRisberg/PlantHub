@@ -23,7 +23,7 @@ export const Home = () => {
     return (
         <div>
             <Hero />
-            {/*This will show the plants that users can browse through on the home page*/}
+            This will show the plants that users can browse through on the home page
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
                 {data.map((plant) => {
                     return (

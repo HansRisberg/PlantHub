@@ -12,14 +12,14 @@ export const PlantCard = ({ plant }) => {
             <CardMedia
                 sx={{ height: 140 }}
                 image={plant.image}
-                title={plant.nickname}
+                title={plant.Name}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    {plant.nickname}
+                    {plant.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {plant.species} - {plant.price} NOK
+                    {plant.plantName} - {plant.price} NOK
                 </Typography>
             </CardContent>
             <CardActions>
