@@ -8,10 +8,6 @@ import plant3 from "../../assets/stikling09.jpeg";
 import plant4 from "../../assets/stikling11.jpeg";
 import './Profile.css';
 
-
-
-
-
 const data = [
     {
         nickname: "Teemo",
@@ -53,13 +49,13 @@ const data = [
 
 export const Profile = () => {
     useEffect(() => {
-        console.log(localStorage.getItem("username"));
+        console.log(localStorage.getItem("userId"));
     }, [])
 
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.removeItem("username");
+        localStorage.removeItem("userId");
         navigate("/");
     }
 

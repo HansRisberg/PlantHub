@@ -35,9 +35,10 @@ export const Login = () => {
             if (res.status === 200) {
                 // JSON response if not used for anything, but leaving it here in case needed later
                 const response = await res.json();
+                console.log(response.id);
 
                 // Setting locaStorage, so we know user is logged in
-                localStorage.setItem("username", user);
+                localStorage.setItem("userId", response.id);
 
                 // Navigates to profile page after successful login
                 navigate("/profile");

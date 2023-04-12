@@ -10,7 +10,9 @@ using UserContext.Data;
 
 namespace PlantHub01.Controllers
 {
-    public class PlantsController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class PlantsController : ControllerBase
     {
         private readonly PlantHub01Context _context;
 
@@ -19,145 +21,108 @@ namespace PlantHub01.Controllers
             _context = context;
         }
 
-        // GET: Plants
-        public async Task<IActionResult> Index()
-        {
-              return _context.Plant != null ? 
-                          View(await _context.Plant.ToListAsync()) :
-                          Problem("Entity set 'PlantHub01Context.Plant'  is null.");
-        }
-
-        // GET: Plants/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Plant == null)
-            {
-                return NotFound();
-            }
-
-            var plant = await _context.Plant
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (plant == null)
-            {
-                return NotFound();
-            }
-
-            return View(plant);
-        }
-
-        // GET: Plants/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Plants/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserId,Name,About,PlantFamily,PlantName,MotherPlant,Price")] Plant plant)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(plant);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(plant);
-        }
-
-        // GET: Plants/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Plant == null)
-            {
-                return NotFound();
-            }
-
-            var plant = await _context.Plant.FindAsync(id);
-            if (plant == null)
-            {
-                return NotFound();
-            }
-            return View(plant);
-        }
-
-        // POST: Plants/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,Name,About,PlantFamily,PlantName,MotherPlant,Price")] Plant plant)
-        {
-            if (id != plant.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(plant);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PlantExists(plant.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(plant);
-        }
-
-        // GET: Plants/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Plant == null)
-            {
-                return NotFound();
-            }
-
-            var plant = await _context.Plant
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (plant == null)
-            {
-                return NotFound();
-            }
-
-            return View(plant);
-        }
-
-        // POST: Plants/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        // GET: api/Plants
+        // This method should fetch all plants
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Plant>>> GetPlant()
         {
             if (_context.Plant == null)
             {
-                return Problem("Entity set 'PlantHub01Context.Plant'  is null.");
+                return NotFound();
             }
-            var plant = await _context.Plant.FindAsync(id);
-            if (plant != null)
+
+            return await _context.Plant.ToListAsync();
+        }
+
+        // GET: api/Plants/5
+        // Gets a specific plant using plant ID
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Plant>> GetPlant(int id)
+        {
+            if (_context.Plant == null)
             {
-                _context.Plant.Remove(plant);
+                return NotFound();
             }
-            
+            Plant? plant = await _context.Plant.FindAsync(id);
+
+            if (plant == null)
+            {
+                return NotFound();
+            }
+
+            return plant;
+        }
+
+        // PUT: api/Plants/5
+        // Update plant
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutPlant(int id, Plant plant)
+        {
+            if (id != plant.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(plant).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PlantExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // POST: api/Plants
+        // Method used for creating a new plant
+        [HttpPost]
+        public async Task<ActionResult<Plant>> PostPlant([Bind("UserId,Name,About,PlantFamily,PlantName,MotherPlant,Price")] Plant plant)
+        {
+            if (_context.Plant == null)
+            {
+                return Problem("Entity set 'PlantHub01Context.User'  is null.");
+            }
+            _context.Plant.Add(plant);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return CreatedAtAction("GetPlant", new { id = plant.Id }, plant);
+        }
+
+        // DELETE: api/Plants/5
+        // Delete a plant in database based on id
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePlant(int id)
+        {
+            if (_context.Plant == null)
+            {
+                return NotFound();
+            }
+            Plant? plant = await _context.Plant.FindAsync(id);
+            if (plant == null)
+            {
+                return NotFound();
+            }
+
+            _context.Plant.Remove(plant);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
         private bool PlantExists(int id)
         {
-          return (_context.Plant?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Plant?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
