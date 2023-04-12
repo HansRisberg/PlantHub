@@ -1,13 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using UserContext.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<PlantHub01Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("PlantHub01Context") ?? throw new InvalidOperationException("Connection string 'PlantHub01Context' not found.")));
 
 // Add services to the container.
 
+builder.Services.AddCors();
 builder.Services.AddControllersWithViews();
+builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
@@ -19,6 +22,15 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(c =>
+{
+    c
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowAnyOrigin();
+});
+
 app.UseStaticFiles();
 app.UseRouting();
 

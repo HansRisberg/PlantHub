@@ -1,12 +1,12 @@
-﻿import profileImage from "../../assets/BellaProfile.png";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import profileImage from "../../assets/BellaProfile.png";
 import { PlantCard } from "../../components/PlantCard";
 import plant1 from "../../assets/stikling03.JPG";
 import plant2 from "../../assets/stikling08.JPG";
 import plant3 from "../../assets/stikling09.jpeg";
 import plant4 from "../../assets/stikling11.jpeg";
 import './Profile.css';
-
-
 
 //Testdata for dummy user
 const data = [
@@ -36,18 +36,23 @@ const data = [
     }
 ];
 
-
 export const Profile = () => {
+    useEffect(() => {
+        console.log(localStorage.getItem("username"));
+    }, [])
+
+    // Allows navigation to another page
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem("username");
+        navigate("/");
+    }
 
     return (
-        //<div className="container">
-        //    <h1>Bella Delfi</h1>
-        //    <div className="profile" style={{ display: "flex", flexDirection: "row", wordWrap:"break-word"}}>
-        //    <div className="test" width="200px">Hiee, my name is Bella, and I'm an ESFJ, Libra, plantmommy and knitlover! I recently went through a break-up, and though it was sad I am now ready to mingle with all you other plant people and expand my collection.</div>
-        //    <div><img alt="Bella" src={profileImage} width="400px" /></div>
-        //    </div>
         <div className="container">
   <h1>Bella Delfi</h1>
+  <button onClick={handleLogout}>Logout</button>
   <div className="profile" style={{ display: "flex", flexDirection: "row", wordWrap: "break-word"}}>
     <div style={{ width: "600px" }}>
       Hiee, my name is Bella, and I'm an ESFJ, Libra, plantmommy and knitlover! I recently went through a break-up, and though it was sad I am now ready to mingle with all you other plant people and expand my collection.
