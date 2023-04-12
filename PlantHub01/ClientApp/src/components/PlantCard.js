@@ -1,4 +1,4 @@
-﻿import * as React from 'react';
+import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -12,7 +12,7 @@ export const PlantCard = ({ plant }) => {
             <CardMedia
                 sx={{ height: 140 }}
                 image={plant.image}
-                title={plant.Name}
+                title={plant.name}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
