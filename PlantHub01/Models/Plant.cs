@@ -14,6 +14,7 @@ namespace PlantHub01.Models
         [Required]
         public string PlantName { get; set; } = string.Empty;
         public string MotherPlant { get; set; } = string.Empty;
+        public string Image { get; set; } = string.Empty;
         public int Price { get; set; } = 0;
 
     }

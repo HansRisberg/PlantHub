@@ -4,7 +4,9 @@ import { PlantCard } from "../../components/PlantCard";
 
 // This is test data for the frontend for landing page in order to see how it will look like after we get data from db
 // Variable "data" can be deleted after we have seeded db with actual data
-const data = [
+
+//TestData
+        const data = [
     {
         nickname: "Teemo",
         species: "Herb",
@@ -30,7 +32,6 @@ const data = [
         image: plant
     }
 ];
-
 export const Home = () => {
     return (
         <div>
@@ -48,3 +49,4 @@ export const Home = () => {
       </div>
     );
 }
+
