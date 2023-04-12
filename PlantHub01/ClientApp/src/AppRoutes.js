@@ -4,6 +4,7 @@ import { HowItWorks } from "./views/howItWorks/HowItWorks";
 import { Login } from "./views/login/Login";
 import { Profile } from "./views/profile/Profile";
 import { RegisterUser } from "./views/registerUser/RegisterUser";
+import { SendRequest } from "./views/sendRequest/SendRequest";
 
 const AppRoutes = [
     {
@@ -29,6 +30,10 @@ const AppRoutes = [
     {
         path: "/create-plant",
         element: <CreatePlant />
+    },
+    {
+        path: "/send-request",
+        element: <SendRequest />
     }
     
 ];
