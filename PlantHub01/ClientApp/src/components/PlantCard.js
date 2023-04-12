@@ -8,9 +8,9 @@ import Typography from '@mui/material/Typography';
 
 export const PlantCard = ({ plant }) => {
     return (
-        <Card sx={{ width: 200 }}>
+        <Card sx={{ width: 250 }}>
             <CardMedia
-                sx={{ height: 140 }}
+                sx={{ height: 180 }}
                 image={plant.image}
                 title={plant.name}
             />
@@ -18,9 +18,13 @@ export const PlantCard = ({ plant }) => {
                 <Typography gutterBottom variant="h5" component="div">
                     {plant.name}
                 </Typography>
+                {plant.price > 0 ? (
                 <Typography variant="body2" color="text.secondary">
                     {plant.plantName} - {plant.price} NOK
-                </Typography>
+                    </Typography>) :
+                    <Typography variant="body2" color="text.secondary">
+                        {plant.plantName}
+                    </Typography>}
             </CardContent>
             <CardActions>
                 <Button size="small" style={{ color: "#40513B"}}>Get cutting</Button>

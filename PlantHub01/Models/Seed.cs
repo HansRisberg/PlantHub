@@ -114,7 +114,7 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
-                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
+                        Image = "https://assets.amoi.dev/images/74605585-4470-454d-a837-1ec7b7e74e0a.jpeg?top=0&bottom=31&left=0&right=31&fit=scale-down&width=1536"
 
                     },
                     new Plant
@@ -145,9 +145,8 @@ namespace PlantHub01.Models
                         Name = "Samira",
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
-                        PlantName = "Gullranke",
-                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
-
+                        PlantName = "Monstera",
+                        Image = "https://i.pinimg.com/originals/55/da/38/55da384476ff2a5f4e93169f13b7e0f7.jpg"
                     },
                     new Plant
                     {
@@ -155,8 +154,8 @@ namespace PlantHub01.Models
                         Name = "Ekko",
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
-                        PlantName = "Gullranke",
-                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
+                        PlantName = "Monstera",
+                        Image = "https://i.pinimg.com/originals/55/da/38/55da384476ff2a5f4e93169f13b7e0f7.jpg"
 
                     },
                     new Plant
@@ -166,7 +165,7 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
-                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
+                        Image = "https://assets.amoi.dev/images/74605585-4470-454d-a837-1ec7b7e74e0a.jpeg?top=0&bottom=31&left=0&right=31&fit=scale-down&width=1536"
 
                     },
 
@@ -187,8 +186,7 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
-                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
-
+                        Image = "https://www.commodore.no/wp-content/uploads/2022/08/Tomas_kontakt-764x764.jpg"
                     },
 
                     new Plant
@@ -198,8 +196,7 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
-                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
-
+                        Image = "https://assets.amoi.dev/images/74605585-4470-454d-a837-1ec7b7e74e0a.jpeg?top=0&bottom=31&left=0&right=31&fit=scale-down&width=1536"
                     },
 
                     new Plant
@@ -229,7 +226,7 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
-                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
+                        Image = "https://www.commodore.no/wp-content/uploads/2022/08/Tomas_kontakt-764x764.jpg"
 
                     }
                     );

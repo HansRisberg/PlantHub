@@ -21,10 +21,12 @@ export const Home = () => {
         <div>
             <Hero />
             {/*This will show the plants that users can browse through on the home page*/}
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
-                {plants.map((plant) => {
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", flexWrap: "wrap" }}>
+                {plants
+                    .sort((a, b) => new Date(a.Added) - new Date(b.Added))
+                    .map((plant) => {
                     return (
-                        <div>
+                        <div style={{ flexBasis: "25%", marginBottom: "30px" }}>
                             <PlantCard plant={plant} />
                         </div>
                     )
@@ -33,3 +35,13 @@ export const Home = () => {
         </div>
     );
 }
+
+//<div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", flexWrap: "wrap" }}>
+//    {plants.map((plant) => {
+//        return (
+//            <div style={{ flexBasis: "33.33%" }}>
+//                <PlantCard plant={plant} />
+//            </div>
+//        )
+//    })}
+//</div>

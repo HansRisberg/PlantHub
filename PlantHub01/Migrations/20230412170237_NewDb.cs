@@ -5,7 +5,7 @@
 namespace PlantHub01.Migrations
 {
     /// <inheritdoc />
-    public partial class newdb : Migration
+    public partial class NewDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -61,8 +61,6 @@ namespace PlantHub01.Migrations
                     PlantName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MotherPlant = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Latitude = table.Column<double>(type: "float", nullable: false),
-                    Longitude = table.Column<double>(type: "float", nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
