@@ -11,8 +11,8 @@ using UserContext.Data;
 namespace PlantHub01.Migrations
 {
     [DbContext(typeof(PlantHub01Context))]
-    [Migration("20230411090343_nathalie")]
-    partial class nathalie
+    [Migration("20230412160853_newdb")]
+    partial class newdb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,8 +43,6 @@ namespace PlantHub01.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PlantId");
 
                     b.HasIndex("UserId");
 
@@ -89,6 +87,16 @@ namespace PlantHub01.Migrations
                     b.Property<string>("About")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
 
                     b.Property<string>("MotherPlant")
                         .IsRequired()
@@ -153,21 +161,11 @@ namespace PlantHub01.Migrations
 
             modelBuilder.Entity("PlantHub01.Models.Conversation", b =>
                 {
-                    b.HasOne("PlantHub01.Models.Plant", "Plant")
-                        .WithMany()
-                        .HasForeignKey("PlantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PlantHub01.Models.User", "User")
+                    b.HasOne("PlantHub01.Models.User", null)
                         .WithMany("Conversations")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Plant");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("PlantHub01.Models.Message", b =>

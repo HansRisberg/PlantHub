@@ -41,8 +41,6 @@ namespace PlantHub01.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PlantId");
-
                     b.HasIndex("UserId");
 
                     b.ToTable("Conversation");
@@ -90,6 +88,12 @@ namespace PlantHub01.Migrations
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
 
                     b.Property<string>("MotherPlant")
                         .IsRequired()
@@ -147,9 +151,6 @@ namespace PlantHub01.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Picture")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("User");
@@ -157,21 +158,11 @@ namespace PlantHub01.Migrations
 
             modelBuilder.Entity("PlantHub01.Models.Conversation", b =>
                 {
-                    b.HasOne("PlantHub01.Models.Plant", "Plant")
-                        .WithMany()
-                        .HasForeignKey("PlantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PlantHub01.Models.User", "User")
+                    b.HasOne("PlantHub01.Models.User", null)
                         .WithMany("Conversations")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Plant");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("PlantHub01.Models.Message", b =>

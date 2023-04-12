@@ -3,7 +3,7 @@ using UserContext.Data;
 using PlantHub01.Models;
 
 
-namespace NerdHub.Models
+namespace PlantHub01.Models
 {
 
     public static class SeedData
@@ -14,7 +14,7 @@ namespace NerdHub.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<PlantHub01Context>>()))
             {
-                // Look for any movies.
+
                 if (context.User.Any())
                 {
                     return;   // DB has been seeded
@@ -58,11 +58,22 @@ namespace NerdHub.Models
                         Location = "Oslo",
 
                     }
+                    );
 
 
 
-                );
                 context.SaveChanges();
+            }
+
+            using (var context = new PlantHub01Context(
+            serviceProvider.GetRequiredService<
+            DbContextOptions<PlantHub01Context>>()))
+            {
+
+                if (context.Plant.Any())
+                {
+                    return;   // DB has been seeded
+                }
 
                 context.Plant.AddRange(
                     new Plant
@@ -178,8 +189,8 @@ namespace NerdHub.Models
                         PlantName = "Gullranke",
                         Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
 
-                    }, 
-                    
+                    },
+
                     new Plant
                     {
                         UserId = 5,
@@ -221,12 +232,15 @@ namespace NerdHub.Models
                         Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
 
                     }
+                    );
 
-                    );  
+                context.SaveChanges();
+
+
 
 
             }
         }
-    }
 
+    }
 }

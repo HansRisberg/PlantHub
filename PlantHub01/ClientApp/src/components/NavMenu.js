@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import './NavMenu.css';
 import Avatar from '@mui/material/Avatar';
 import profileImage from "../assets/BellaProfile.png";
-import logo from "../assets/PlantHubLogo.png";
 
 
 export const NavMenu = () => {
