@@ -53,6 +53,25 @@ namespace PlantHub01.Controllers
             return plant;
         }
 
+        // GET: api/Plants/UserId/5
+        // Get all plants based on user id
+        [HttpGet("UserId/{userId}")]
+        public async Task<ActionResult<IEnumerable<Plant>>> GetPlantByUser(int userId)
+        {
+            if (_context.Plant == null)
+            {
+                return NotFound();
+            }
+            List<Plant> plants = await _context.Plant.Where(p => p.UserId == userId).ToListAsync();
+
+            if (plants.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return plants;
+        }
+
         // PUT: api/Plants/5
         // Update plant
         [HttpPut("{id}")]
