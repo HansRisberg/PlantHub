@@ -1,9 +1,10 @@
-﻿import * as React from 'react';
-import { useState } from 'react'; 
+import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import Link from '@mui/material/Link';
 import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
@@ -17,22 +18,27 @@ export const Login = () => {
 
         const requestOptions = {
             method: "POST",
-            credentials: "same-origin",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ "Username": user })
         }
 
+        // Sends a POST to check if users exists in database
         try {
-            var res = await fetch("https://localhost:7062/login", requestOptions)
+            let res = await fetch("https://localhost:7062/login", requestOptions);
 
-            if (res.status !== 204) {
+            if (res.status !== 200) {
                 console.log("Something went wrong. Status code: " + res.status)
             }
 
-            if (res.status === 204) {
+            if (res.status === 200) {
+                // JSON response if not used for anything, but leaving it here in case needed later
+                const response = await res.json();
+
+                // Setting locaStorage, so we know user is logged in
                 localStorage.setItem("username", user);
+
                 // Navigates to profile page after successful login
                 navigate("/profile");
             }
@@ -56,6 +62,9 @@ export const Login = () => {
                 <TextField id="outlined-basic" label="Username" variant="outlined" onChange={(event) => setUser(event.target.value)} />
                 <Stack direction="row" spacing={2}>
                     <Button type="submit" variant="contained">Login</Button>
+                    <Link href="/register" variant="body2">
+                        Don't have an account? Register
+                    </Link>
                 </Stack>
             </Box>
         </div>

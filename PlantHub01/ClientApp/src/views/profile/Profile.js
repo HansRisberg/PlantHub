@@ -8,7 +8,10 @@ import plant3 from "../../assets/stikling09.jpeg";
 import plant4 from "../../assets/stikling11.jpeg";
 import './Profile.css';
 
-//Testdata for dummy user
+
+
+
+
 const data = [
     {
         nickname: "Teemo",
@@ -53,7 +56,6 @@ export const Profile = () => {
         console.log(localStorage.getItem("username"));
     }, [])
 
-    // Allows navigation to another page
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -61,20 +63,27 @@ export const Profile = () => {
         navigate("/");
     }
 
+    // Function to navigate to the Create Plant page
+    const handleCreatePlant = () => {
+        navigate("/create-plant");
+    }
+
     return (
-        <div className="profile">
-            <h1>Bella</h1>
-         <div style={{ display: "flex", flexDirection: "row", wordWrap: "break-word"}}>
+        <div className="container">
+            <h1>Bella Delfi</h1>
+            <button onClick={handleLogout}>Logout</button>
+            <button onClick={() => navigate('/create-plant')}>Create Plant</button>
+            <button onClick={handleCreatePlant}>Create Plant</button>
+            <div className="profile" style={{ display: "flex", flexDirection: "row", wordWrap: "break-word" }}>
                 <div style={{ width: "600px" }}>
-                    Oslo
-                    About
+                    Hiee, my name is Bella, and I'm an ESFJ, Libra, plantmommy and knitlover! I recently went through a break-up, and though it was sad I am now ready to mingle with all you other plant people and expand my collection.
                 </div>
-         <div style={{ marginLeft: "10px", position: "relative", width: "400px", height: "600px"}}>
-              <img alt="Bella" src={profileImage} style={{ width: "100%", maxHeight: "100%", position: "absolute", top: 0, left: 0}} />
-         </div>
+                <div style={{ marginLeft: "10px", position: "relative", width: "400px", height: "600px" }}>
+                    <img alt="Bella" src={profileImage} style={{ width: "100%", maxHeight: "100%", position: "absolute", top: 0, left: 0 }} />
+                </div>
             </div>
             <h1>My Plants:</h1>
-        <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
                 {data.map((plant) => {
                     return (
                         <div>
@@ -83,7 +92,6 @@ export const Profile = () => {
                     )
                 })}
             </div>
-            <button onClick={handleLogout}>Logout</button>
         </div>
-        )
+    )
 }
