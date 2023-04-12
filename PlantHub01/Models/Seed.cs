@@ -41,7 +41,6 @@ namespace NerdHub.Models
                         Name = "Adam",
                         Bio = "Need to get my palm tree watered on a weekly basis",
                         Location = "Bergen",
-                        Picture = "https://assets.cdn.moviepilot.de/files/7bf197667b87af6fd5c8c516a9e85fa27a7227349fe7d803695c221ec722/limit/1440/863/MV5BMjA5NjZhOTYtOTgwMS00ZmM0LWE4MzAtNTNlNzA0MGJjZTBjXkEyXkFqcGdeQXVyMTI5NjYwNDQ%40._V1_SY1000_CR0%2C0%2C1668%2C1000_AL_.jpg",
 
                     },
 
@@ -57,7 +56,6 @@ namespace NerdHub.Models
                         Name = "Bella Delfi",
                         Bio = "Hiee, my name is Bella, and I'm an ESFJ, Libra, plantmommy and knitlover! I recently went through a break-up, and though it was sad I am now ready to mingle with all you other plant people and expand my collection.\r\n",
                         Location = "Oslo",
-                        Picture = "https://assets.cdn.moviepilot.de/files/7bf197667b87af6fd5c8c516a9e85fa27a7227349fe7d803695c221ec722/limit/1440/863/MV5BMjA5NjZhOTYtOTgwMS00ZmM0LWE4MzAtNTNlNzA0MGJjZTBjXkEyXkFqcGdeQXVyMTI5NjYwNDQ%40._V1_SY1000_CR0%2C0%2C1668%2C1000_AL_.jpg",
 
                     }
 
