@@ -1,4 +1,8 @@
 /* Provide sufficient contrast against white background */
+*{
+    color: #40513B;
+}
+
 a {
   color: #0366d6;
 }
@@ -20,8 +24,8 @@ code {
 body {
     background-color: #609966;
     color: #40513B;
-
 }
+
 
 .navBar {
     background-color: #9DC08B;
@@ -31,11 +35,13 @@ body {
     margin-right: auto;
     margin-top: 20px;
     color: #40513B;
+    font: 14px, verdana;
 }
 
 .content {
-    background-color: #EDF1D6;
+    background-color: #EFF0E6;
     max-width: 1200px;
     margin-right: auto;
     margin-left: auto;
+    border: solid 2px #EDF1D6;
 }
