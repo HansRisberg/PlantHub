@@ -15,7 +15,7 @@ namespace PlantHub01.Models
         public string? Password { get; set; } = string.Empty;
         public ICollection<Conversation>? Conversations { get; set; }
 
-        public ICollection<Plant> Plants { get; }
+        public ICollection<Plant>? Plants { get; }
 
 
 

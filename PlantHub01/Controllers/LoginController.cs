@@ -28,7 +28,7 @@ namespace PlantHub01.Controllers
                 return BadRequest();
             }
             
-            return NoContent(); // Returns 204 http code
+            return Ok(userLogin); // Returns 204 http code
         }
     }
 }
