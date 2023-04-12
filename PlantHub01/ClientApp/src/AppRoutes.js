@@ -1,5 +1,5 @@
 import { CreatePlant } from "./views/createPlant/CreatePlant";
-import { Home } from "./views/home/Home";
+import { Home }  from "./views/home/Home";
 import { HowItWorks } from "./views/howItWorks/HowItWorks";
 import { Login } from "./views/login/Login";
 import { Profile } from "./views/profile/Profile";
