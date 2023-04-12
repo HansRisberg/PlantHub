@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace PlantHub01.Models
 {
@@ -14,7 +15,41 @@ namespace PlantHub01.Models
         [Required]
         public string PlantName { get; set; } = string.Empty;
         public string MotherPlant { get; set; } = string.Empty;
+
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+
         public int Price { get; set; } = 0;
+
+        #region triedgooglelocation
+        //{ "lat": 59.92595256142255, "lng": 10.760677493817639 }
+
+        //Code i tried to use to find user location
+        //public async Task<string> GetLocationNameAsync(double latitude, double longitude, string apiKey)
+        //{
+        //    string locationName = string.Empty;
+
+        //    using (var httpClient = new HttpClient())
+        //    {
+        //        string requestUri = $"https://maps.googleapis.com/maps/api/geocode/json?latlng={latitude},{longitude}&key={apiKey}";
+        //        HttpResponseMessage response = await httpClient.GetAsync(requestUri);
+
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            string json = await response.Content.ReadAsStringAsync();
+        //            JObject jsonResponse = JObject.Parse(json);
+        //            JArray results = (JArray)jsonResponse["results"];
+
+        //            if (results.Count > 0)
+        //            {
+        //                locationName = (string)results[0]["formatted_address"];
+        //            }
+        //        }
+        //    }
+
+        //    return locationName;
+        //}
+        #endregion
 
     }
 }
