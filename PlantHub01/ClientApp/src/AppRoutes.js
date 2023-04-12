@@ -2,6 +2,7 @@ import { Home } from "./views/home/Home";
 import { HowItWorks } from "./views/howItWorks/HowItWorks";
 import { Login } from "./views/login/Login";
 import { Profile } from "./views/profile/Profile";
+import { RegisterUser } from "./views/registerUser/RegisterUser";
 
 const AppRoutes = [
     {
@@ -15,6 +16,10 @@ const AppRoutes = [
     {
         path: "/login",
         element: <Login />
+    },
+    {
+        path: "/register",
+        element: <RegisterUser />
     },
     {
         path: "/how-it-works",
