@@ -27,7 +27,7 @@ const AppRoutes = [
         element: <HowItWorks />
     },
     {
-        path: "/createPlant",
+        path: "/create-plant",
         element: <CreatePlant />
     }
     
