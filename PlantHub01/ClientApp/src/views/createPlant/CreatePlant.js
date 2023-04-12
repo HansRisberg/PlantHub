@@ -11,17 +11,17 @@ export const CreatePlant = () => {
         price: 0,
     });
 
-//    const handleChange = (e) => {
-//        setFormData({
-//            ...formData,
-//            [e.target.name]: e.target.value,
-//        });
-//    };
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
 
-//    const handleSubmit = (e) => {
-//        e.preventDefault();
-//        // TODO: Handle form submission
-//    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // TODO: Handle form submission
+    };
 
     return (
         <div>
