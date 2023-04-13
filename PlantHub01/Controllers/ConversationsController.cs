@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using UserContext.Data;
+using PlantHub01.Models;
 
 namespace PlantHub01.Controllers
 {
@@ -16,17 +18,41 @@ namespace PlantHub01.Controllers
             _context = context;
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> CreateConversation()
-        //{
-        //    // Call method for checking if conversation already exists
+        [HttpPost]
+        public async Task<ActionResult<Conversation>> CreateConversation([Bind("PlantId,SenderUserID")] Conversation conversation)
+        {
 
-        //    // If conversation does not exist, add new conversation
-        //} 
+            // Call method for checking if conversation already exists
+            bool conversationExists = CheckIfConversationExists(conversation.PlantId, conversation.SenderUserId);
+            if ( conversationExists == true)
+            {
+                return NotFound();
+            }
 
-        //// Method for checking if conversation already exists
-        //private void CheckIfConversationExists()
-        //{
-        //} 
+            _context.Conversation.Add(conversation);
+            await _context.SaveChangesAsync();
+
+            return Ok(conversation);
+
+        }
+
+        [HttpPost("Message")]
+        public async Task<ActionResult> CreateMessage([Bind("ConversationId,MessageText")]Message message)
+        {
+            if (message == null)
+            {
+                return BadRequest();
+            }
+
+            _context.Message.Add(message);
+            await _context.SaveChangesAsync();
+
+            return Ok(message);
+        }
+
+        private bool CheckIfConversationExists(int plantId, int senderUserId)
+        {
+            return (_context.Conversation.Any(c => c.SenderUserId == senderUserId && c.PlantId == plantId));
+        }
     }
 }
