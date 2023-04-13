@@ -1,3 +1,4 @@
+import { BrowsePlants } from "./views/browsePlants/BrowsePlants";
 import { CreatePlant } from "./views/createPlant/CreatePlant";
 import { Home }  from "./views/home/Home";
 import { HowItWorks } from "./views/howItWorks/HowItWorks";
@@ -26,6 +27,11 @@ const AppRoutes = [
         path: "/how-it-works",
         element: <HowItWorks />
     },
+    {
+        path: "/browse-plants",
+        element: <BrowsePlants />
+    },
+
     {
         path: "/create-plant",
         element: <CreatePlant />
