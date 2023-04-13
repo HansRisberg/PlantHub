@@ -23,6 +23,11 @@ namespace PlantHub01.Models
 
         public int Price { get; set; } = 0;
 
+        // Navigation properties
+        public User? User { get; set; }
+        public ICollection<Conversation>? Conversations { get; set; }
+
+
         #region triedgooglelocation
         //{ "lat": 59.92595256142255, "lng": 10.760677493817639 }
 

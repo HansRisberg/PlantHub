@@ -16,6 +16,17 @@ namespace PlantHub01.Controllers
             _context = context;
         }
 
-        // TODO: Create coversation web api methods
+        //[HttpPost]
+        //public async Task<IActionResult> CreateConversation()
+        //{
+        //    // Call method for checking if conversation already exists
+
+        //    // If conversation does not exist, add new conversation
+        //} 
+
+        //// Method for checking if conversation already exists
+        //private void CheckIfConversationExists()
+        //{
+        //} 
     }
 }

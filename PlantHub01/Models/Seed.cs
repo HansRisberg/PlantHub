@@ -14,7 +14,7 @@ namespace NerdHub.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<PlantHub01Context>>()))
             {
-                // Look for any movies.
+                // Look for any users
                 if (context.User.Any())
                 {
                     return;   // DB has been seeded
@@ -25,6 +25,7 @@ namespace NerdHub.Models
                     {
                         Name = "William",
                         Bio = "Digger planter og pupper",
+                        Email = "",
                         Location = "Oslo",
 
                     },
@@ -33,6 +34,7 @@ namespace NerdHub.Models
                     {
                         Name = "Henrik",
                         Bio = "Keen på  dyrke marihuana med meg???",
+                        Email = "",
                         Location = "Oslo"
                     },
 
@@ -40,6 +42,7 @@ namespace NerdHub.Models
                     {
                         Name = "Adam",
                         Bio = "Need to get my palm tree watered on a weekly basis",
+                        Email = "",
                         Location = "Bergen",
 
                     },
@@ -48,6 +51,7 @@ namespace NerdHub.Models
                     {
                         Name = "Jeppe",
                         Bio = "Bytter stiklinger mot vanning",
+                        Email = "",
                         Location = "Oslo"
                     },
 
@@ -55,12 +59,10 @@ namespace NerdHub.Models
                     {
                         Name = "Bella Delfi",
                         Bio = "Hiee, my name is Bella, and I'm an ESFJ, Libra, plantmommy and knitlover! I recently went through a break-up, and though it was sad I am now ready to mingle with all you other plant people and expand my collection.\r\n",
+                        Email = "",
                         Location = "Oslo",
 
                     }
-
-
-
                 );
                 context.SaveChanges();
 
@@ -221,10 +223,7 @@ namespace NerdHub.Models
                         Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
 
                     }
-
-                    );  
-
-
+                );  
             }
         }
     }
