@@ -18,7 +18,5 @@ namespace PlantHub01.Models
 
         public ICollection<Plant>? Plants { get; }
 
-
-
     }
 }

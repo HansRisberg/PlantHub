@@ -10,13 +10,15 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useNavigate } from 'react-router-dom';
+import Autocomplete from '@mui/material/Autocomplete';
+import cities from './cities.json';
 
 export const RegisterUser = () => {
 
     // Allows navigation to another page
     const navigate = useNavigate();
 
-    async function handleSubmit (event) {
+    async function handleSubmit(event) {
         event.preventDefault();
 
         // Get data from form
@@ -32,9 +34,10 @@ export const RegisterUser = () => {
                 "Name": formData.get('name'),
                 "Bio": formData.get('bio'),
                 "Email": formData.get('email'),
-                "Location": formData.get('location')
+                "Location": `${formData.get('city')}, ${formData.get('adress')}`,
             })
         }
+
 
         console.log(requestOptions);
 
@@ -76,42 +79,56 @@ export const RegisterUser = () => {
                 </Typography>
                 <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                name="name"
-                                required
-                                fullWidth
-                                id="name"
-                                label="Username"
-                                autoFocus
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                required
-                                fullWidth
-                                id="location"
-                                label="Location"
-                                name="location"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                fullWidth
-                                id="email"
-                                label="Email"
-                                name="email"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                fullWidth
-                                name="bio"
-                                label="Tell the world who you are"
-                                type="bio"
-                                id="bio"
-                            />
-                        </Grid>
+                        <TextField
+                            name="name"
+                            required
+                            fullWidth
+                            id="name"
+                            label="Username"
+                            autoFocus
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <Autocomplete
+                            id="city"
+                            options={cities}
+                            getOptionLabel={(option) => option.city}
+                            renderInput={(params) => (
+                                <TextField
+                                    {...params}
+                                    required
+                                    fullWidth
+                                    label="City"
+                                    name="city"
+                                />
+                            )}
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <TextField
+                            required
+                            fullWidth
+                            id="adress"
+                            label="Adress"
+                            name="adress"
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
+                            fullWidth
+                            id="email"
+                            label="Email"
+                            name="email"
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
+                            fullWidth
+                            name="bio"
+                            label="Tell the world who you are"
+                            type="bio"
+                            id="bio"
+                        />
                     </Grid>
                     <Button
                         type="submit"

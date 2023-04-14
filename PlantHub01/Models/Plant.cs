@@ -17,7 +17,7 @@ namespace PlantHub01.Models
         public string MotherPlant { get; set; } = string.Empty;
         public string Image {get; set; } = string.Empty;
         public DateTime? Added { get; set; } = DateTime.Now;
-        public bool Available { get; set; } = false;
+        //public bool Available { get; set; } = false;
 
         
         // These two properties Fredrik will use for google maps later
