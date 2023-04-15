@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export const PlantCard = ({ plant }) => {
+export const PlantCard = ({ plant, plantLocation }) => {
     return (
         <Card sx={{ width: 250 }}>
             <CardMedia
@@ -29,6 +29,12 @@ export const PlantCard = ({ plant }) => {
             <CardActions>
                 <Button size="small" style={{ color: "#40513B"}}>Get cutting</Button>
             </CardActions>
+            <Typography variant="body2" color="text.secondary">
+                {`Location: ${plantLocation}`}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+                {plant.distance && `Distance: ${Math.round(plant.distance / 1000)} km`}
+            </Typography>
         </Card>
     )
 }
