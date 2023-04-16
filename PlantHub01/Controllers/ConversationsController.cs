@@ -18,6 +18,51 @@ namespace PlantHub01.Controllers
             _context = context;
         }
 
+        // GET: api/Conversations/5
+        // Get all conversations user has sent including data for plant conversation is about
+        [HttpGet("{UserID}")]
+        public async Task<ActionResult<IEnumerable<Conversation>>> GetConversationsUser(int userId)
+        {
+            if (_context.Conversation == null)
+            {
+                return NotFound();
+            }
+
+            List<Conversation> conversations = await _context.Conversation
+                .Include(c => c.Plant)
+                .Where(c => c.SenderUserId == userId || c.Plant!.UserId == userId)
+                .ToListAsync();
+
+            // && c.PlantId == c.Plant!.Id
+
+            if (conversations.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return conversations;
+        }
+
+        // GET: api/Conversations/Messages/5
+        // Get all conversations user has sent based on conversation id
+        [HttpGet("Messages/{ConversationId}")]
+        public async Task<ActionResult<IEnumerable<Message>>> GetMessages(int conversationId)
+        {
+            if (_context.Message == null)
+            {
+                return NotFound();
+            }
+
+            List<Message> messages = await _context.Message.Where(m => m.ConversationId == conversationId).ToListAsync();
+
+            if (messages.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return messages;
+        }
+
         [HttpPost]
         public async Task<ActionResult<Conversation>> CreateConversation([Bind("PlantId,SenderUserID")] Conversation conversation)
         {

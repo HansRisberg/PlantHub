@@ -56,6 +56,7 @@ export const Profile = () => {
             <h1>{userData.name}</h1>
             <button onClick={handleLogout}>Logout</button>
             <button onClick={() => navigate('/create-plant')}>Create Plant</button>
+            <button onClick={() => navigate('/all-requests')}>Messages</button>
             <div className="profile" style={{ display: "flex", flexDirection: "row", wordWrap: "break-word" }}>
                 <div style={{ width: "600px" }}>
                     {userData.bio}
