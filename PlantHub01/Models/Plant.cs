@@ -17,10 +17,8 @@ namespace PlantHub01.Models
         public string MotherPlant { get; set; } = string.Empty;
         public string Image {get; set; } = string.Empty;
         public DateTime? Added { get; set; } = DateTime.Now;
+        public bool Available { get; set; } = false;
         public string ImagePath { get; set; } = string.Empty;
-
-        //public bool Available { get; set; } = false;
-
         public int Price { get; set; } = 0;
 
         // Navigation properties

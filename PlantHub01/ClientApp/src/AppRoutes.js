@@ -1,6 +1,7 @@
 import { AllRequests } from "./views/allRequests/AllRequests";
 import { BrowsePlants } from "./views/browsePlants/BrowsePlants";
 import { CreatePlant } from "./views/createPlant/CreatePlant";
+import { EditPlant } from "./views/editPlant/EditPlant";
 import { Home }  from "./views/home/Home";
 import { HowItWorks } from "./views/howItWorks/HowItWorks";
 import { Login } from "./views/login/Login";
@@ -53,6 +54,10 @@ const AppRoutes = [
     {
         path: "/messages",
         element: <Messages />
+    },
+    {
+        path: "/edit-plant",
+        element: <EditPlant />
     }
 ];
 export default AppRoutes;
