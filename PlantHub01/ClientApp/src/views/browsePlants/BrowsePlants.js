@@ -19,7 +19,6 @@ export const BrowsePlants = () => {
 
     return (
         <div>
-            <Hero />
             {/*This will show the plants that users can browse through on the home page*/}
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", flexWrap: "wrap" }}>
                 {plants

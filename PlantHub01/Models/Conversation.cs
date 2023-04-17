@@ -8,8 +8,13 @@ namespace PlantHub01.Models
         //PlantId includes its owner into the conversation
         public int PlantId { get; set; }
         //UserId of the person sending the request
-        public int UserId { get; set; }
+        [ForeignKey ("User")]
+        public int SenderUserId { get; set; }
         public string Title { get; set; } = string.Empty;
+
+        // Navigation properties
+        public User? SenderUser { get; set; }
+        public Plant? Plant { get; set; }
         public ICollection<Message>? Messages { get; set; }
     }
 }

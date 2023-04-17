@@ -22,13 +22,14 @@ code {
 }
 
 body {
-    background-color: #609966;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(64, 81, 59, 0.04);
     color: #40513B;
 }
 
 
 .navBar {
-    background-color: #9DC08B;
+    font-family: 'Roboto', sans-serif;
     max-width: 1200px;
     overflow: auto;
     margin-left: auto;
@@ -39,9 +40,8 @@ body {
 }
 
 .content {
-    background-color: #EFF0E6;
     max-width: 1200px;
     margin-right: auto;
     margin-left: auto;
-    border: solid 2px #EDF1D6;
 }
+

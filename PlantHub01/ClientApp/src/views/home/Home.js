@@ -2,15 +2,16 @@ import { useState, useEffect, useRef } from 'react';
 import { ApiQueries } from "../../components/ApiQueries";
 import { Hero } from "../../components/Hero";
 import { PlantCard } from "../../components/PlantCard";
-
-// This is test data for the frontend for landing page in order to see how it will look like after we get data from db
-// Variable "data" can be deleted after we have seeded db with actual data
+import * as React from 'react';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 
 export const Home = ({ mapsLoaded }) => {
     const [plants, setPlants] = useState([]);
     const [users, setUsers] = useState([]);
     const userLocation = useRef(null);
-
+    
     useEffect(() => {
         const fetchData = async () => {
             const plantsData = await ApiQueries().fetchPlants();
@@ -114,11 +115,12 @@ export const Home = ({ mapsLoaded }) => {
     return (
         <div>
             <Hero />
-            {/*This will show the plants that users can browse through on the home page*/}
-            <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
-                <button style={{ marginRight: "30px" }} onClick={() => getLocation()}>Nearby</button>
-                <input type="text" placeholder="Search by town" />
+            <Divider />
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", margin: "20px" }}>
+                <Button variant="outlined" onClick={() => getLocation()} style={{ marginRight: "15px"}}>Nearby</Button>
+                <TextField id="outlined-basic" label="Search by town" variant="outlined" />
             </div>
+            {/*This will show the plants that users can browse through on the home page*/}
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", flexWrap: "wrap" }}>
                 {plants.map((plant) => {
                     const plantLocation = getCity(plant.userId);
