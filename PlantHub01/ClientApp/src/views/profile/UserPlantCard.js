@@ -29,7 +29,11 @@ export const UserPlantCard = ({ plant }) => {
                     </Typography>}
             </CardContent>
             <CardActions>
-                <Button variant="text" onClick={() => navigate('/edit-plant', { state: { id: plant.id } })}>Edit</Button>
+                <Button
+                    variant="text"
+                    onClick={() => navigate('/edit-plant', { state: { id: plant.id } })}
+                    style={{ color: "#40513B"}}
+                >Edit</Button>
             </CardActions>
         </Card>
     )

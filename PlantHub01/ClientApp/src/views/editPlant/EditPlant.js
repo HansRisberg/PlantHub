@@ -96,11 +96,12 @@ export const EditPlant = () => {
 							type="submit"
 							fullWidth
 							variant="contained"
+							style={{ backgroundColor: "#609966" }}
 							sx={{ mt: 3, mb: 2 }}
 						>
 							Save
 						</Button>
-						<Button onClick={() => navigate('/profile')}>Cancel</Button>
+						<Button onClick={() => navigate('/profile')} style={{ color: "#40513B" }}>Cancel</Button>
 					</Box>
 				</Box>
 			</Container>

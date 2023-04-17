@@ -60,9 +60,24 @@ export const Profile = () => {
                 <h3> Hello {userData.name}</h3>
                 <p>{userData.bio}</p>
                 <Stack direction="row" spacing={2}>
-                    <Button variant="outlined" onClick={() => navigate('/create-plant')}>Register plant</Button>
-                    <Button variant="outlined" onClick={() => navigate('/all-requests')}>Messages</Button>
-                    <Button variant="outlined" onClick={handleLogout}>Log out</Button>
+                    <Button
+                        variant="outlined"
+                        onClick={() => navigate('/create-plant')}
+                        style={{ color: "#40513B", borderColor: "#40513B" }}
+                    >Register plant
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        onClick={() => navigate('/all-requests')}
+                        style={{ color: "#40513B", borderColor: "#40513B" }}
+                    >Messages
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        onClick={handleLogout}
+                        style={{ color: "#40513B", borderColor: "#40513B" }}
+                    >Log out
+                    </Button>
                 </Stack>
             </div>
             <div className="user-plants">

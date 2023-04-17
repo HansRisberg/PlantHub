@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Input from '@mui/material/Input';
 
 export const CreatePlant = () => {
 
@@ -39,16 +40,13 @@ export const CreatePlant = () => {
 			<CssBaseline />
 			<Box
 				sx={{
-					marginTop: 8,
+					marginTop: 4,
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: 'center',
 				}}
 			>
-				<Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-					<LockOutlinedIcon />
-				</Avatar>
-				<Typography component="h1" variant="h5">
+				<Typography component="h1" variant="h4">
 					Add a plant
 				</Typography>
 				<Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -110,12 +108,13 @@ export const CreatePlant = () => {
 							/>
 						</Grid>
 						<Grid>
-							<input type="file" onChange={e => setImage(e.target.files[0])}></input>
+							<Input type="file" onChange={e => setImage(e.target.files[0])} ></Input>
 						</Grid>
 					</Grid>
 					<Button
 						type="submit"
 						fullWidth
+						style={{ backgroundColor: "#609966" }}
 						variant="contained"
 						sx={{ mt: 3, mb: 2 }}
 					>
