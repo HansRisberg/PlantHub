@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -40,6 +41,7 @@ namespace PlantHub01.Migrations
                     PlantName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MotherPlant = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Added = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

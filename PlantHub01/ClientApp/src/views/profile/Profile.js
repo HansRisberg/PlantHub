@@ -61,6 +61,7 @@ export const Profile = () => {
                 <p>{userData.bio}</p>
                 <Stack direction="row" spacing={2}>
                     <Button variant="outlined" onClick={() => navigate('/create-plant')}>Register plant</Button>
+                    <Button variant="outlined" onClick={() => navigate('/messages')}>Messages</Button>
                     <Button variant="outlined" onClick={handleLogout}>Log out</Button>
                 </Stack>
             </div>

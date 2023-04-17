@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using NerdHub.Models;
 using System.Text.Json.Serialization;
 using PlantHub01.Models;
 using UserContext.Data;
@@ -25,12 +24,6 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
-    SeedData.Initialize(services);
-}
-
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
     SeedData.Initialize(services);
 }
 
