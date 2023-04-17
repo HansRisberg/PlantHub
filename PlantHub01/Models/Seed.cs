@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using UserContext.Data;
 using PlantHub01.Models;
 
@@ -14,7 +14,7 @@ namespace PlantHub01.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<PlantHub01Context>>()))
             {
-
+                // Look for any users
                 if (context.User.Any())
                 {
                     return;   // DB has been seeded
@@ -58,10 +58,7 @@ namespace PlantHub01.Models
                         Location = "Oslo",
 
                     }
-                    );
-
-
-
+                );
                 context.SaveChanges();
             }
 
@@ -229,13 +226,8 @@ namespace PlantHub01.Models
                         Image = "https://www.commodore.no/wp-content/uploads/2022/08/Tomas_kontakt-764x764.jpg"
 
                     }
-                    );
-
+                );
                 context.SaveChanges();
-
-
-
-
             }
         }
 

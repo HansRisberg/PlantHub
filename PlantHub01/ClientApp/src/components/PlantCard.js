@@ -5,8 +5,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
 
 export const PlantCard = ({ plant, plantLocation }) => {
+    const navigate = useNavigate();
     return (
         <Card sx={{ width: 250, borderRadius: "5px" }}>
             <CardMedia
@@ -33,7 +35,7 @@ export const PlantCard = ({ plant, plantLocation }) => {
             </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" style={{ color: "#40513B"}}>Get cutting</Button>
+                <Button onClick={() => navigate('/send-request', { state: { id: plant.id} })} size="small" style={{ color: "#40513B"}}>Get cutting</Button>
             </CardActions>
         </Card>
     )
