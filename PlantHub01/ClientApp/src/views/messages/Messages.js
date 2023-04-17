@@ -4,6 +4,7 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import SnackbarContent from '@mui/material/SnackbarContent';
+import { SendRequest } from '../sendRequest/SendRequest';
 
 export const Messages = () => {
     const conversation = useLocation();
@@ -32,6 +33,7 @@ export const Messages = () => {
                     )
                 })}
             </Stack>
+
         </div>
     )
 }

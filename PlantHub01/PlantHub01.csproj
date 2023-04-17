@@ -31,7 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\views\messages\" />
     <Folder Include="ClientApp\src\views\sendRequest\" />
   </ItemGroup>
 
