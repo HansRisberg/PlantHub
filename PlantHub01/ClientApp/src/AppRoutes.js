@@ -11,6 +11,10 @@ import { SendRequest } from "./views/sendRequest/SendRequest";
 
 const AppRoutes = [
     {
+        path: "/",
+        render: (props) => <Home mapsLoaded={props.mapsLoaded} />,
+    },
+    {
         index: true,
         element: <Home />
     },
@@ -34,7 +38,6 @@ const AppRoutes = [
         path: "/browse-plants",
         element: <BrowsePlants />
     },
-
     {
         path: "/create-plant",
         element: <CreatePlant />
@@ -51,7 +54,5 @@ const AppRoutes = [
         path: "/messages",
         element: <Messages />
     }
-    
 ];
-
 export default AppRoutes;
