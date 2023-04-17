@@ -6,34 +6,28 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export const PlantCard = ({ plant, plantLocation }) => {
+export const UserPlantCard = ({ plant }) => {
     return (
-        <Card sx={{ width: 250, borderRadius: "5px" }}>
+        <Card sx={{ width: 150, borderRadius: "5px" }}>
             <CardMedia
-                sx={{ height: 180 }}
+                sx={{ height: 150 }}
                 image={plant.image}
                 title={plant.name}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h6" component="div">
                     {plant.name}
                 </Typography>
                 {plant.price > 0 ? (
-                <Typography variant="body2" color="text.secondary">
-                    {plant.plantName} - {plant.price} NOK
+                    <Typography variant="body2" color="text.secondary">
+                        {plant.plantName} - {plant.price} NOK
                     </Typography>) :
                     <Typography variant="body2" color="text.secondary">
                         {plant.plantName}
                     </Typography>}
-            <Typography variant="body2" color="text.secondary">
-                {`Location: ${plantLocation}`}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-                {plant.distance && `Distance: ${Math.round(plant.distance / 1000)} km`}
-            </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" style={{ color: "#40513B"}}>Get cutting</Button>
+            {/* Any buttons/actions we want to add can be added in here*/}
             </CardActions>
         </Card>
     )

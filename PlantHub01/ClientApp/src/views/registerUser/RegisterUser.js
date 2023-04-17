@@ -1,20 +1,16 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useNavigate } from 'react-router-dom';
 import Autocomplete from '@mui/material/Autocomplete';
+import Typography from '@mui/material/Typography';
 import cities from './cities.json';
 
 export const RegisterUser = () => {
-
     // Allows navigation to another page
     const navigate = useNavigate();
 
@@ -38,9 +34,6 @@ export const RegisterUser = () => {
             })
         }
 
-
-        console.log(requestOptions);
-
         // Send POST request to create a new user in database
         try {
             let res = await fetch("https://localhost:7062/api/Users", requestOptions);
@@ -51,7 +44,6 @@ export const RegisterUser = () => {
 
             if (res.status === 201) {
                 const response = await res.json();
-                console.log(response);
                 // Navigates to login page after successful creation of user
                 navigate("/login");
             }
@@ -62,23 +54,17 @@ export const RegisterUser = () => {
 
     return (
         <Container component="main" maxWidth="xs">
-            <CssBaseline />
             <Box
-                sx={{
-                    marginTop: 8,
+                xs={{
+                    marginTop: 6,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                 }}
             >
-                <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                    <LockOutlinedIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
-                    Sign up
-                </Typography>
-                <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                    <Grid container spacing={2}>
+                <h1 style={{ textAlign: "center" }}>Sign up</h1>
+                <Box component="form" noValidate onSubmit={handleSubmit}>
+                    <Grid item xs={12} sm={6} style={{ marginTop: "10px" }}>
                         <TextField
                             name="name"
                             required
@@ -88,10 +74,16 @@ export const RegisterUser = () => {
                             autoFocus
                         />
                     </Grid>
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={6} style={{ marginTop: "10px" }}>
                         <Autocomplete
                             id="city"
                             options={cities}
+                            style={{ fontSize: "6px" }}
+                            renderOption={(props, option) => (
+                                <li key={option} {...props}>
+                                    <Typography style={{ fontSize: "14px" }}>{option.city}</Typography>
+                                </li>
+                            )}
                             getOptionLabel={(option) => option.city}
                             renderInput={(params) => (
                                 <TextField
@@ -104,16 +96,16 @@ export const RegisterUser = () => {
                             )}
                         />
                     </Grid>
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={6} style={{ marginTop: "10px" }}>
                         <TextField
                             required
                             fullWidth
-                            id="adress"
-                            label="Adress"
-                            name="adress"
+                            id="address"
+                            label="Address"
+                            name="address"
                         />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} style={{ marginTop: "10px" }}>
                         <TextField
                             fullWidth
                             id="email"
@@ -121,11 +113,11 @@ export const RegisterUser = () => {
                             name="email"
                         />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} style={{ marginTop: "10px" }}>
                         <TextField
                             fullWidth
                             name="bio"
-                            label="Tell the world who you are"
+                            label="Tell us about you"
                             type="bio"
                             id="bio"
                         />
@@ -135,12 +127,13 @@ export const RegisterUser = () => {
                         fullWidth
                         variant="contained"
                         sx={{ mt: 3, mb: 2 }}
+                        style={{ backgroundColor: "#609966"}}
                     >
                         Sign Up
                     </Button>
                     <Grid container justifyContent="flex-end">
                         <Grid item>
-                            <Link href="/login" variant="body2">
+                            <Link href="/login" variant="body2" style={{ color: "#40513B", textDecorationColor: "#40513B" }}>
                                 Already have an account? Sign in
                             </Link>
                         </Grid>

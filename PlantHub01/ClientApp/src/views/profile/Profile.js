@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PlantCard } from "../../components/PlantCard";
 import './Profile.css';
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import { UserPlantCard } from './UserPlantCard.js';
 
 export const Profile = () => {
     // This will ensure logged in user sees their plants when visiting profile page
@@ -52,27 +55,29 @@ export const Profile = () => {
     }
 
     return (
-        <div className="container">
-            <h1>{userData.name}</h1>
-            <button onClick={handleLogout}>Logout</button>
-            <button onClick={() => navigate('/create-plant')}>Create Plant</button>
-            <div className="profile" style={{ display: "flex", flexDirection: "row", wordWrap: "break-word" }}>
-                <div style={{ width: "600px" }}>
-                    {userData.bio}
-                </div>
+        <div className="profile-container">
+            <div className="user-data">
+                <h3> Hello {userData.name}</h3>
+                <p>{userData.bio}</p>
+                <Stack direction="row" spacing={2}>
+                    <Button variant="outlined" onClick={() => navigate('/create-plant')}>Register plant</Button>
+                    <Button variant="outlined" onClick={handleLogout}>Log out</Button>
+                </Stack>
             </div>
-            <h1>My Plants:</h1>
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
-                {plantList.length ?
-                    plantList.map((plant, index) => {
-                        return (
-                            <div key={index}>
-                                <PlantCard plant={plant} />
-                            </div>
-                        )
-                    })
-                    : "I have no plants, but I would love to get my hand on a good stem"
-                }
+            <div className="user-plants">
+                <h3>My Plants</h3>
+                <div className="plant-view">
+                    {plantList.length ?
+                        plantList.map((plant, index) => {
+                            return (
+                                <div key={index}>
+                                    <UserPlantCard plant={plant} />
+                                </div>
+                            )
+                        })
+                        : "I have no plants, but I would love to get my hand on a good stem"
+                    }
+                </div>
             </div>
         </div>
     )
