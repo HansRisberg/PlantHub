@@ -34,6 +34,7 @@ export const SendMessage = ({ conversation }) => {
 
             if (response.status === 200) {
                 const messageResponse = await response.json();
+                console.log(messageResponse);
                 // Reloads page after message is created to show new message
                 window.location.reload(false);
             }

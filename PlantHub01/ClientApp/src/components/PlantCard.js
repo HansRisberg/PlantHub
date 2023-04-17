@@ -9,11 +9,12 @@ import { useNavigate } from 'react-router-dom';
 
 export const PlantCard = ({ plant, plantLocation }) => {
     const navigate = useNavigate();
+
     return (
         <Card sx={{ width: 250, borderRadius: "5px" }}>
             <CardMedia
                 sx={{ height: 180 }}
-                image={plant.image}
+                image={`${window.location.origin}/images/${plant.userId}/${plant.image}`}
                 title={plant.name}
             />
             <CardContent>

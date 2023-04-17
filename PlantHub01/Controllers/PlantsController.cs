@@ -113,10 +113,10 @@ namespace PlantHub01.Controllers
         {
             var fileName = Path.GetFileName(plant.Image.FileName);
             var filePath = string.Concat(Path.GetFileNameWithoutExtension(fileName),
-                "_", 
-                Guid.NewGuid().ToString().AsSpan(0, 4),
+                //"_", 
+                //Guid.NewGuid().ToString().AsSpan(0, 4),
                 Path.GetExtension(fileName));
-            var folderPath = Path.Combine(_environment.ContentRootPath, "images", plant.UserId.ToString());
+            var folderPath = Path.Combine(_environment.ContentRootPath, "ClientApp\\public\\images", plant.UserId.ToString());
             var path = Path.Combine(folderPath, filePath);
 
             var newPlant = new Plant{
@@ -128,7 +128,7 @@ namespace PlantHub01.Controllers
                 About = plant.About,
                 Price = plant.Price,
                 ImagePath = path,
-                Image = path
+                Image = fileName
             };
             if (!Directory.Exists(folderPath)){
                 Directory.CreateDirectory(folderPath);

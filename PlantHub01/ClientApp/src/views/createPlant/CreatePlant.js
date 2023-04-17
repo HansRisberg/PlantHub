@@ -23,7 +23,6 @@ export const CreatePlant = () => {
 		event.preventDefault();
 
 		// Get data from form
-		
 		const formData = new FormData(event.currentTarget);
 		formData.append("UserId", localStorage.getItem("userId"));
 		formData.append("Image", image);
@@ -31,24 +30,8 @@ export const CreatePlant = () => {
 
 		axios.post("https://localhost:7062/api/Plants", formData)
 		.then((response) => console.log(response))
-		
 
-		/* Create requestOptions with data that from formData
-		try {
-
-			if (res.status !== 201) {
-				console.log("Something went wrong. Status code: " + res.status)
-			}
-
-			if (res.status === 201) {
-				const response = await res.json();
-				console.log(response);
-				// Navigates to plant page after successful creation of plant
-				navigate(`/plant/${response.id}`);
-			}
-		} catch (error) {
-			console.log(error);
-		}*/
+		navigate('/profile');
 	};
 
 	return (
