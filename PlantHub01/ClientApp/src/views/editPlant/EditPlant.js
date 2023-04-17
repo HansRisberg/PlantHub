@@ -29,8 +29,6 @@ export const EditPlant = () => {
 			await fetch("https://localhost:7062/api/Plants/" + plantId.state.id)
 				.then((response) => response.json())
 				.then((data) => setPlantData(data));
-
-			console.log(plantData);
 		}
 	}
 
@@ -52,12 +50,16 @@ export const EditPlant = () => {
 					<Box component="form" noValidate sx={{ mt: 3 }}>
 						<Grid container spacing={2}>
 							<Grid item xs={12}>
-								<TextField
-									fullWidth
-									id="name"
-									label="Name"
-									name="name"
-								/>
+								<Controller>
+									<TextField
+										fullWidth
+										id="name"
+										name="name"
+										label="Name"
+										value={plantData.name}
+										onChange={(event) => { setPlantData({ name: event.target.value })}}
+									/>
+								</Controller>
 							</Grid>
 							<Grid item xs={12}>
 								<TextField
