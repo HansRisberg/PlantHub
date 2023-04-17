@@ -104,6 +104,7 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Monstera",
+                        Price = 100,
                         Image = "https://i.pinimg.com/originals/3e/a7/45/3ea74524751a43f2a06356bde34d2e5d.jpg"
 
                     },
@@ -134,6 +135,7 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
+                        Price = 100,
                         Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
 
                     },
@@ -186,6 +188,7 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
+                        Price = 69,
                         Image = "https://www.commodore.no/wp-content/uploads/2022/08/Tomas_kontakt-764x764.jpg"
                     },
 
@@ -226,6 +229,7 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
+                        Price = 1,
                         Image = "https://www.commodore.no/wp-content/uploads/2022/08/Tomas_kontakt-764x764.jpg"
 
                     }
