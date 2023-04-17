@@ -2,21 +2,22 @@ import { Route, Routes } from 'react-router-dom';
 import AppRoutes from './AppRoutes';
 import { Layout } from './components/Layout';
 import './custom.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const App = () => {
+    const [mapsLoaded, setMapsLoaded] = useState(false);
+
     useEffect(() => {
-    // Create a script element to load the Google Maps API
-    const script = document.createElement('script');
-    //process.env henter API key fra .env.local filen i Data folder.
-    // Fetch the API key from the .env.local file in the Data folder
+        window.initMap = () => {
+            setMapsLoaded(true);
+        };
+
+        const script = document.createElement('script');
         script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBrJ6gX3EB3u_5aLxYsKT1EH_PMmA3z3rU&libraries=geometry&callback=initMap`;
-    // Load the script asynchronously and defer its execution
-    script.async = true;
-    script.defer = true;
-    // Add the script element to the document head
-    document.head.appendChild(script);
-}, []);
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+    }, []);
 
   return (
     <Layout>
@@ -30,7 +31,7 @@ const App = () => {
   );
 };
 
-
+export default App;
 //old app.js code
 //const App = () => {
 //    return (
@@ -44,5 +45,3 @@ const App = () => {
 //        </Layout>
 //    );
 //}
-
-export default App;

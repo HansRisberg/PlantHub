@@ -8,6 +8,10 @@ import { RegisterUser } from "./views/registerUser/RegisterUser";
 
 const AppRoutes = [
     {
+        path: "/",
+        render: (props) => <Home mapsLoaded={props.mapsLoaded} />,
+    },
+    {
         index: true,
         element: <Home />
     },
@@ -31,12 +35,9 @@ const AppRoutes = [
         path: "/browse-plants",
         element: <BrowsePlants />
     },
-
     {
         path: "/create-plant",
         element: <CreatePlant />
     }
-    
 ];
-
 export default AppRoutes;
