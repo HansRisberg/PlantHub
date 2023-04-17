@@ -31,7 +31,6 @@ export const RequestCard = ({ conversation }) => {
                 .then((response) => response.json())
                 .then((data) => setUserData(data))
         }
-        console.log(userData);
     }
 
     return (
@@ -48,7 +47,7 @@ export const RequestCard = ({ conversation }) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button onClick={() => navigate('/messages', { state: { id: conversation.id } })} size="small">See messages</Button>
+                <Button onClick={() => navigate('/messages', { state: { id: conversation.id, plantId: conversation.plantId, conversation: conversation } })} size="small">See messages</Button>
             </CardActions>
         </Card>
     )
