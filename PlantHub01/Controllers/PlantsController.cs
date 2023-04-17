@@ -108,15 +108,19 @@ namespace PlantHub01.Controllers
         [HttpPost]
         public async Task<ActionResult<Plant>> PostPlant([Bind("UserId,Name,About,PlantFamily,PlantName,MotherPlant,Price")] Plant plant)
         {
-            if (_context.Plant == null)
-            {
+            if (_context.Plant == null) {
                 return Problem("Entity set 'PlantHub01Context.User'  is null.");
             }
+
             _context.Plant.Add(plant);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPlant", new { id = plant.Id }, plant);
+            //return CreatedAtAction("GetUser", new { id = plant.Id }, plant);
+            return CreatedAtAction(nameof(GetPlant), new { id = plant.Id }, plant);
         }
+
+
+
 
         // DELETE: api/Plants/5
         // Delete a plant in database based on id

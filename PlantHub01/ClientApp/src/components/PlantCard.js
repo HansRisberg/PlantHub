@@ -7,13 +7,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 
-export const PlantCard = ({ plant }) => {
+export const PlantCard = ({ plant, plantLocation }) => {
     const navigate = useNavigate();
-
     return (
-        <Card sx={{ width: 200 }}>
+        <Card sx={{ width: 250, borderRadius: "5px" }}>
             <CardMedia
-                sx={{ height: 140 }}
+                sx={{ height: 180 }}
                 image={plant.image}
                 title={plant.name}
             />
@@ -21,9 +20,19 @@ export const PlantCard = ({ plant }) => {
                 <Typography gutterBottom variant="h5" component="div">
                     {plant.name}
                 </Typography>
+                {plant.price > 0 ? (
                 <Typography variant="body2" color="text.secondary">
                     {plant.plantName} - {plant.price} NOK
-                </Typography>
+                    </Typography>) :
+                    <Typography variant="body2" color="text.secondary">
+                        {plant.plantName}
+                    </Typography>}
+            <Typography variant="body2" color="text.secondary">
+                {`Location: ${plantLocation}`}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+                {plant.distance && `Distance: ${Math.round(plant.distance / 1000)} km`}
+            </Typography>
             </CardContent>
             <CardActions>
                 <Button onClick={() => navigate('/send-request', { state: { id: plant.id} })} size="small" style={{ color: "#40513B"}}>Get cutting</Button>

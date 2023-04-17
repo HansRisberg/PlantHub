@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NerdHub.Models;
 using System.Text.Json.Serialization;
+using PlantHub01.Models;
 using UserContext.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<PlantHub01Context>(options =>
@@ -19,6 +21,12 @@ builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    SeedData.Initialize(services);
+}
 
 using (var scope = app.Services.CreateScope())
 {
