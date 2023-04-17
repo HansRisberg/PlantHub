@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Text.Json.Serialization;
 using PlantHub01.Models;
 using UserContext.Data;
 
@@ -13,6 +14,10 @@ builder.Services.AddDbContext<PlantHub01Context>(options =>
 builder.Services.AddCors();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
+// This is added in order to ingore circular references created by joining conversations with plant table
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())

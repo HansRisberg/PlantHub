@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PlantHub01.Migrations
 {
     /// <inheritdoc />
-    public partial class @new : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,27 +26,6 @@ namespace PlantHub01.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_User", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Conversation",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PlantId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Conversation", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Conversation_User_UserId",
-                        column: x => x.UserId,
-                        principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -77,14 +56,38 @@ namespace PlantHub01.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Conversation",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PlantId = table.Column<int>(type: "int", nullable: false),
+                    SenderUserId = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Conversation", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Conversation_Plant_PlantId",
+                        column: x => x.PlantId,
+                        principalTable: "Plant",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Conversation_User_SenderUserId",
+                        column: x => x.SenderUserId,
+                        principalTable: "User",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Message",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ConversationId = table.Column<int>(type: "int", nullable: false),
-                    From = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    To = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MessageText = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -99,9 +102,14 @@ namespace PlantHub01.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Conversation_UserId",
+                name: "IX_Conversation_PlantId",
                 table: "Conversation",
-                column: "UserId");
+                column: "PlantId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Conversation_SenderUserId",
+                table: "Conversation",
+                column: "SenderUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Message_ConversationId",
@@ -121,10 +129,10 @@ namespace PlantHub01.Migrations
                 name: "Message");
 
             migrationBuilder.DropTable(
-                name: "Plant");
+                name: "Conversation");
 
             migrationBuilder.DropTable(
-                name: "Conversation");
+                name: "Plant");
 
             migrationBuilder.DropTable(
                 name: "User");

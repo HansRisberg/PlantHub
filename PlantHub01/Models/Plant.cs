@@ -17,7 +17,7 @@ namespace PlantHub01.Models
         public string MotherPlant { get; set; } = string.Empty;
         public string Image {get; set; } = string.Empty;
         public DateTime? Added { get; set; } = DateTime.Now;
-        public bool Available { get; set; } = false;
+        //public bool Available { get; set; } = false;
 
         
         // These two properties Fredrik will use for google maps later
@@ -25,6 +25,11 @@ namespace PlantHub01.Models
         //public double Longitude { get; set; }
 
         public int Price { get; set; } = 0;
+
+        // Navigation properties
+        public User? User { get; set; }
+        public ICollection<Conversation>? Conversations { get; set; }
+
 
         #region triedgooglelocation
         //{ "lat": 59.92595256142255, "lng": 10.760677493817639 }
