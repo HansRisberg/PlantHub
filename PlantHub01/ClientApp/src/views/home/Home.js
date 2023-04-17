@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ApiQueries } from "../../components/ApiQueries";
 import { Hero } from "../../components/Hero";
 import { PlantCard } from "../../components/PlantCard";
@@ -6,10 +6,18 @@ import { PlantCard } from "../../components/PlantCard";
 // This is test data for the frontend for landing page in order to see how it will look like after we get data from db
 // Variable "data" can be deleted after we have seeded db with actual data
 
+let initMap = () => {
+    // Put your initialization logic here, if needed
+};
+
+window.initMap = () => {
+    initMap();
+};
+
 export const Home = () => {
     const [plants, setPlants] = useState([]);
     const [users, setUsers] = useState([]);
-
+    const userLocation = useRef(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -21,19 +29,60 @@ export const Home = () => {
         fetchData();
     }, []);
 
-    //Gets the users location
-    var x = document.getElementById("demo");
-    function getLocation() {
+    // Add geocode function to convert address to coordinates
+    const getPlantCoordinates = async (address) => {
+        console.log(window.google.maps); // Check if the object is properly loaded
+        return new Promise((resolve, reject) => {
+            const geocoder = new window.google.maps.Geocoder();
+            geocoder.geocode({ address: address }, (results, status) => {
+                if (status === "OK") {
+                    resolve(results[0].geometry.location);
+                } else {
+                    reject(status);
+                }
+            });
+        });
+    };
+
+    // Update getLocation function to call getPlantCoordinates
+    const getLocation = async () => {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
+            navigator.geolocation.getCurrentPosition(async (position) => {
+                userLocation.current = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
+
+                const updatedPlants = await Promise.all(
+                    plants.map(async (plant) => {
+                        const plantLocation = getCity(plant.userId);
+                        const plantCoordinates = await getPlantCoordinates(
+                            plantLocation
+                        );
+                        const distance = calculateDistance(
+                            userLocation.current,
+                            plantCoordinates
+                        );
+                        return { ...plant, distance };
+                    })
+                );
+
+                setPlants(updatedPlants);
+            });
         } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
+            alert("Geolocation is not supported by this browser.");
         }
-    }
-    //does something with the location of the user
-    function showPosition(position) {
-        // Add your code to handle the position data, e.g. display it or use it to filter plants by location
-    }
+    };
+    // Function to calculate distance between two coordinates
+    const calculateDistance = (pointA, pointB) => {
+        console.log(window.google.maps); // Check if the object is properly loaded
+        const latLngA = new window.google.maps.LatLng(pointA.lat, pointA.lng);
+        const latLngB = new window.google.maps.LatLng(pointB.lat(), pointB.lng());
+        return window.google.maps.geometry.spherical.computeDistanceBetween(
+            latLngA,
+            latLngB
+        );
+    };
 
     function getCity(userId) {
         const user = users.find((user) => user.id === userId);
@@ -47,6 +96,10 @@ export const Home = () => {
             }
         }
         return '';
+    }
+
+    function showPosition(position) {
+        console.log("User's location:", position.coords.latitude, position.coords.longitude);
     }
 
     return (
@@ -63,7 +116,7 @@ export const Home = () => {
                     .map((plant) => {
                         const plantLocation = getCity(plant.userId);
                         return (
-                            <div style={{ flexBasis: "25%", marginBottom: "30px" }}>
+                            <div key={plant.id} style={{ flexBasis: "25%", marginBottom: "30px" }}>
                                 <PlantCard plant={plant} plantLocation={plantLocation} />
                             </div>
                         )

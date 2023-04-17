@@ -25,7 +25,7 @@ namespace PlantHub01.Models
                     {
                         Name = "William",
                         Bio = "Digger planter og pupper",
-                        Location = "Oslo",
+                        Location = "Frogner, Frogneralleen 18",
 
                     },
 
@@ -33,14 +33,14 @@ namespace PlantHub01.Models
                     {
                         Name = "Henrik",
                         Bio = "Keen på  dyrke marihuana med meg???",
-                        Location = "Oslo"
+                        Location = "Lillestrøm, Henrik Wergelands gate 10A"
                     },
 
                     new User
                     {
                         Name = "Adam",
                         Bio = "Need to get my palm tree watered on a weekly basis",
-                        Location = "Bergen",
+                        Location = "Skedsmokorset, Hattemakerlia 24",
 
                     },
 
@@ -48,14 +48,14 @@ namespace PlantHub01.Models
                     {
                         Name = "Jeppe",
                         Bio = "Bytter stiklinger mot vanning",
-                        Location = "Oslo"
+                        Location = "Skedsmokorset, Gjerdrumsveien 28"
                     },
 
                     new User
                     {
                         Name = "Bella Delfi",
                         Bio = "Hiee, my name is Bella, and I'm an ESFJ, Libra, plantmommy and knitlover! I recently went through a break-up, and though it was sad I am now ready to mingle with all you other plant people and expand my collection.\r\n",
-                        Location = "Oslo",
+                        Location = "Oslo, Langkaia 1",
 
                     }
                     );

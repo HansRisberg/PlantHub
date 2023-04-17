@@ -10,7 +10,7 @@ const App = () => {
     const script = document.createElement('script');
     //process.env henter API key fra .env.local filen i Data folder.
     // Fetch the API key from the .env.local file in the Data folder
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=places`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBrJ6gX3EB3u_5aLxYsKT1EH_PMmA3z3rU&libraries=geometry&callback=initMap`;
     // Load the script asynchronously and defer its execution
     script.async = true;
     script.defer = true;
