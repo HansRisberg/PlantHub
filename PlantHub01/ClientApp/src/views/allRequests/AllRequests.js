@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { RequestCard } from './RequestCard';
+import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 export const AllRequests = () => {
     const [conversations, setConversations] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchConversations()        
@@ -24,6 +27,7 @@ export const AllRequests = () => {
     return (
         <div>
             <h1>Conversations</h1>
+            <Button onClick={() => navigate('/profile')} size="small" variant="outlined">Back to profile</Button>
             <div>
                 {conversations.length ?
                     conversations.map((conversation, index) => {

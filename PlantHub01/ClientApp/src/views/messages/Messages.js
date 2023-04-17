@@ -1,10 +1,14 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import SnackbarContent from '@mui/material/SnackbarContent';
-import { SendRequest } from '../sendRequest/SendRequest';
+import { SendMessage } from './SendMessage';
+//import { Avatar } from "@mui/material";
+//import { ChatBox, ReceiverMessage, SenderMessage } from "mui-chat-box";
+
+// TODO: If we implement db structure for seeing who sent a message, we can use chat
+// Installation guide: https://www.npmjs.com/package/mui-chat-box
 
 export const Messages = () => {
     const conversation = useLocation();
@@ -28,12 +32,21 @@ export const Messages = () => {
                 {messages.map((message, index) => {
                     return (
                         <div key={index}>
-                            <SnackbarContent message={message.messageText} />
+                            {/*<ChatBox>*/}
+                                {/*<ReceiverMessage>*/}
+                                {/*    {message.messageText}*/}
+                                {/*</ReceiverMessage>*/}
+                                {/*BELOW FIND TEMPLATE FOR SENDERMESSAGE IF WE HAVE TIME TO IMPLEMENT*/}
+                                {/*<SenderMessage avatar={<Avatar>NA</Avatar>}>*/}
+                                {/*    I'm good thanks you?*/}
+                                {/*</SenderMessage>*/}
+                        {/*    </ChatBox>*/}
+                            <SnackbarContent message={message.messageText} style={{backgroundColor: "transparent"}} />
                         </div>
                     )
                 })}
             </Stack>
-
+            <SendMessage conversation={conversation} />
         </div>
     )
 }
