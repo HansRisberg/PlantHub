@@ -13,6 +13,7 @@ builder.Services.AddDbContext<PlantHub01Context>(options =>
 builder.Services.AddCors();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
@@ -42,7 +43,8 @@ app.UseCors(c =>
 app.UseStaticFiles();
 app.UseRouting();
 
-
+app.UseSwagger();
+app.UseSwaggerUI();
 app.MapControllers();
 
 app.MapFallbackToFile("index.html");
