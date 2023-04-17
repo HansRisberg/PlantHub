@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using UserContext.Data;
 using PlantHub01.Models;
 
@@ -14,7 +14,7 @@ namespace PlantHub01.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<PlantHub01Context>>()))
             {
-
+                // Look for any users
                 if (context.User.Any())
                 {
                     return;   // DB has been seeded
@@ -25,7 +25,7 @@ namespace PlantHub01.Models
                     {
                         Name = "William",
                         Bio = "Digger planter og pupper",
-                        Location = "Oslo",
+                        Location = "Frogner, Frogneralleen 18",
 
                     },
 
@@ -33,14 +33,14 @@ namespace PlantHub01.Models
                     {
                         Name = "Henrik",
                         Bio = "Keen på  dyrke marihuana med meg???",
-                        Location = "Oslo"
+                        Location = "Lillestrøm, Henrik Wergelands gate 10A"
                     },
 
                     new User
                     {
                         Name = "Adam",
                         Bio = "Need to get my palm tree watered on a weekly basis",
-                        Location = "Bergen",
+                        Location = "Skedsmokorset, Hattemakerlia 24",
 
                     },
 
@@ -48,20 +48,17 @@ namespace PlantHub01.Models
                     {
                         Name = "Jeppe",
                         Bio = "Bytter stiklinger mot vanning",
-                        Location = "Oslo"
+                        Location = "Skedsmokorset, Gjerdrumsveien 28"
                     },
 
                     new User
                     {
                         Name = "Bella Delfi",
                         Bio = "Hiee, my name is Bella, and I'm an ESFJ, Libra, plantmommy and knitlover! I recently went through a break-up, and though it was sad I am now ready to mingle with all you other plant people and expand my collection.\r\n",
-                        Location = "Oslo",
+                        Location = "Oslo, Langkaia 1",
 
                     }
-                    );
-
-
-
+                );
                 context.SaveChanges();
             }
 
@@ -104,6 +101,7 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Monstera",
+                        Price = 100,
                         Image = "https://i.pinimg.com/originals/3e/a7/45/3ea74524751a43f2a06356bde34d2e5d.jpg"
 
                     },
@@ -134,6 +132,7 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
+                        Price = 100,
                         Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
 
                     },
@@ -186,6 +185,7 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
+                        Price = 69,
                         Image = "https://www.commodore.no/wp-content/uploads/2022/08/Tomas_kontakt-764x764.jpg"
                     },
 
@@ -226,16 +226,12 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
+                        Price = 1,
                         Image = "https://www.commodore.no/wp-content/uploads/2022/08/Tomas_kontakt-764x764.jpg"
 
                     }
-                    );
-
+                );
                 context.SaveChanges();
-
-
-
-
             }
         }
 

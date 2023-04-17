@@ -49,7 +49,7 @@ export const Login = () => {
     }
 
     return (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "60px" }}>
             <h1>Login</h1>
             <Box
                 component="form"
@@ -60,10 +60,25 @@ export const Login = () => {
                 noValidate
                 autoComplete="off"
             >
-                <TextField id="outlined-basic" label="Username" variant="outlined" onChange={(event) => setUser(event.target.value)} />
-                <Stack direction="row" spacing={2}>
-                    <Button type="submit" variant="contained">Login</Button>
-                    <Link href="/register" variant="body2">
+                <TextField id="outlined-basic" label="Username" variant="outlined" onChange={(event) => setUser(event.target.value)}
+                    sx={{
+                        width: "75%", opacity: 0.9,
+
+                        "& .MuiOutlinedInput-root": {
+                            "&.Mui-focused fieldset": {
+                                borderColor: "#609966"
+                            }
+                        },
+
+                        "& label.Mui-focused": {
+
+                            color: "#609966"
+
+                        }
+                    }} />
+                <Stack direction="column" spacing={2}>
+                    <Button type="submit" variant="contained" style={{ backgroundColor: "#609966"}}>Login</Button>
+                    <Link href="/register" variant="body2" style={{ color: "#40513B", textDecorationColor: "#40513B"}}>
                         Don't have an account? Register
                     </Link>
                 </Stack>

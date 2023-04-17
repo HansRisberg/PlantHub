@@ -12,8 +12,8 @@ using UserContext.Data;
 namespace PlantHub01.Migrations
 {
     [DbContext(typeof(PlantHub01Context))]
-    [Migration("20230413085757_new")]
-    partial class @new
+    [Migration("20230417114118_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,16 +36,18 @@ namespace PlantHub01.Migrations
                     b.Property<int>("PlantId")
                         .HasColumnType("int");
 
+                    b.Property<int>("SenderUserId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("PlantId");
+
+                    b.HasIndex("SenderUserId");
 
                     b.ToTable("Conversation");
                 });
@@ -61,13 +63,7 @@ namespace PlantHub01.Migrations
                     b.Property<int>("ConversationId")
                         .HasColumnType("int");
 
-                    b.Property<string>("From")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("MessageText")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("To")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -159,11 +155,21 @@ namespace PlantHub01.Migrations
 
             modelBuilder.Entity("PlantHub01.Models.Conversation", b =>
                 {
-                    b.HasOne("PlantHub01.Models.User", null)
+                    b.HasOne("PlantHub01.Models.Plant", "Plant")
                         .WithMany("Conversations")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("PlantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("PlantHub01.Models.User", "SenderUser")
+                        .WithMany("Conversations")
+                        .HasForeignKey("SenderUserId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
+                    b.Navigation("Plant");
+
+                    b.Navigation("SenderUser");
                 });
 
             modelBuilder.Entity("PlantHub01.Models.Message", b =>
@@ -177,16 +183,23 @@ namespace PlantHub01.Migrations
 
             modelBuilder.Entity("PlantHub01.Models.Plant", b =>
                 {
-                    b.HasOne("PlantHub01.Models.User", null)
+                    b.HasOne("PlantHub01.Models.User", "User")
                         .WithMany("Plants")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("PlantHub01.Models.Conversation", b =>
                 {
                     b.Navigation("Messages");
+                });
+
+            modelBuilder.Entity("PlantHub01.Models.Plant", b =>
+                {
+                    b.Navigation("Conversations");
                 });
 
             modelBuilder.Entity("PlantHub01.Models.User", b =>
