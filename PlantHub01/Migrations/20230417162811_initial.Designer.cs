@@ -12,7 +12,11 @@ using UserContext.Data;
 namespace PlantHub01.Migrations
 {
     [DbContext(typeof(PlantHub01Context))]
+<<<<<<<< HEAD:PlantHub01/Migrations/20230417162811_initial.Designer.cs
     [Migration("20230417162811_initial")]
+========
+    [Migration("20230417130147_initial")]
+>>>>>>>> 6f1083e1dcab0ffab67c333f90162acca6c913f8:PlantHub01/Migrations/20230417130147_initial.Designer.cs
     partial class initial
     {
         /// <inheritdoc />

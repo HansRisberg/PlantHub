@@ -43,7 +43,10 @@ namespace PlantHub01.Migrations
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Added = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Available = table.Column<bool>(type: "bit", nullable: false),
+<<<<<<<< HEAD:PlantHub01/Migrations/20230417162811_initial.cs
                     ImagePath = table.Column<string>(type: "nvarchar(max)", nullable: false),
+========
+>>>>>>>> 6f1083e1dcab0ffab67c333f90162acca6c913f8:PlantHub01/Migrations/20230417130147_initial.cs
                     Price = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
