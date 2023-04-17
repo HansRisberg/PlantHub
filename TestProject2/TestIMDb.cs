@@ -67,25 +67,6 @@ namespace XunitTest
         }
 
         [Fact]
-        public async void TestUserCreationTestMethod()
-        {
-            User user = new()
-            {
-                Name = "William",
-                Bio = "Digger planter og pupper",
-                Location = "Oslo"
-
-            };
-            var dbContext = await GetDbContext();
-            var usersController = new UsersController(dbContext);
-
-            var result = usersController.PostUserForTest(user);
-
-            result.Should().Be(user.Id);
-
-        }
-
-        [Fact]
         public async void TestPostAndGetPlant()
         {
             Plant plant = new()

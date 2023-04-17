@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\views\sendRequest\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

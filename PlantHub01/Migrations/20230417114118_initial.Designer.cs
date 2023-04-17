@@ -12,7 +12,7 @@ using UserContext.Data;
 namespace PlantHub01.Migrations
 {
     [DbContext(typeof(PlantHub01Context))]
-    [Migration("20230417111946_initial")]
+    [Migration("20230417114118_initial")]
     partial class initial
     {
         /// <inheritdoc />
