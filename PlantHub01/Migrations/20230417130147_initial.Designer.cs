@@ -12,7 +12,7 @@ using UserContext.Data;
 namespace PlantHub01.Migrations
 {
     [DbContext(typeof(PlantHub01Context))]
-    [Migration("20230417114118_initial")]
+    [Migration("20230417130147_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -87,6 +87,9 @@ namespace PlantHub01.Migrations
 
                     b.Property<DateTime?>("Added")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("Available")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Image")
                         .IsRequired()

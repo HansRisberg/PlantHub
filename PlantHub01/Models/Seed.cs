@@ -80,7 +80,8 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Monstera",
-                        Image = "https://i.pinimg.com/originals/3e/a7/45/3ea74524751a43f2a06356bde34d2e5d.jpg"
+                        Image = "https://i.pinimg.com/originals/3e/a7/45/3ea74524751a43f2a06356bde34d2e5d.jpg",
+                        Available = true
 
                     },
 
@@ -91,7 +92,8 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Monstera",
-                        Image = "https://i.pinimg.com/originals/3e/a7/45/3ea74524751a43f2a06356bde34d2e5d.jpg"
+                        Image = "https://i.pinimg.com/originals/3e/a7/45/3ea74524751a43f2a06356bde34d2e5d.jpg",
+                        Available = true
 
                     },
                     new Plant
@@ -102,7 +104,8 @@ namespace PlantHub01.Models
                         PlantFamily = "Araceae",
                         PlantName = "Monstera",
                         Price = 100,
-                        Image = "https://i.pinimg.com/originals/3e/a7/45/3ea74524751a43f2a06356bde34d2e5d.jpg"
+                        Image = "https://i.pinimg.com/originals/3e/a7/45/3ea74524751a43f2a06356bde34d2e5d.jpg",
+                        Available = true
 
                     },
                     new Plant
@@ -112,7 +115,8 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
-                        Image = "https://assets.amoi.dev/images/74605585-4470-454d-a837-1ec7b7e74e0a.jpeg?top=0&bottom=31&left=0&right=31&fit=scale-down&width=1536"
+                        Image = "https://assets.amoi.dev/images/74605585-4470-454d-a837-1ec7b7e74e0a.jpeg?top=0&bottom=31&left=0&right=31&fit=scale-down&width=1536",
+                        Available = false
 
                     },
                     new Plant
@@ -122,7 +126,8 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
-                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
+                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke",
+                        Available = false
 
                     },
                     new Plant
@@ -133,7 +138,8 @@ namespace PlantHub01.Models
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
                         Price = 100,
-                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
+                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke",
+                        Available = true
 
                     },
 
@@ -145,7 +151,8 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Monstera",
-                        Image = "https://i.pinimg.com/originals/55/da/38/55da384476ff2a5f4e93169f13b7e0f7.jpg"
+                        Image = "https://i.pinimg.com/originals/55/da/38/55da384476ff2a5f4e93169f13b7e0f7.jpg",
+                        Available = false
                     },
                     new Plant
                     {
@@ -154,7 +161,8 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Monstera",
-                        Image = "https://i.pinimg.com/originals/55/da/38/55da384476ff2a5f4e93169f13b7e0f7.jpg"
+                        Image = "https://i.pinimg.com/originals/55/da/38/55da384476ff2a5f4e93169f13b7e0f7.jpg",
+                        Available = false
 
                     },
                     new Plant
@@ -164,7 +172,8 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
-                        Image = "https://assets.amoi.dev/images/74605585-4470-454d-a837-1ec7b7e74e0a.jpeg?top=0&bottom=31&left=0&right=31&fit=scale-down&width=1536"
+                        Image = "https://assets.amoi.dev/images/74605585-4470-454d-a837-1ec7b7e74e0a.jpeg?top=0&bottom=31&left=0&right=31&fit=scale-down&width=1536",
+                        Available = true
 
                     },
 
@@ -175,7 +184,8 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
-                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
+                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke",
+                        Available = false
 
                     },
                     new Plant
@@ -186,7 +196,8 @@ namespace PlantHub01.Models
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
                         Price = 69,
-                        Image = "https://www.commodore.no/wp-content/uploads/2022/08/Tomas_kontakt-764x764.jpg"
+                        Image = "https://www.commodore.no/wp-content/uploads/2022/08/Tomas_kontakt-764x764.jpg",
+                        Available = true
                     },
 
                     new Plant
@@ -196,7 +207,8 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
-                        Image = "https://assets.amoi.dev/images/74605585-4470-454d-a837-1ec7b7e74e0a.jpeg?top=0&bottom=31&left=0&right=31&fit=scale-down&width=1536"
+                        Image = "https://assets.amoi.dev/images/74605585-4470-454d-a837-1ec7b7e74e0a.jpeg?top=0&bottom=31&left=0&right=31&fit=scale-down&width=1536",
+                        Available = true
                     },
 
                     new Plant
@@ -206,7 +218,8 @@ namespace PlantHub01.Models
                         About = "My lovely!!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
-                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
+                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke",
+                        Available = true
 
                     },
                     new Plant
@@ -216,7 +229,8 @@ namespace PlantHub01.Models
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
-                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke"
+                        Image = "https://tise-static.telenorcdn.net/5f26f426af9bb3003190f1ba/image0/e3a38da1-8569-4bb2-b3e8-9d6091734f28/gullranke",
+                        Available = false
 
                     },
                     new Plant
@@ -227,7 +241,8 @@ namespace PlantHub01.Models
                         PlantFamily = "Araceae",
                         PlantName = "Gullranke",
                         Price = 1,
-                        Image = "https://www.commodore.no/wp-content/uploads/2022/08/Tomas_kontakt-764x764.jpg"
+                        Image = "https://www.commodore.no/wp-content/uploads/2022/08/Tomas_kontakt-764x764.jpg",
+                        Available = true
 
                     }
                 );
