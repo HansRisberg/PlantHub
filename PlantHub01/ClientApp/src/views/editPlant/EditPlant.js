@@ -32,7 +32,6 @@ export const EditPlant = () => {
 		}
 	}
 
-
     return (
         <div>
 			<Container component="main" maxWidth="xs">
@@ -50,7 +49,6 @@ export const EditPlant = () => {
 					<Box component="form" noValidate sx={{ mt: 3 }}>
 						<Grid container spacing={2}>
 							<Grid item xs={12}>
-								<Controller>
 									<TextField
 										fullWidth
 										id="name"
@@ -59,7 +57,6 @@ export const EditPlant = () => {
 										value={plantData.name}
 										onChange={(event) => { setPlantData({ name: event.target.value })}}
 									/>
-								</Controller>
 							</Grid>
 							<Grid item xs={12}>
 								<TextField
@@ -69,6 +66,8 @@ export const EditPlant = () => {
 									name="about"
 									multiline
 									rows={2}
+									value={plantData.about}
+									onChange={(event) => { setPlantData({ about: event.target.value }) }}
 								/>
 							</Grid>
 							<Grid item xs={12}>
@@ -77,22 +76,8 @@ export const EditPlant = () => {
 									id="plantName"
 									label="Plant Name"
 									name="plantName"
-								/>
-							</Grid>
-							<Grid item xs={12}>
-								<TextField
-									fullWidth
-									id="motherPlant"
-									label="Mother Plant"
-									name="motherPlant"
-								/>
-							</Grid>
-							<Grid item xs={12}>
-								<TextField
-									fullWidth
-									id="plantFamily"
-									label="Plant Family"
-									name="plantFamily"
+									value={plantData.about}
+									onChange={(event) => { setPlantData({ plantName: event.target.value }) }}
 								/>
 							</Grid>
 							<Grid item xs={12}>
@@ -101,6 +86,8 @@ export const EditPlant = () => {
 									id="price"
 									label="Price"
 									name="price"
+									value={plantData.price}
+									onChange={(event) => { setPlantData({ price: event.target.value }) }}
 								/>
 							</Grid>
 
