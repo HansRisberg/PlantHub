@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { RequestCard } from './RequestCard';
 import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import './AllRequests.css';
+import Link from '@mui/material/Link';
 
 export const AllRequests = () => {
     const [conversations, setConversations] = useState([]);
@@ -25,15 +27,19 @@ export const AllRequests = () => {
     }
 
     return (
-        <div>
-            <h1>Conversations</h1>
-            <Button onClick={() => navigate('/profile')} size="small" variant="outlined">Back to profile</Button>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "30px" }}>
+            <h1>My conversations</h1>
+            <Link href="/profile"
+                variant="body2"
+                style={{ color: "#40513B", textDecorationColor: "#40513B", marginTop: "5px", marginBottom: "20px" }}>
+                Back to profile
+            </Link>
+            {/*<Button onClick={() => navigate('/profile')} size="small" variant="outlined">Back to profile</Button>*/}
             <div>
                 {conversations.length ?
                     conversations.map((conversation, index) => {
                         return (
                             <div key={index}>
-                                <h1>{Number(localStorage.getItem("userId")) === conversation.senderUserId ? "Sent request" : "Received request"}</h1>
                                 <RequestCard conversation={conversation} />
                             </div>
                         )
