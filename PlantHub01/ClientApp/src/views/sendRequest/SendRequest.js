@@ -61,7 +61,8 @@ export const SendRequest = () => {
             },
             body: JSON.stringify({
                 "ConversationId": conversationResponse.id,
-                "MessageText": message
+                "MessageText": message,
+                "SenderUserId": localStorage.getItem("userId")
             })
         }
 

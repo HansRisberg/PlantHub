@@ -2,10 +2,11 @@ import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
-import SnackbarContent from '@mui/material/SnackbarContent';
 import { SendMessage } from './SendMessage';
-//import { Avatar } from "@mui/material";
-//import { ChatBox, ReceiverMessage, SenderMessage } from "mui-chat-box";
+import { Avatar } from "@mui/material";
+import { ChatBox, ReceiverMessage, SenderMessage } from "mui-chat-box";
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 // TODO: If we implement db structure for seeing who sent a message, we can use chat
 // Installation guide: https://www.npmjs.com/package/mui-chat-box
@@ -26,27 +27,31 @@ export const Messages = () => {
     }
 
     return (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "40px" }}>
             <h1>Messages</h1>
-            <Stack spacing={2} sx={{ maxWidth: 600 }}>
+            <Stack spacing={2} sx={{ maxWidth: 900 }}>
                 {messages.map((message, index) => {
                     return (
                         <div key={index}>
-                            {/*<ChatBox>*/}
-                                {/*<ReceiverMessage>*/}
-                                {/*    {message.messageText}*/}
-                                {/*</ReceiverMessage>*/}
-                                {/*BELOW FIND TEMPLATE FOR SENDERMESSAGE IF WE HAVE TIME TO IMPLEMENT*/}
-                                {/*<SenderMessage avatar={<Avatar>NA</Avatar>}>*/}
-                                {/*    I'm good thanks you?*/}
-                                {/*</SenderMessage>*/}
-                        {/*    </ChatBox>*/}
-                            <SnackbarContent message={message.messageText} style={{backgroundColor: "transparent"}} />
+                            <ChatBox>
+                                {
+                                    message.senderUserId === Number(localStorage.getItem("UserId")) ?
+                                        <SenderMessage
+                                            avatar={<Avatar>Me</Avatar>}
+                                        >
+                                            {message.messageText}
+                                        </SenderMessage>
+                                        :
+                                        <ReceiverMessage avatar={<Avatar></Avatar>} >
+                                            {message.messageText}
+                                        </ReceiverMessage>
+                                }
+                            </ChatBox>
                         </div>
                     )
                 })}
-            </Stack>
             <SendMessage conversation={conversation} />
+            </Stack>
         </div>
     )
 }

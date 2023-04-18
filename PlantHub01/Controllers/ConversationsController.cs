@@ -53,7 +53,9 @@ namespace PlantHub01.Controllers
                 return NotFound();
             }
 
-            List<Message> messages = await _context.Message.Where(m => m.ConversationId == conversationId).ToListAsync();
+            List<Message> messages = await _context.Message
+                .Where(m => m.ConversationId == conversationId)
+                .ToListAsync();
 
             if (messages.Count == 0)
             {
@@ -82,7 +84,7 @@ namespace PlantHub01.Controllers
         }
 
         [HttpPost("Message")]
-        public async Task<ActionResult> CreateMessage([Bind("ConversationId,MessageText")]Message message)
+        public async Task<ActionResult> CreateMessage([Bind("ConversationId,MessageText,SenderUserId")]Message message)
         {
             if (message == null)
             {

@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Link from '@mui/material/Link';
 
 export const SendMessage = ({ conversation }) => {
     const [message, setMessage] = useState("");
@@ -49,7 +50,7 @@ export const SendMessage = ({ conversation }) => {
                 component="form"
                 onSubmit={handleMessage}
                 sx={{
-                    '& .MuiTextField-root': { m: 1, width: '25ch' },
+                    '& .MuiTextField-root': { m: 1, width: '30ch' },
                 }}
                 noValidate
                 autoComplete="off"
@@ -57,16 +58,40 @@ export const SendMessage = ({ conversation }) => {
                 <div>
                     <TextField
                         id="outlined-multiline-static"
-                        label="Message"
+                        label="Write your message here..."
                         multiline
-                        rows={6}
+                        rows={2}
                         onChange={(event) => setMessage(event.target.value)}
+                        sx={{
+                            width: "75%", opacity: 0.9,
+
+                            "& .MuiOutlinedInput-root": {
+                                "&.Mui-focused fieldset": {
+                                    borderColor: "#609966"
+                                }
+                            },
+
+                            "& label.Mui-focused": {
+
+                                color: "#609966"
+
+                            }
+                        }}
                     />
                 </div>
-                <Stack direction="row" spacing={2}>
-                    <Button variant="outlined" onClick={() => navigate('/all-requests')}>Back to all messages</Button>
-                    <Button type="submit" variant="contained">Send</Button>
-                </Stack>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                    <Stack direction="row" spacing={2}>
+                        <Link href="/all-requests"
+                            variant="body2"
+                            style={{ color: "#40513B", textDecorationColor: "#40513B", marginTop: "8px", textDecoration: "none" }}>
+                            Back
+                        </Link>
+                        <Button type="submit"
+                            variant="contained"
+                            style={{ backgroundColor: "#609966" }}
+                        >Send</Button>
+                    </Stack>
+                </div>
             </Box>
 
         </div>
