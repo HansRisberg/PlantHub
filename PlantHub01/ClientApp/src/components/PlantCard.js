@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 export const PlantCard = ({ plant, plantLocation }) => {
     const navigate = useNavigate();
@@ -28,8 +29,8 @@ export const PlantCard = ({ plant, plantLocation }) => {
                     <Typography variant="body2" color="text.secondary">
                         {plant.plantName}
                     </Typography>}
-                    <Typography variant="body2" color="text.secondary">
-                        {`Location: ${plantLocation}`}
+                <Typography variant="body2" color="text.secondary">
+                    <LocationOnIcon style={{ fill: '#609966' }} />{plantLocation}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         {plant.distance && `Distance: ${Math.round(plant.distance / 1000)} km`}
