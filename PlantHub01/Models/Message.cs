@@ -6,5 +6,9 @@
         public int ConversationId { get; set; }
         public string? MessageText { get; set; }
 
+        // Navigation properites
+        public Conversation? Conversation { get; set; }
+
+
     }
 }

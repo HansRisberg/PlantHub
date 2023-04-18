@@ -53,7 +53,10 @@ namespace PlantHub01.Controllers
                 return NotFound();
             }
 
-            List<Message> messages = await _context.Message.Where(m => m.ConversationId == conversationId).ToListAsync();
+            List<Message> messages = await _context.Message
+                .Include(m => m.Conversation)
+                .Where(m => m.ConversationId == conversationId)
+                .ToListAsync();
 
             if (messages.Count == 0)
             {

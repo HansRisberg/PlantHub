@@ -40,7 +40,8 @@ export const Messages = () => {
                                 {/*<SenderMessage avatar={<Avatar>NA</Avatar>}>*/}
                                 {/*    I'm good thanks you?*/}
                                 {/*</SenderMessage>*/}
-                        {/*    </ChatBox>*/}
+                            {/*    </ChatBox>*/}
+                            <p>{console.log(message.conversation.senderUserId)}</p>
                             <SnackbarContent message={message.messageText} style={{backgroundColor: "transparent"}} />
                         </div>
                     )
