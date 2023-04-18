@@ -3,8 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
 import { UserPlantCard } from './UserPlantCard.js';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import heroImage from "../../assets/dogPlant.png";
+import Avatar from '@mui/material/Avatar';
 
 export const Profile = () => {
     // This will ensure logged in user sees their plants when visiting profile page
@@ -19,12 +24,6 @@ export const Profile = () => {
     const [userData, setUserData] = useState("");
 
     const navigate = useNavigate();
-
-    // When clicking logout, we remove current "userId" from localStorage and navigate to index
-    const handleLogout = () => {
-        localStorage.removeItem("userId");
-        navigate("/");
-    }
 
     // Fetches current logged in user plants
     // Fetch is not executed if user is not logged in
@@ -56,42 +55,97 @@ export const Profile = () => {
 
     return (
         <div className="profile-container">
-            <div className="user-data">
-                <h3> Hello {userData.name}</h3>
-                <p>{userData.bio}</p>
-                <Stack direction="row" spacing={2}>
+            <div style={{position: "relative" }}>
+                <Card sx={{
+                    minWidth: 275,
+                    minHeight: 400,
+                    marginTop: "50px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}>
+                    <CardContent>
+                        <Avatar
+                            alt="Profile Image"
+                            src={heroImage}
+                            sx={{
+                                width: 150,
+                                height: 150,
+                                margin: "auto"
+                            }}
+                        />
+                        <Typography
+                            variant="h4"
+                            component="div"
+                            sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                marginTop: "7px"
+                            }}
+                        >
+                            {userData.name}
+                        </Typography>
+                        <Typography
+                            sx={{
+                                mb: 1.5,
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                marginTop: "10px"
+                            }}
+                            color="text.secondary">
+                            {userData.location}
+                        </Typography>
+                        <Typography variant="body2"
+                            sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}>
+                            {userData.bio}
+                        </Typography>
+                        <CardActions sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            marginTop: "20px"
+                        }}>
+                            <Button
+                                variant="outlined"
+                                onClick={() => navigate('/all-requests')}
+                                style={{ color: "#40513B", borderColor: "#40513B" }}
+                            >Messages
+                            </Button>
+                        </CardActions>
+                    </CardContent>
+                </Card>
+            </div>
+            <div className="my-plants-container">
+                <div className="user-plants-header">
+                    <h3>My plants</h3>
                     <Button
-                        variant="outlined"
+                        variant="contained"
                         onClick={() => navigate('/create-plant')}
-                        style={{ color: "#40513B", borderColor: "#40513B" }}
+                        style={{ backgroundColor: "#609966" }}
                     >Register plant
                     </Button>
-                    <Button
-                        variant="outlined"
-                        onClick={() => navigate('/all-requests')}
-                        style={{ color: "#40513B", borderColor: "#40513B" }}
-                    >Messages
-                    </Button>
-                    <Button
-                        variant="outlined"
-                        onClick={handleLogout}
-                        style={{ color: "#40513B", borderColor: "#40513B" }}
-                    >Log out
-                    </Button>
-                </Stack>
-            </div>
-            <div className="user-plants">
-                <h3>My Plants</h3>
+                </div>
                 <div className="plant-view">
                     {plantList.length ?
                         plantList.map((plant, index) => {
                             return (
-                                <div key={index}>
+                                <div key={index} className="plant-card">
                                     <UserPlantCard plant={plant} />
                                 </div>
                             )
                         })
-                        : "I have no plants, but I would love to get my hand on a good stem"
+                        : "I don't have any plants yet"
                     }
                 </div>
             </div>

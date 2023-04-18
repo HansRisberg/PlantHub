@@ -1,5 +1,7 @@
 ﻿.profile-container {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     margin-top: 20px;
 }
 
@@ -8,12 +10,22 @@
     flex: 1;
 }
 
-.user-plants {
-    display: inline-block;
-    flex: 1;
+.user-plants-header {
+    text-align: center;
+    margin-top: 30px;
 }
 
 .plant-view {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.plant-card {
+    margin: 10px;
+}
+
+.my-plants-container {
+    margin-left: 100px;
+    max-width: 800px
 }
