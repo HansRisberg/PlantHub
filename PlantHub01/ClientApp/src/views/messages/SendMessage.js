@@ -21,7 +21,8 @@ export const SendMessage = ({ conversation }) => {
             },
             body: JSON.stringify({
                 "ConversationId": conversation.state.id,
-                "MessageText": message
+                "MessageText": message,
+                "SenderUserId": localStorage.getItem("userId")
             })
         }
 

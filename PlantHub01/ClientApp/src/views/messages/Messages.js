@@ -31,22 +31,25 @@ export const Messages = () => {
             <h1>Messages</h1>
             <Stack spacing={2} sx={{ maxWidth: 900 }}>
                 {messages.map((message, index) => {
+                    const senderUserId = message.senderUserId;
+                    const loggedInUserId = parseInt(localStorage.getItem("userId"));
                     return (
                         <div key={index}>
-                            <ChatBox>
-                                {
-                                    message.senderUserId === Number(localStorage.getItem("UserId")) ?
+                            {senderUserId === loggedInUserId ?
+                                    <ChatBox>
                                         <SenderMessage
                                             avatar={<Avatar>Me</Avatar>}
                                         >
                                             {message.messageText}
                                         </SenderMessage>
-                                        :
+                                    </ChatBox>
+                                :
+                                <ChatBox>
                                         <ReceiverMessage avatar={<Avatar></Avatar>} >
                                             {message.messageText}
                                         </ReceiverMessage>
+                                </ChatBox>
                                 }
-                            </ChatBox>
                         </div>
                     )
                 })}
