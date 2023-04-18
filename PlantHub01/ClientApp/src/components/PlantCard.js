@@ -30,10 +30,7 @@ export const PlantCard = ({ plant, plantLocation }) => {
                         {plant.plantName}
                     </Typography>}
                 <Typography variant="body2" color="text.secondary">
-                    <LocationOnIcon style={{ fill: '#609966' }} />{plantLocation}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {plant.distance && `Distance: ${Math.round(plant.distance / 1000)} km`}
+                    <LocationOnIcon style={{ fill: '#609966' }} />{plantLocation} {plant.distance && `${Math.round(plant.distance / 1000)} km`}
                     </Typography>
             </CardContent>
             <CardActions>

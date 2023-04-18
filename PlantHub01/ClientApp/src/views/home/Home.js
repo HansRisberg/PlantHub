@@ -24,20 +24,6 @@ export const Home = ({ mapsLoaded }) => {
         fetchData();
     }, []);
 
-    ////Test code to get coordinates of dummy address
-    //useEffect(() => {
-    //    if (mapsLoaded) {
-    //        const testAddress = '1600 Amphitheatre Parkway, Mountain View, CA';
-    //        getPlantCoordinates(testAddress)
-    //            .then((coordinates) => {
-    //                console.log('Dummy address coordinates:', coordinates);
-    //            })
-    //            .catch((error) => {
-    //                console.error('Error getting coordinates:', error);
-    //            });
-    //    }
-    //}, [mapsLoaded]);
-
     // Add geocode function to convert address to coordinates
     const getPlantCoordinates = async (address) => {
         console.log(window.google.maps); // Check if the object is properly loaded

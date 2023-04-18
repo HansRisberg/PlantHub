@@ -13,7 +13,7 @@ const App = () => {
         };
 
         const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBrJ6gX3EB3u_5aLxYsKT1EH_PMmA3z3rU&libraries=geometry&callback=initMap`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=geometry&callback=initMap`;
         script.async = true;
         script.defer = true;
         document.head.appendChild(script);
