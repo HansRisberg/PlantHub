@@ -6,6 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/PlantHubLogo2.png';
 
 
 export const NavMenu = () => {
@@ -17,7 +18,7 @@ export const NavMenu = () => {
                 <AppBar position="static" style={{ backgroundColor: "transparent" } }>
                     <Toolbar>
                         <Typography style={{cursor: "pointer"}} variant="h6" component="div" onClick={() => navigate('/')}>
-                        PlantHub
+                            <img src={logo} width="170px" />
                         </Typography>
                         <div style={{ marginLeft: "auto" }}>
                             <Button color="inherit" onClick={() => navigate('/browse-plants')}>Browse</Button>

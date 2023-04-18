@@ -42,6 +42,8 @@ namespace PlantHub01.Migrations
                     MotherPlant = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Added = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Available = table.Column<bool>(type: "bit", nullable: false),
+                    ImagePath = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

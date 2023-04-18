@@ -8,6 +8,7 @@ import { Messages } from "./views/messages/Messages";
 import { Profile } from "./views/profile/Profile";
 import { RegisterUser } from "./views/registerUser/RegisterUser";
 import { SendRequest } from "./views/sendRequest/SendRequest";
+import { ViewPlant } from "./views/viewPlant/ViewPlant";
 
 const AppRoutes = [
     {
@@ -53,6 +54,10 @@ const AppRoutes = [
     {
         path: "/messages",
         element: <Messages />
+    },
+    {
+        path: "/view-plant",
+        element: <ViewPlant />
     }
 ];
 export default AppRoutes;

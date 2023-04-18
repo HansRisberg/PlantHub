@@ -14,6 +14,7 @@ builder.Services.AddDbContext<PlantHub01Context>(options =>
 builder.Services.AddCors();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 // This is added in order to ingore circular references created by joining conversations with plant table
 builder.Services.AddControllers().AddJsonOptions(x =>
@@ -47,7 +48,8 @@ app.UseCors(c =>
 app.UseStaticFiles();
 app.UseRouting();
 
-
+app.UseSwagger();
+app.UseSwaggerUI();
 app.MapControllers();
 
 app.MapFallbackToFile("index.html");
