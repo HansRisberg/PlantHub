@@ -11,6 +11,8 @@ export const Home = ({ mapsLoaded }) => {
     const [plants, setPlants] = useState([]);
     const [users, setUsers] = useState([]);
     const userLocation = useRef(null);
+    const [searchInput, setSearchInput] = useState('');
+
     
     useEffect(() => {
         const fetchData = async () => {
@@ -22,19 +24,19 @@ export const Home = ({ mapsLoaded }) => {
         fetchData();
     }, []);
 
-    //Test code to get coordinates of dummy address
-    useEffect(() => {
-        if (mapsLoaded) {
-            const testAddress = '1600 Amphitheatre Parkway, Mountain View, CA';
-            getPlantCoordinates(testAddress)
-                .then((coordinates) => {
-                    console.log('Dummy address coordinates:', coordinates);
-                })
-                .catch((error) => {
-                    console.error('Error getting coordinates:', error);
-                });
-        }
-    }, [mapsLoaded]);
+    ////Test code to get coordinates of dummy address
+    //useEffect(() => {
+    //    if (mapsLoaded) {
+    //        const testAddress = '1600 Amphitheatre Parkway, Mountain View, CA';
+    //        getPlantCoordinates(testAddress)
+    //            .then((coordinates) => {
+    //                console.log('Dummy address coordinates:', coordinates);
+    //            })
+    //            .catch((error) => {
+    //                console.error('Error getting coordinates:', error);
+    //            });
+    //    }
+    //}, [mapsLoaded]);
 
     // Add geocode function to convert address to coordinates
     const getPlantCoordinates = async (address) => {
@@ -66,7 +68,7 @@ export const Home = ({ mapsLoaded }) => {
                 };
                 const updatedPlants = await Promise.all(
                     plants.map(async (plant, index) => {
-                        await sleep(index * 400);
+                        await sleep(index * 100);
                         const plantLocation = getCity(plant.userId);
                         try {
                             const plantCoordinates = await getPlantCoordinates(plantLocation);
@@ -79,17 +81,39 @@ export const Home = ({ mapsLoaded }) => {
                         }
                     })
                 );
-                console.log("Before sorting:", updatedPlants);
                 setPlants(updatedPlants.sort((a, b) => a.distance - b.distance));
-            }); console.log("After sorting:", updatedPlants);
+            });
         } else {
             alert("Geolocation is not supported by this browser.");
         }
     };
 
+    //Search by town
+    const searchByTown = async () => {
+        try {
+            const townCoordinates = await getPlantCoordinates(searchInput);
+            const updatedPlants = await Promise.all(
+                plants.map(async (plant) => {
+                    const plantLocation = getCity(plant.userId);
+                    try {
+                        const plantCoordinates = await getPlantCoordinates(plantLocation);
+                        const distance = calculateDistance(townCoordinates, plantCoordinates);
+                        return { ...plant, distance };
+                    } catch (error) {
+                        console.error('Error fetching plant coordinates or calculating distance:', error);
+                        return plant;
+                    }
+                })
+            );
+            setPlants(updatedPlants.sort((a, b) => a.distance - b.distance));
+        } catch (error) {
+            console.error('Error fetching town coordinates:', error);
+        }
+    };
+
+
     // Function to calculate distance between two coordinates
     const calculateDistance = (pointA, pointB) => {
-        console.log(window.google.maps); // Check if the object is properly loaded
         const latLngA = new window.google.maps.LatLng(pointA.lat, pointA.lng);
         const latLngB = new window.google.maps.LatLng(pointB.lat, pointB.lng);
         return window.google.maps.geometry.spherical.computeDistanceBetween(
@@ -118,7 +142,17 @@ export const Home = ({ mapsLoaded }) => {
             <Divider />
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", margin: "20px" }}>
                 <Button variant="outlined" onClick={() => getLocation()} style={{ marginRight: "15px"}}>Nearby</Button>
-                <TextField id="outlined-basic" label="Search by town" variant="outlined" />
+                <TextField
+                    id="outlined-basic"
+                    label="Search by town"
+                    variant="outlined"
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                />
+                <Button variant="outlined" onClick={searchByTown} style={{ marginLeft: "15px" }}>
+                    Search
+                </Button>
+
             </div>
             {/*This will show the plants that users can browse through on the home page*/}
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", flexWrap: "wrap" }}>
