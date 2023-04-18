@@ -9,8 +9,9 @@ import { useNavigate } from 'react-router-dom';
 
 export const UserPlantCard = ({ plant }) => {
     const navigate = useNavigate();
+
     return (
-        <Card sx={{ width: 150, borderRadius: "5px" }}>
+        <Card sx={{ width: 190, borderRadius: "5px" }}>
             <CardMedia
                 sx={{ height: 150 }}
                 image={`${window.location.origin}/images/${plant.userId}/${plant.image}`}
@@ -31,9 +32,10 @@ export const UserPlantCard = ({ plant }) => {
             <CardActions>
                 <Button
                     variant="text"
-                    onClick={() => navigate('/edit-plant', { state: { id: plant.id } })}
-                    style={{ color: "#40513B"}}
-                >Edit</Button>
+                    onClick={() => navigate('/view-plant', { state: { id: plant.id } })}
+                    style={{ color: "#40513B" }}
+                >See more</Button>
+
             </CardActions>
         </Card>
     )

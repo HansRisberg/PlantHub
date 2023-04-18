@@ -76,6 +76,46 @@ namespace PlantHub01.Controllers
         }
 
         // PUT: api/Plants/5
+        // Update available field on plant, toggles between true and false
+        [HttpPut("Available/{id}")]
+        public async Task<IActionResult> PutPlant(int id)
+        {
+            if (_context.Plant == null)
+            {
+                return BadRequest();
+            }
+
+            Plant? plant = await _context.Plant.Where(p => p.Id == id).FirstOrDefaultAsync();
+
+            if(plant == null)
+            {
+                return NotFound();
+            }
+
+            plant.Available = !plant.Available;
+
+            _context.Entry(plant).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PlantExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok(plant.Available);
+        }
+
+        // PUT: api/Plants/5
         // Update plant
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPlant(int id, Plant plant)
