@@ -48,7 +48,7 @@ export const ToggleAvailable = () => {
                 checked={available}
                 size="small"
                 onChange={handleChange}
-            />} label="Sell" />
+            />} label="Available for sale" />
         </FormGroup>
     )
 }

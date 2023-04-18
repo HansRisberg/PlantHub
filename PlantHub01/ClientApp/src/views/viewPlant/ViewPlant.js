@@ -27,9 +27,9 @@ export const ViewPlant = () => {
     return (
         <div>
             <h1>Plant</h1>
-            <p>{plantData.name}</p>
-            <p>{plantData.price}</p>
-            <ToggleAvailable availableForSale={plantData.available} />
+            <p>Name: {plantData.name}</p>
+            <p>Price: {plantData.price}</p>
+            <ToggleAvailable />
         </div>
     )
 }
