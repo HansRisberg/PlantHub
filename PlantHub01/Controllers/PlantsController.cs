@@ -15,10 +15,13 @@ namespace PlantHub01.Controllers
     public class PlantsController : ControllerBase
     {
         private readonly PlantHub01Context _context;
+        private readonly IWebHostEnvironment _environment;
 
-        public PlantsController(PlantHub01Context context)
+        public PlantsController(PlantHub01Context context, IWebHostEnvironment environment)
         {
             _context = context;
+            _environment = environment;
+
         }
 
         // GET: api/Plants
@@ -106,17 +109,39 @@ namespace PlantHub01.Controllers
         // POST: api/Plants
         // Method used for creating a new plant
         [HttpPost]
-        public async Task<ActionResult<Plant>> PostPlant([Bind("UserId,Name,About,PlantFamily,PlantName,MotherPlant,Price")] Plant plant)
+        public async Task<ActionResult<Plant>> PostPlant([FromForm] ImageModel plant)
         {
-            if (_context.Plant == null) {
-                return Problem("Entity set 'PlantHub01Context.User'  is null.");
+            var fileName = Path.GetFileName(plant.Image.FileName);
+            var filePath = string.Concat(Path.GetFileNameWithoutExtension(fileName),
+                //"_", 
+                //Guid.NewGuid().ToString().AsSpan(0, 4),
+                Path.GetExtension(fileName));
+            var folderPath = Path.Combine(_environment.ContentRootPath, "ClientApp\\public\\images", plant.UserId.ToString());
+            var path = Path.Combine(folderPath, filePath);
+
+            var newPlant = new Plant{
+                Name = plant.Name,
+                UserId = plant.UserId,
+                MotherPlant = plant.MotherPlant,
+                PlantFamily = plant.PlantFamily,
+                PlantName = plant.PlantName,
+                About = plant.About,
+                Price = plant.Price,
+                ImagePath = path,
+                Image = fileName
+            };
+            if (!Directory.Exists(folderPath)){
+                Directory.CreateDirectory(folderPath);
             }
+            
+            await plant.Image.CopyToAsync(new FileStream(path, FileMode.Create));
 
-            _context.Plant.Add(plant);
+            _context.Plant.Add(newPlant);
             await _context.SaveChangesAsync();
-
-            //return CreatedAtAction("GetUser", new { id = plant.Id }, plant);
-            return CreatedAtAction(nameof(GetPlant), new { id = plant.Id }, plant);
+            //return Ok(newPlant);
+           
+            //return CreatedAtAction("GetUser", newPlant);
+            return CreatedAtAction(nameof(GetPlant), new { id = newPlant.Id }, newPlant);
         }
 
 

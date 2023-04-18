@@ -6,14 +6,16 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 export const PlantCard = ({ plant, plantLocation }) => {
     const navigate = useNavigate();
+
     return (
         <Card sx={{ width: 250, borderRadius: "5px" }}>
             <CardMedia
                 sx={{ height: 180 }}
-                image={plant.image}
+                image={`${window.location.origin}/images/${plant.userId}/${plant.image}`}
                 title={plant.name}
             />
             <CardContent>
@@ -27,12 +29,12 @@ export const PlantCard = ({ plant, plantLocation }) => {
                     <Typography variant="body2" color="text.secondary">
                         {plant.plantName}
                     </Typography>}
-            <Typography variant="body2" color="text.secondary">
-                {`Location: ${plantLocation}`}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-                {plant.distance && `Distance: ${Math.round(plant.distance / 1000)} km`}
-            </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    <LocationOnIcon style={{ fill: '#609966' }} />{plantLocation}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        {plant.distance && `Distance: ${Math.round(plant.distance / 1000)} km`}
+                    </Typography>
             </CardContent>
             <CardActions>
                 <Button onClick={() => navigate('/send-request', { state: { id: plant.id} })} size="small" style={{ color: "#40513B"}}>Get cutting</Button>

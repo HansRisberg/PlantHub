@@ -3,15 +3,17 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
 export const UserPlantCard = ({ plant }) => {
+    const navigate = useNavigate();
     return (
         <Card sx={{ width: 150, borderRadius: "5px" }}>
             <CardMedia
                 sx={{ height: 150 }}
-                image={plant.image}
+                image={`${window.location.origin}/images/${plant.userId}/${plant.image}`}
                 title={plant.name}
             />
             <CardContent>
@@ -27,7 +29,11 @@ export const UserPlantCard = ({ plant }) => {
                     </Typography>}
             </CardContent>
             <CardActions>
-            {/* Any buttons/actions we want to add can be added in here*/}
+                <Button
+                    variant="text"
+                    onClick={() => navigate('/edit-plant', { state: { id: plant.id } })}
+                    style={{ color: "#40513B"}}
+                >Edit</Button>
             </CardActions>
         </Card>
     )

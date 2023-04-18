@@ -85,7 +85,14 @@ namespace PlantHub01.Migrations
                     b.Property<DateTime?>("Added")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("Available")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
