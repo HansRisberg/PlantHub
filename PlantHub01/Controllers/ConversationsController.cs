@@ -54,7 +54,6 @@ namespace PlantHub01.Controllers
             }
 
             List<Message> messages = await _context.Message
-                .Include(m => m.Conversation)
                 .Where(m => m.ConversationId == conversationId)
                 .ToListAsync();
 
@@ -85,7 +84,7 @@ namespace PlantHub01.Controllers
         }
 
         [HttpPost("Message")]
-        public async Task<ActionResult> CreateMessage([Bind("ConversationId,MessageText")]Message message)
+        public async Task<ActionResult> CreateMessage([Bind("ConversationId,MessageText,SenderUserId")]Message message)
         {
             if (message == null)
             {

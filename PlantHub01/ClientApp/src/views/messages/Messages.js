@@ -2,10 +2,9 @@ import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
-import SnackbarContent from '@mui/material/SnackbarContent';
 import { SendMessage } from './SendMessage';
-//import { Avatar } from "@mui/material";
-//import { ChatBox, ReceiverMessage, SenderMessage } from "mui-chat-box";
+import { Avatar } from "@mui/material";
+import { ChatBox, ReceiverMessage, SenderMessage } from "mui-chat-box";
 
 // TODO: If we implement db structure for seeing who sent a message, we can use chat
 // Installation guide: https://www.npmjs.com/package/mui-chat-box
@@ -32,17 +31,18 @@ export const Messages = () => {
                 {messages.map((message, index) => {
                     return (
                         <div key={index}>
-                            {/*<ChatBox>*/}
-                                {/*<ReceiverMessage>*/}
-                                {/*    {message.messageText}*/}
-                                {/*</ReceiverMessage>*/}
-                                {/*BELOW FIND TEMPLATE FOR SENDERMESSAGE IF WE HAVE TIME TO IMPLEMENT*/}
-                                {/*<SenderMessage avatar={<Avatar>NA</Avatar>}>*/}
-                                {/*    I'm good thanks you?*/}
-                                {/*</SenderMessage>*/}
-                            {/*    </ChatBox>*/}
-                            <p>{console.log(message.conversation.senderUserId)}</p>
-                            <SnackbarContent message={message.messageText} style={{backgroundColor: "transparent"}} />
+                            <ChatBox>
+                                {
+                                    message.senderUserId === Number(localStorage.getItem("UserId")) ?
+                                        <SenderMessage avatar={<Avatar>Me</Avatar>}>
+                                            {message.messageText}
+                                        </SenderMessage>
+                                        :
+                                        <ReceiverMessage avatar={<Avatar>NAN</Avatar>} >
+                                            {message.messageText}
+                                        </ReceiverMessage>
+                                }
+                            </ChatBox>
                         </div>
                     )
                 })}

@@ -63,6 +63,9 @@ namespace PlantHub01.Migrations
                     b.Property<string>("MessageText")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("SenderUserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ConversationId");
@@ -178,11 +181,13 @@ namespace PlantHub01.Migrations
 
             modelBuilder.Entity("PlantHub01.Models.Message", b =>
                 {
-                    b.HasOne("PlantHub01.Models.Conversation", null)
+                    b.HasOne("PlantHub01.Models.Conversation", "Conversation")
                         .WithMany("Messages")
                         .HasForeignKey("ConversationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Conversation");
                 });
 
             modelBuilder.Entity("PlantHub01.Models.Plant", b =>
