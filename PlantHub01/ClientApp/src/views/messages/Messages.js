@@ -5,6 +5,8 @@ import Stack from '@mui/material/Stack';
 import { SendMessage } from './SendMessage';
 import { Avatar } from "@mui/material";
 import { ChatBox, ReceiverMessage, SenderMessage } from "mui-chat-box";
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 // TODO: If we implement db structure for seeing who sent a message, we can use chat
 // Installation guide: https://www.npmjs.com/package/mui-chat-box
@@ -25,20 +27,22 @@ export const Messages = () => {
     }
 
     return (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "40px" }}>
             <h1>Messages</h1>
-            <Stack spacing={2} sx={{ maxWidth: 600 }}>
+            <Stack spacing={2} sx={{ maxWidth: 900 }}>
                 {messages.map((message, index) => {
                     return (
                         <div key={index}>
                             <ChatBox>
                                 {
                                     message.senderUserId === Number(localStorage.getItem("UserId")) ?
-                                        <SenderMessage avatar={<Avatar>Me</Avatar>}>
+                                        <SenderMessage
+                                            avatar={<Avatar>Me</Avatar>}
+                                        >
                                             {message.messageText}
                                         </SenderMessage>
                                         :
-                                        <ReceiverMessage avatar={<Avatar>NAN</Avatar>} >
+                                        <ReceiverMessage avatar={<Avatar></Avatar>} >
                                             {message.messageText}
                                         </ReceiverMessage>
                                 }
@@ -46,8 +50,8 @@ export const Messages = () => {
                         </div>
                     )
                 })}
-            </Stack>
             <SendMessage conversation={conversation} />
+            </Stack>
         </div>
     )
 }
