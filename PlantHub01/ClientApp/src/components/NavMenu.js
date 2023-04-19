@@ -23,7 +23,7 @@ export const NavMenu = () => {
 
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
-
+    const isLoggedIn = !!localStorage.getItem("userId");
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -48,20 +48,41 @@ export const NavMenu = () => {
                         </Typography>
                         <div style={{ marginLeft: "auto" }}>
                             <Button color="inherit" onClick={() => navigate('/browse-plants')}>Browse</Button>
-                            <Button color="inherit" onClick={() => navigate('/login')}>Login</Button>
+                  
+                            {/*<Button color="inherit" onClick={() => navigate('/login')}>Login</Button>*/}
                             <Button color="inherit" onClick={() => navigate('/how-it-works')}>How it works</Button>
-                            <Tooltip title="Account settings">
-                                <IconButton
-                                    onClick={handleClick}
-                                    size="small"
-                                    sx={{ ml: 2 }}
-                                    aria-controls={open ? 'account-menu' : undefined}
-                                    aria-haspopup="true"
-                                    aria-expanded={open ? 'true' : undefined}
-                                >
-                                    <Avatar sx={{ width: 32, height: 32 }}></Avatar>
-                                </IconButton>
-                            </Tooltip>
+
+                            {/*Show the avatar when logged in and shows log int when not logged int*/}
+                            {isLoggedIn ? (
+                                <Tooltip title="Account settings">
+                                    <IconButton
+                                        onClick={handleClick}
+                                        size="small"
+                                        sx={{ ml: 2 }}
+                                        aria-controls={open ? 'account-menu' : undefined}
+                                        aria-haspopup="true"
+                                        aria-expanded={open ? 'true' : undefined}
+                                    >
+                                        <Avatar sx={{ width: 32, height: 32 }}></Avatar>
+                                    </IconButton>
+                                </Tooltip>
+                            ) : (
+                                <Button color="inherit" onClick={() => navigate('/login')}>Login</Button>
+                            )}
+
+                            {/*<Tooltip title="Account settings">*/}
+                            {/*    <IconButton*/}
+                            {/*        onClick={handleClick}*/}
+                            {/*        size="small"*/}
+                            {/*        sx={{ ml: 2 }}*/}
+                            {/*        aria-controls={open ? 'account-menu' : undefined}*/}
+                            {/*        aria-haspopup="true"*/}
+                            {/*        aria-expanded={open ? 'true' : undefined}*/}
+                            {/*    >*/}
+                            {/*        <Avatar sx={{ width: 32, height: 32 }}></Avatar>*/}
+                            {/*    </IconButton>*/}
+                            {/*</Tooltip>*/}
+
                             <Menu
                                 anchorEl={anchorEl}
                                 id="account-menu"
