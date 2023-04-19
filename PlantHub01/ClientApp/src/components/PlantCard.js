@@ -12,41 +12,41 @@ export const PlantCard = ({ plant, plantLocation }) => {
     const navigate = useNavigate();
 
     return (
-        <Card sx={{ width: 250, borderRadius: "5px" }}>
-            <CardMedia
-                sx={{ height: 160 }}
-                image={`${window.location.origin}/images/${plant.userId}/${plant.image}`}
-                title={plant.name}
-            />
-            <CardContent>
-                <Typography variant="body2" color="text.secondary" style={{ textAlign: "center"}}>
-                    {plant.plantName}
-                </Typography>
-                <Typography gutterBottom variant="h6" component="div" style={{ textAlign: "center" }}>
-                    {plant.name}
-                </Typography>
+            <Card sx={{ width: 250, borderRadius: "5px" }}>
+                <CardMedia
+                    sx={{ height: 160 }}
+                    image={`${window.location.origin}/images/${plant.userId}/${plant.image}`}
+                    title={plant.name}
+                />
+                <CardContent>
+                    <Typography variant="body2" color="text.secondary" style={{ textAlign: "center" }}>
+                        {plant.plantName}
+                    </Typography>
+                    <Typography gutterBottom variant="h6" component="div" style={{ textAlign: "center" }}>
+                        {plant.name}
+                    </Typography>
 
-                {plant.price > 0 ? (
-                <Typography variant="body2" color="text.secondary">
-                    {plant.price} NOK per cutting
-                    </Typography>) :
-                    <Typography variant="body2" color="text.secondary">
-                        Give away
-                </Typography>}
+                    {plant.price > 0 ? (
+                        <Typography variant="body2" color="text.secondary">
+                            {plant.price} NOK per cutting
+                        </Typography>) :
+                        <Typography variant="body2" color="text.secondary">
+                            Give away
+                        </Typography>}
 
-                <Typography variant="body2" color="text.secondary" style={{ marginTop: "5px" }}>
-                    <LocationOnIcon style={{ fill: '#609966' }} />{plantLocation} {plant.distance && `${Math.round(plant.distance / 1000)} km`}
-                </Typography>
+                    <Typography variant="body2" color="text.secondary" style={{ marginTop: "5px" }}>
+                        <LocationOnIcon style={{ fill: '#609966' }} />{plantLocation} {plant.distance && `${Math.round(plant.distance / 1000)} km`}
+                    </Typography>
 
-                <Button
-                    onClick={() => navigate('/send-request', { state: { id: plant.id } })}
-                    size="small"
-                    style={{ color: "#40513B", marginTop: "5px" }}
-                >Get cutting</Button>
+                    <Button
+                        onClick={() => navigate('/send-request', { state: { id: plant.id } })}
+                        size="small"
+                        style={{ color: "#40513B", marginTop: "5px" }}
+                    >Get cutting</Button>
 
-            </CardContent>
-            {/*<CardActions>*/}
-            {/*</CardActions>*/}
-        </Card>
+                </CardContent>
+                {/*<CardActions>*/}
+                {/*</CardActions>*/}
+            </Card>
     )
 }

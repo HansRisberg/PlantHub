@@ -161,9 +161,17 @@ export const Home = ({ mapsLoaded }) => {
                 {plants.map((plant) => {
                     const plantLocation = getCity(plant.userId);
                     return (
-                        <div key={plant.id} style={{ flexBasis: "25%", marginBottom: "30px" }}>
-                            <PlantCard plant={plant} plantLocation={plantLocation} />
-                        </div>
+                        <>
+                            {
+                                plant.available
+                                    ? 
+                                    <div key={plant.id} style={{ flexBasis: "25%", marginBottom: "30px" }}>
+                                        <PlantCard plant={plant} plantLocation={plantLocation} />
+                                    </div>  
+                                    :
+                                    null
+                            }
+                        </>
                     );
                 })}
             </div>
