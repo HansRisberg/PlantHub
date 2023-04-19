@@ -11,7 +11,7 @@ namespace PlantHub01.Models
         [ForeignKey ("User")]
         public int SenderUserId { get; set; }
         public string Title { get; set; } = string.Empty;
-
+        public bool IsAccepted { get; set; } = false;
         // Navigation properties
         public User? SenderUser { get; set; }
         public Plant? Plant { get; set; }

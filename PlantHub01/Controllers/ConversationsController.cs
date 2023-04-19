@@ -101,5 +101,31 @@ namespace PlantHub01.Controllers
         {
             return (_context.Conversation.Any(c => c.SenderUserId == senderUserId && c.PlantId == plantId));
         }
+
+        // PUT: api/Plants/5
+        // Update available field on plant, toggles between true and false
+        [HttpPut("Accepted/{id}")]
+        public async Task<IActionResult> PutConversation(int id)
+        {
+            if (_context.Conversation == null)
+            {
+                return BadRequest();
+            }
+
+            Conversation? conversation = await _context.Conversation.Where(c => c.Id == id).FirstOrDefaultAsync();
+
+            if (conversation == null)
+            {
+                return NotFound();
+            }
+
+            conversation.IsAccepted = !conversation.IsAccepted;
+
+            _context.Entry(conversation).State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(conversation.IsAccepted);
+        }
     }
 }
