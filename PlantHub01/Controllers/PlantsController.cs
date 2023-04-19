@@ -184,7 +184,20 @@ namespace PlantHub01.Controllers
             return CreatedAtAction(nameof(GetPlant), new { id = newPlant.Id }, newPlant);
         }
 
+        // POST: api/Plants/Duplicate
+        // Method for when user has bought a new plant and want to add it to their plant collection
+        [HttpPost("Duplicate")]
+        public async Task<ActionResult<User>> PostUser([Bind("UserId,Name,About,PlantFamily,PlantName,MotherPlant,Image,Price")] Plant plant)
+        {
+            if (_context.Plant == null)
+            {
+                return Problem("Entity set 'PlantHub01Context.Plant'  is null.");
+            }
+            _context.Plant.Add(plant);
+            await _context.SaveChangesAsync();
 
+            return NoContent();
+        }
 
 
         // DELETE: api/Plants/5
