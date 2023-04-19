@@ -12,8 +12,8 @@ using UserContext.Data;
 namespace PlantHub01.Migrations
 {
     [DbContext(typeof(PlantHub01Context))]
-    [Migration("20230419093711_intial")]
-    partial class intial
+    [Migration("20230419133049_Nomnom")]
+    partial class Nomnom
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
