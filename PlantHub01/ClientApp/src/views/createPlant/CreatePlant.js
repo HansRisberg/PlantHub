@@ -11,8 +11,6 @@ import Input from '@mui/material/Input';
 import Autocomplete from '@mui/material/Autocomplete';
 import plants from './plants.json';
 
-
-
 export const CreatePlant = () => {
 
 	// Allows navigation to another page
@@ -24,23 +22,11 @@ export const CreatePlant = () => {
 	async function handleSubmit(event) {
 		event.preventDefault();
 
-
-		const formData = new FormData();
-		const formElements = event.currentTarget.elements;
-
-		formData.set("name", formElements.name.value);
-		formData.set("about", formElements.about.value);
-		formData.set("plantName", formElements.plantName.getAttribute("value"));
-		formData.set("motherPlant", formElements.motherPlant.value);
-		formData.set("plantFamily", formElements.plantFamily.value);
-		formData.set("price", formElements.price.value);
-
 		//// Get data from form
-		//const formData = new FormData(event.currentTarget);
-		//formData.append("UserId", localStorage.getItem("userId"));
-		//formData.append("Image", image);
+		const formData = new FormData(event.currentTarget);
+		formData.append("UserId", localStorage.getItem("userId"));
+		formData.append("Image", image);
 		
-
 		axios.post("https://localhost:7062/api/Plants", formData)
 		.then((response) => console.log(response))
 
