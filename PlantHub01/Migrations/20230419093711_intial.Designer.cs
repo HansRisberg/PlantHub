@@ -12,8 +12,8 @@ using UserContext.Data;
 namespace PlantHub01.Migrations
 {
     [DbContext(typeof(PlantHub01Context))]
-    [Migration("20230418201729_tyll")]
-    partial class tyll
+    [Migration("20230419093711_intial")]
+    partial class intial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,9 @@ namespace PlantHub01.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("IsAccepted")
+                        .HasColumnType("bit");
 
                     b.Property<int>("PlantId")
                         .HasColumnType("int");
