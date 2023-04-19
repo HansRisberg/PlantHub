@@ -127,17 +127,33 @@ export const Home = ({ mapsLoaded }) => {
             <Hero />
             <Divider />
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "start", marginTop: "-90px" }}>
-                <Button variant="contained" color="success" onClick={() => getLocation()} style={{ marginRight: "15px"}}>Nearby</Button>
                 <TextField
+                    size="small"
                     id="outlined-basic"
                     label="Search by town"
                     variant="outlined"
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
+                    sx={{
+                        opacity: 0.9,
+
+                        "& .MuiOutlinedInput-root": {
+                            "&.Mui-focused fieldset": {
+                                borderColor: "#609966"
+                            }
+                        },
+
+                        "& label.Mui-focused": {
+
+                            color: "#609966"
+
+                        }
+                    }}
                 />
-                <Button variant="contained" color="success" onClick={searchByTown} style={{ marginLeft: "15px" }}>
+                <Button variant="contained" onClick={searchByTown} style={{ marginLeft: "15px", backgroundColor: "#609966" }}>
                     Search
                 </Button>
+                <Button variant="contained" onClick={() => getLocation()} style={{ marginLeft: "15px", backgroundColor: "#609966" }}>Nearby</Button>
 
             </div>
             {/*This will show the plants that users can browse through on the home page*/}
