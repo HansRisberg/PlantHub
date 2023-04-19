@@ -2,10 +2,19 @@
     background-color: red;
 }
 
- .myCard {
-     position: relative;
- }
+.requestWrapper {
+    border: 1px solid black;
+    overflow: hidden; /* add this to contain floated children */
+}
 
- .otherCard {
-    position: relative;
- }
+.myRequests {
+    margin-right: 25px;
+    float: left; /* add this */
+    border: 1px solid red;
+}
+
+.receivedRequests {
+    margin-left: 25px;
+    border: 1px solid green;
+    float: left; /* add this */
+}
