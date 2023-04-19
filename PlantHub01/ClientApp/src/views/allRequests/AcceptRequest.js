@@ -26,10 +26,9 @@ export const AcceptRequest = ({ conversation }) => {
 
     return (
         <Button onClick={handleAccept}
-            /*style={{ color: "#4CACBC" }}*/
             disabled={accept}
             >
                 { accept ? "Sold" : "Accept"}
-            </Button>
+        </Button>
     )
 }
