@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Typography from '@mui/material/Typography';
 
 export const SendRequest = () => {
     const [message, setMessage] = useState("");
@@ -86,8 +87,13 @@ export const SendRequest = () => {
 
     }
     return (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "60px" }}>
             <h1>Send cutting request</h1>
+            <Typography variant="body2" color="text.secondary" style={{ textAlign: "center", margin: "7px"}}>
+                Send a message to the owner of this plant to start 
+                <br />
+                a conversation and ask for a cutting of their precious plant.
+            </Typography>
             <Box
                 component="form"
                 onSubmit={handleMessage}
@@ -104,10 +110,29 @@ export const SendRequest = () => {
                         multiline
                         rows={6}
                         onChange={(event) => setMessage(event.target.value)}
+                        sx={{
+                            opacity: 0.9,
+
+                            "& .MuiOutlinedInput-root": {
+                                "&.Mui-focused fieldset": {
+                                    borderColor: "#609966"
+                                }
+                            },
+
+                            "& label.Mui-focused": {
+
+                                color: "#609966"
+
+                            }
+                        }}
                     />
                 </div>
-            <Stack direction="row" spacing={2}>
-                    <Button type="submit" variant="contained" style={{ backgroundColor: "#609966" }}>Send</Button>
+                <Stack direction="row" spacing={2} style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
+                    <Button
+                        type="submit"
+                        variant="contained"
+                        style={{ backgroundColor: "#609966" }}
+                    >Send</Button>
                 </Stack>
             </Box>
 
