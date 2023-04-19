@@ -12,8 +12,8 @@ using UserContext.Data;
 namespace PlantHub01.Migrations
 {
     [DbContext(typeof(PlantHub01Context))]
-    [Migration("20230418100657_allmight")]
-    partial class allmight
+    [Migration("20230418201729_tyll")]
+    partial class tyll
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,6 +65,9 @@ namespace PlantHub01.Migrations
 
                     b.Property<string>("MessageText")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SenderUserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -181,11 +184,13 @@ namespace PlantHub01.Migrations
 
             modelBuilder.Entity("PlantHub01.Models.Message", b =>
                 {
-                    b.HasOne("PlantHub01.Models.Conversation", null)
+                    b.HasOne("PlantHub01.Models.Conversation", "Conversation")
                         .WithMany("Messages")
                         .HasForeignKey("ConversationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Conversation");
                 });
 
             modelBuilder.Entity("PlantHub01.Models.Plant", b =>

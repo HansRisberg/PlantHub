@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PlantHub01.Migrations
 {
     /// <inheritdoc />
-    public partial class allmight : Migration
+    public partial class tyll : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -90,7 +90,8 @@ namespace PlantHub01.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ConversationId = table.Column<int>(type: "int", nullable: false),
-                    MessageText = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    MessageText = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SenderUserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
