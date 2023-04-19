@@ -5,9 +5,19 @@ using PlantHub01.Models;
 using UserContext.Data;
 
 
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connection = String.Empty;
+
+builder.Configuration.AddEnvironmentVariables().AddJsonFile("appsettings.Development.json");
+connection = builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING");
+
 builder.Services.AddDbContext<PlantHub01Context>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("PlantHub01Context") ?? throw new InvalidOperationException("Connection string 'PlantHub01Context' not found.")));
+    options.UseSqlServer(connection));
+//options.UseSqlServer(builder.Configuration.GetConnectionString("PlantHub01Context") ?? throw new InvalidOperationException("Connection string 'PlantHub01Context' not found.")));
+
 
 // Add services to the container.
 
