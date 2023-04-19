@@ -38,7 +38,25 @@ export const Footer = () => {
                     <Typography variant="caption" sx={{ mt: 1.5, marginTop: "2px" }}>
                         Get monthly updates with plant tips, invitations to events and other fun stuff!
                     </Typography>
-                    <TextField placeholder="Enter E-mail here!" sx={{ width: "50%", opacity: 0.9 }} />
+                    <TextField
+                        placeholder="Enter E-mail here!"
+                        sx={{
+                            width: "50%",
+                            opacity: 0.9,
+                            "& .MuiOutlinedInput-root": {
+                                "&.Mui-focused fieldset": {
+                                    borderColor: "#40513B"
+                                }
+                            },
+
+                            "& label.Mui-focused": {
+
+                                color: "#609966"
+
+                            }
+                        }}
+                    />
+
                     <Typography variant="caption" sx={{ mt: 1.5, marginTop: "20px" }}>
                         Contact us at heyheyhey@planthub.no
                     </Typography>
