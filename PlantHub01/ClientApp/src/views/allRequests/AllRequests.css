@@ -3,18 +3,18 @@
 }
 
 .requestWrapper {
-    border: 1px solid black;
-    overflow: hidden; /* add this to contain floated children */
+/*    border: 1px solid black;
+*/    overflow: hidden; /* add this to contain floated children */
 }
 
 .myRequests {
     margin-right: 25px;
     float: left; /* add this */
-    border: 1px solid red;
-}
+/*    border: 1px solid;
+*/}
 
 .receivedRequests {
     margin-left: 25px;
-    border: 1px solid green;
-    float: left; /* add this */
+/*    border: 1px solid green;
+*/    float: left; /* add this */
 }
