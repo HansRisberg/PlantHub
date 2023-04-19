@@ -20,7 +20,7 @@ export const BrowsePlants = () => {
     return (
         <div>
             {/*This will show the plants that users can browse through on the home page*/}
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", flexWrap: "wrap", marginTop: "25px" }}>
                 {plants
                     .sort((a, b) => new Date(a.Added) - new Date(b.Added))
                     .map((plant) => {

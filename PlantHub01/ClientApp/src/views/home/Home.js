@@ -126,8 +126,8 @@ export const Home = ({ mapsLoaded }) => {
         <div>
             <Hero />
             <Divider />
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", margin: "20px" }}>
-                <Button variant="outlined" onClick={() => getLocation()} style={{ marginRight: "15px"}}>Nearby</Button>
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "start", marginTop: "-90px" }}>
+                <Button variant="contained" color="success" onClick={() => getLocation()} style={{ marginRight: "15px"}}>Nearby</Button>
                 <TextField
                     id="outlined-basic"
                     label="Search by town"
@@ -135,13 +135,13 @@ export const Home = ({ mapsLoaded }) => {
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
                 />
-                <Button variant="outlined" onClick={searchByTown} style={{ marginLeft: "15px" }}>
+                <Button variant="contained" color="success" onClick={searchByTown} style={{ marginLeft: "15px" }}>
                     Search
                 </Button>
 
             </div>
             {/*This will show the plants that users can browse through on the home page*/}
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", flexWrap: "wrap", marginTop: "90px" }}>
                 {plants.map((plant) => {
                     const plantLocation = getCity(plant.userId);
                     return (

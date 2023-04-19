@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { RequestCard } from './RequestCard';
-import { useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
+import './AllRequests.css';
+import Link from '@mui/material/Link';
 
 export const AllRequests = () => {
-    const [conversations, setConversations] = useState([]);
-    const navigate = useNavigate();
+    const [myRequests, setMyRequests] = useState([]);
+    const [receivedRequests, setReceivedRequests] = useState([]);
 
     useEffect(() => {
         fetchConversations()        
@@ -19,27 +19,46 @@ export const AllRequests = () => {
         } else {
             const res = await fetch("https://localhost:7062/api/Conversations/" + userId)
             const data = await res.json();
-            setConversations(data);
-            console.log(data);
+            await setMyRequests(data.filter(data => data.senderUserId === Number(localStorage.getItem("userId"))));
+            await setReceivedRequests(data.filter(data => data.senderUserId != Number(localStorage.getItem("userId"))));
         }
     }
 
     return (
-        <div>
-            <h1>Conversations</h1>
-            <Button onClick={() => navigate('/profile')} size="small" variant="outlined">Back to profile</Button>
-            <div>
-                {conversations.length ?
-                    conversations.map((conversation, index) => {
-                        return (
-                            <div key={index}>
-                                <h1>{Number(localStorage.getItem("userId")) === conversation.senderUserId ? "Sent request" : "Received request"}</h1>
-                                <RequestCard conversation={conversation} />
-                            </div>
-                        )
-                    })
-                    : "No conversations available"
-                }
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "30px" }}>
+            <h1>My conversations</h1>
+            <Link href="/profile"
+                variant="body2"
+                style={{ color: "#40513B", textDecorationColor: "#40513B", marginTop: "5px", marginBottom: "20px" }}>
+                Back to profile
+            </Link>
+
+            <div className="requestWrapper">
+                <div className="myRequests">
+                    {myRequests.length ?
+                        myRequests.map((conversation, index) => {
+                            return (
+                                <div key={index}>
+                                    <RequestCard conversation={conversation} />
+                                </div>
+                            )
+                        })
+                        : "No conversations available"
+                    }
+                </div>
+
+                <div className="receivedRequests">
+                    {receivedRequests ?
+                        receivedRequests.map((conversation, index) => {
+                            return (
+                                <div key={index}>
+                                    <RequestCard conversation={conversation} />
+                                </div>
+                            )
+                        })
+                        : "No conversations available"
+                    }
+                </div>
             </div>
         </div>
     )
