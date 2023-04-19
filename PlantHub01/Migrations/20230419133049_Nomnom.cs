@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PlantHub01.Migrations
 {
     /// <inheritdoc />
-    public partial class intial : Migration
+    public partial class Nomnom : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

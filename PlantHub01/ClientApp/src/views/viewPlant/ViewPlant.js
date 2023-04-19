@@ -29,7 +29,7 @@ export const ViewPlant = () => {
         );
         if (response.ok) {
             const data = await response.json();
-            setPlantInfo(data[0]); // Assuming the first item in the response array is the relevant information
+            setPlantInfo(data[0]);
         } else {
             console.error('Error fetching plant info:', response.status, response.statusText);
         }
@@ -44,17 +44,17 @@ export const ViewPlant = () => {
                 .then(async (data) => {
                     setPlantData({
                         name: data.name,
-                        plantname: data.plantName, // Change this line to use the correct property name
+                        plantname: data.plantName,
                         price: data.price
                     });
                     console.log("Name from fetchPlantData:", plantData.plantname);
-                    await fetchPlantInfo(plantData.plantname);
+                    await fetchPlantInfo(data.plantName);
                 });
         }
     };
     return (
         <div>
-            <h1>Plant</h1>
+            <h1>Plant:</h1>
             <p>{plantData.plantname}</p>
             <p>Hello I'm called: {plantData.name}</p>
             <p>Price: {plantData.price}</p>
