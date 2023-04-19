@@ -8,6 +8,10 @@ import Container from '@mui/material/Container';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Input from '@mui/material/Input';
+import Autocomplete from '@mui/material/Autocomplete';
+import plants from './plants.json';
+
+
 
 export const CreatePlant = () => {
 
@@ -20,10 +24,21 @@ export const CreatePlant = () => {
 	async function handleSubmit(event) {
 		event.preventDefault();
 
-		// Get data from form
-		const formData = new FormData(event.currentTarget);
-		formData.append("UserId", localStorage.getItem("userId"));
-		formData.append("Image", image);
+
+		const formData = new FormData();
+		const formElements = event.currentTarget.elements;
+
+		formData.set("name", formElements.name.value);
+		formData.set("about", formElements.about.value);
+		formData.set("plantName", formElements.plantName.getAttribute("value"));
+		formData.set("motherPlant", formElements.motherPlant.value);
+		formData.set("plantFamily", formElements.plantFamily.value);
+		formData.set("price", formElements.price.value);
+
+		//// Get data from form
+		//const formData = new FormData(event.currentTarget);
+		//formData.append("UserId", localStorage.getItem("userId"));
+		//formData.append("Image", image);
 		
 
 		axios.post("https://localhost:7062/api/Plants", formData)
@@ -68,12 +83,24 @@ export const CreatePlant = () => {
 							/>
 						</Grid>
 						<Grid item xs={12}>
-							<TextField
-								required
-								fullWidth
+							<Autocomplete
 								id="plantName"
-								label="Plant Name"
-								name="plantName"
+								options={plants}
+								renderOption={(props, option) => (
+									<Typography key={option.Id} {...props} style={{ fontSize: "14px" }}>
+										{option.Plant}
+									</Typography>
+								)}
+								getOptionLabel={(option) => option.Plant}
+								renderInput={(params) => (
+									<TextField
+										{...params}
+										required
+										fullWidth
+										label="Plant Name"
+										name="plantName"
+									/>
+								)}
 							/>
 						</Grid>
 						<Grid item xs={12}>

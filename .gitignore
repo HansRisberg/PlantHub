@@ -364,3 +364,6 @@ FodyWeavers.xsd
 
 #ignore .env
 *.env
+.env
+.env.development
+/PlantHub01/ClientApp/.env

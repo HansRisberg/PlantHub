@@ -22,15 +22,14 @@ export const ViewPlant = () => {
             {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': 'e576c32542msh8c1941a38634922p14b974jsn2c18b7628038',
+                    'X-RapidAPI-Key': `${process.env.REACT_APP_PLANT_API_KEY}`,
                     'X-RapidAPI-Host': 'house-plants.p.rapidapi.com',
                 },
             },
         );
-
         if (response.ok) {
             const data = await response.json();
-            setPlantInfo(data[0]); // Assuming the first item in the response array is the relevant information
+            setPlantInfo(data[0]);
         } else {
             console.error('Error fetching plant info:', response.status, response.statusText);
         }
@@ -43,18 +42,23 @@ export const ViewPlant = () => {
             await fetch("https://localhost:7062/api/Plants/" + plant.state.id)
                 .then((response) => response.json())
                 .then(async (data) => {
-                    setPlantData(data);
-                    console.log("Common name from fetchPlantData:", data.name); // Add this line
-                    await fetchPlantInfo(data.name); // Call the function with the common name
+                    setPlantData({
+                        name: data.name,
+                        plantname: data.plantName,
+                        price: data.price
+                    });
+                    console.log("Name from fetchPlantData:", plantData.plantname);
+                    await fetchPlantInfo(data.plantName);
                 });
         }
     };
-
     return (
         <div>
-            <h1>Plant</h1>
-            <p>Name: {plantData.name}</p>
+            <h1>Plant:</h1>
+            <p>{plantData.plantname}</p>
+            <p>Hello I'm called: {plantData.name}</p>
             <p>Price: {plantData.price}</p>
+
             {plantInfo && (
                 <div className="plant-info-grid">
                     <div>Latin Name: {plantInfo.latin}</div>
