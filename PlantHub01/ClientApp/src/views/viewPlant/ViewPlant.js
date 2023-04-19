@@ -47,7 +47,7 @@ export const ViewPlant = () => {
                         plantname: data.plantName,
                         price: data.price
                     });
-                    console.log("Name from fetchPlantData:", plantData.plantname);
+                    console.log("Name from fetchPlantData:", data.plantName);
                     await fetchPlantInfo(data.plantName);
                 });
         }

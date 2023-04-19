@@ -54,19 +54,20 @@ export const NavMenu = () => {
 
                             {/*Show the avatar when logged in and shows log int when not logged int*/}
                             {isLoggedIn ? (
-                                <Button color="inherit" onClick={() => navigate('/login')}>Login</Button>               
-                            ) : (<Tooltip title="Account settings">
-                                <IconButton
-                                    onClick={handleClick}
-                                    size="small"
-                                    sx={{ ml: 2 }}
-                                    aria-controls={open ? 'account-menu' : undefined}
-                                    aria-haspopup="true"
-                                    aria-expanded={open ? 'true' : undefined}
-                                >
-                                    <Avatar sx={{ width: 32, height: 32 }}></Avatar>
-                                </IconButton>
-                            </Tooltip>  
+                                <Tooltip title="Account settings">
+                                    <IconButton
+                                        onClick={handleClick}
+                                        size="small"
+                                        sx={{ ml: 2 }}
+                                        aria-controls={open ? 'account-menu' : undefined}
+                                        aria-haspopup="true"
+                                        aria-expanded={open ? 'true' : undefined}
+                                    >
+                                        <Avatar sx={{ width: 32, height: 32 }}></Avatar>
+                                    </IconButton>
+                                </Tooltip>
+                            ) : (
+                                <Button color="inherit" onClick={() => navigate('/login')}>Login</Button>
                             )}
 
                             {/*<Tooltip title="Account settings">*/}
