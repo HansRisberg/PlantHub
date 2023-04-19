@@ -36,6 +36,44 @@ export const RequestCard = ({ conversation }) => {
         }
     }
 
+    const handleAddToYourPlants = async (event) => {
+        event.preventDefault();
+
+        // Create requestOptions with data from conversation object
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "UserId": localStorage.getItem("userId"),
+                "Name": conversation.plant.name,
+                "About": conversation.plant.about,
+                "PlantFamily": conversation.plant.plantFamily,
+                "PlantName": conversation.plant.plantName,
+                "MotherPlant": conversation.plant.name,
+                "Image": conversation.plant.image,
+                "Price": "0"
+            })
+        }
+
+        // Send POST request to create a new user in database
+        try {
+            let res = await fetch("https://localhost:7062/api/Plants/Duplicate", requestOptions);
+
+            if (res.status !== 204) {
+                console.log("Something went wrong. Status code: " + res.status)
+            }
+
+            if (res.status === 204) {
+                // Navigates to login page after successful creation of duplicate plant
+                navigate("/profile");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <div>
             {Number(localStorage.getItem("userId")) === conversation.senderUserId 
@@ -90,6 +128,7 @@ export const RequestCard = ({ conversation }) => {
                         {conversation.isAccepted ?
                             <Button
                                 style={{ color: "#4CACBC" }}
+                                onClick={handleAddToYourPlants}
                             >
                                 Add to Your Plants?
                             </Button> : ""}
