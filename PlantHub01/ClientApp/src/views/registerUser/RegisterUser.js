@@ -72,6 +72,21 @@ export const RegisterUser = () => {
                             id="name"
                             label="Username"
                             autoFocus
+                            sx={{
+                                opacity: 0.9,
+
+                                "& .MuiOutlinedInput-root": {
+                                    "&.Mui-focused fieldset": {
+                                        borderColor: "#609966"
+                                    }
+                                },
+
+                                "& label.Mui-focused": {
+
+                                    color: "#609966"
+
+                                }
+                            }}
                         />
                     </Grid>
                     <Grid item xs={12} sm={6} style={{ marginTop: "10px" }}>
@@ -79,6 +94,21 @@ export const RegisterUser = () => {
                             id="city"
                             options={cities}
                             style={{ fontSize: "6px" }}
+                            sx={{
+                                opacity: 0.9,
+
+                                "& .MuiOutlinedInput-root": {
+                                    "&.Mui-focused fieldset": {
+                                        borderColor: "#609966"
+                                    }
+                                },
+
+                                "& label.Mui-focused": {
+
+                                    color: "#609966"
+
+                                }
+                            }}
                             renderOption={(props, option) => (
                                 <li key={option} {...props}>
                                     <Typography style={{ fontSize: "14px" }}>{option.city}</Typography>
@@ -103,6 +133,21 @@ export const RegisterUser = () => {
                             id="address"
                             label="Address"
                             name="address"
+                            sx={{
+                                opacity: 0.9,
+
+                                "& .MuiOutlinedInput-root": {
+                                    "&.Mui-focused fieldset": {
+                                        borderColor: "#609966"
+                                    }
+                                },
+
+                                "& label.Mui-focused": {
+
+                                    color: "#609966"
+
+                                }
+                            }}
                         />
                     </Grid>
                     <Grid item xs={12} style={{ marginTop: "10px" }}>
@@ -111,6 +156,21 @@ export const RegisterUser = () => {
                             id="email"
                             label="Email"
                             name="email"
+                            sx={{
+                                opacity: 0.9,
+
+                                "& .MuiOutlinedInput-root": {
+                                    "&.Mui-focused fieldset": {
+                                        borderColor: "#609966"
+                                    }
+                                },
+
+                                "& label.Mui-focused": {
+
+                                    color: "#609966"
+
+                                }
+                            }}
                         />
                     </Grid>
                     <Grid item xs={12} style={{ marginTop: "10px" }}>
@@ -120,6 +180,21 @@ export const RegisterUser = () => {
                             label="Tell us about you"
                             type="bio"
                             id="bio"
+                            sx={{
+                                opacity: 0.9,
+
+                                "& .MuiOutlinedInput-root": {
+                                    "&.Mui-focused fieldset": {
+                                        borderColor: "#609966"
+                                    }
+                                },
+
+                                "& label.Mui-focused": {
+
+                                    color: "#609966"
+
+                                }
+                            }}
                         />
                     </Grid>
                     <Button
