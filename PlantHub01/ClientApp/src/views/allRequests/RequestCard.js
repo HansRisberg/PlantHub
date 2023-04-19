@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
+import { AcceptRequest } from './AcceptRequest';
 
 export const RequestCard = ({ conversation }) => {
     const [userData, setUserData] = useState("");
@@ -68,7 +69,7 @@ export const RequestCard = ({ conversation }) => {
                         <Button onClick={() => navigate('/messages', { state: { id: conversation.id, plantId: conversation.plantId, conversation: conversation } })}
                             style={{ color: "#4CACBC" }}
                         >
-                            See messages
+                            Messages
                         </Button>
                     </CardActions>
                 </Card>
@@ -105,8 +106,9 @@ export const RequestCard = ({ conversation }) => {
                         <Button onClick={() => navigate('/messages', { state: { id: conversation.id, plantId: conversation.plantId, conversation: conversation } })}
                             style={{ color: "#4CACBC" }}
                         >
-                            See messages
+                            Messages
                         </Button>
+                        <AcceptRequest conversation={conversation} />
                     </CardActions>
                 </Card>
 
