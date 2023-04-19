@@ -232,4 +232,4 @@ _Pvt_Extensions
 .fake/
 
 #Ignore .env
-.env
+*.env
