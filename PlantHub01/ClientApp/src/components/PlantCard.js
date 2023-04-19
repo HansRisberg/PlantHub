@@ -14,28 +14,39 @@ export const PlantCard = ({ plant, plantLocation }) => {
     return (
         <Card sx={{ width: 250, borderRadius: "5px" }}>
             <CardMedia
-                sx={{ height: 180 }}
+                sx={{ height: 160 }}
                 image={`${window.location.origin}/images/${plant.userId}/${plant.image}`}
                 title={plant.name}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography variant="body2" color="text.secondary" style={{ textAlign: "center"}}>
+                    {plant.plantName}
+                </Typography>
+                <Typography gutterBottom variant="h6" component="div" style={{ textAlign: "center" }}>
                     {plant.name}
                 </Typography>
+
                 {plant.price > 0 ? (
                 <Typography variant="body2" color="text.secondary">
-                    {plant.plantName} - {plant.price} NOK
+                    {plant.price} NOK per cutting
                     </Typography>) :
                     <Typography variant="body2" color="text.secondary">
-                        {plant.plantName}
-                    </Typography>}
-                <Typography variant="body2" color="text.secondary">
+                        Give away
+                </Typography>}
+
+                <Typography variant="body2" color="text.secondary" style={{ marginTop: "5px" }}>
                     <LocationOnIcon style={{ fill: '#609966' }} />{plantLocation} {plant.distance && `${Math.round(plant.distance / 1000)} km`}
-                    </Typography>
+                </Typography>
+
+                <Button
+                    onClick={() => navigate('/send-request', { state: { id: plant.id } })}
+                    size="small"
+                    style={{ color: "#40513B", marginTop: "5px" }}
+                >Get cutting</Button>
+
             </CardContent>
-            <CardActions>
-                <Button onClick={() => navigate('/send-request', { state: { id: plant.id} })} size="small" style={{ color: "#40513B"}}>Get cutting</Button>
-            </CardActions>
+            {/*<CardActions>*/}
+            {/*</CardActions>*/}
         </Card>
     )
 }
