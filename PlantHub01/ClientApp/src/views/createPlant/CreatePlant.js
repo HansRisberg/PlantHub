@@ -52,7 +52,7 @@ export const CreatePlant = () => {
 								required
 								fullWidth
 								id="name"
-								label="Name"
+								label="Nickname"
 								name="name"
 							/>
 						</Grid>
@@ -103,7 +103,7 @@ export const CreatePlant = () => {
 								name="price"
 							/>
 						</Grid>
-						<Grid>
+						<Grid item xs={12}>
 							<Input type="file" onChange={e => setImage(e.target.files[0])} ></Input>
 						</Grid>
 					</Grid>
