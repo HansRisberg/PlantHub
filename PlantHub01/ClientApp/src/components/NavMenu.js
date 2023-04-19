@@ -47,7 +47,6 @@ export const NavMenu = () => {
                             <img src={logo} width="170px" />
                         </Typography>
                         <div style={{ marginLeft: "auto" }}>
-                            <Button color="inherit" onClick={() => navigate('/browse-plants')}>Browse</Button>
                   
                             {/*<Button color="inherit" onClick={() => navigate('/login')}>Login</Button>*/}
                             <Button color="inherit" onClick={() => navigate('/how-it-works')}>How it works</Button>
