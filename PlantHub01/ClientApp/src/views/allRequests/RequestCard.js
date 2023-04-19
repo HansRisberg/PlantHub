@@ -28,6 +28,7 @@ export const RequestCard = ({ conversation }) => {
 
         if (!userId) {
             return;
+
         } else {
             await fetch("https://localhost:7062/api/Users/" + userId)
                 .then((response) => response.json())
@@ -42,10 +43,10 @@ export const RequestCard = ({ conversation }) => {
 
                 <Card
                     sx={{
-                    minWidth: 200,
-                    maxWidth: 200,
-                    minHeight: 250,
-                    maxHeight: 250,
+                    minWidth: 300,
+                    maxWidth: 300,
+                    minHeight: 350,
+                    maxHeight: 350,
                     margin: "10px"
                 }}>
                     <CardContent>
@@ -64,6 +65,20 @@ export const RequestCard = ({ conversation }) => {
                         <Typography variant="h5" component="div">
                             {conversation.plant.name}
                         </Typography>
+                        <>
+                            {conversation.isAccepted
+                                ?
+                                <div>
+                                    <Typography sx={{ fontSize: 12 }} component="div">Owner has accepted your request for this plant</Typography>
+                                    <Button
+                                        style={{ color: "#4CACBC" }}
+                                    >
+                                        Add to plant collection?
+                                    </Button>
+                                </div>
+                                :
+                                <Typography sx={{ fontSize: 12 }} component="div">Not accepted</Typography>}
+                        </>
                     </CardContent>
                     <CardActions>
                         <Button onClick={() => navigate('/messages', { state: { id: conversation.id, plantId: conversation.plantId, conversation: conversation } })}
@@ -78,10 +93,10 @@ export const RequestCard = ({ conversation }) => {
 
                 <Card 
                     sx={{
-                    minWidth: 200,
-                    maxWidth: 200,
-                    minHeight: 250,
-                    maxHeight: 250,
+                    minWidth: 300,
+                    maxWidth: 300,
+                    minHeight: 350,
+                    maxHeight: 350,
                     margin: "10px"
 
                 }}>
