@@ -30,7 +30,7 @@ export const RegisterUser = () => {
                 "Name": formData.get('name'),
                 "Bio": formData.get('bio'),
                 "Email": formData.get('email'),
-                "Location": `${formData.get('city')}, ${formData.get('adress')}`,
+                "Location": `${formData.get('city')}, ${formData.get('address')}`,
             })
         }
 
@@ -109,8 +109,8 @@ export const RegisterUser = () => {
 
                                 }
                             }}
-                            renderOption={(props, option) => (
-                                <li key={option} {...props}>
+                            renderOption={(props, option, index) => (
+                                <li key={`${option.city}-${index}`} {...props}>
                                     <Typography style={{ fontSize: "14px" }}>{option.city}</Typography>
                                 </li>
                             )}

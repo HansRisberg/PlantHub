@@ -127,14 +127,15 @@ export const Profile = () => {
                 </Card>
             </div>
             <div className="my-plants-container">
-                <div className="user-plants-header">
-                    <h3>My plants</h3>
+                <div className="user-plants-header" style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', marginTop: "-10px" }}>
+                    <h3 style={{ margin: 0 }}>My plants</h3>
+                    <Button variant="contained" onClick={() => navigate('/create-plant')} style={{ backgroundColor: "#609966", marginLeft: '10px' }}>New plant</Button>
                 </div>
                 <div className="plant-view">
                     {plantList.length ?
                         plantList.map((plant, index) => {
                             return (
-                                <div key={index} style={{ flexBasis: "25%" }} className="plant-card">
+                                <div key={index} style={{ flexBasis: "25%", marginTop: "23px" }} className="plant-card">
                                     <UserPlantCard plant={plant} />
                                 </div>
                             )
@@ -142,13 +143,6 @@ export const Profile = () => {
                         : "I don't have any plants yet"
                     }
                 </div>
-                <Button
-                    variant="contained"
-                    onClick={() => navigate('/create-plant')}
-                    style={{ backgroundColor: "#609966", margin:"10px" }}
-                >New plant
-                </Button>
-
             </div>
         </div>
     )
