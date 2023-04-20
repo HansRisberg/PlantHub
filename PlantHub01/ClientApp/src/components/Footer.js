@@ -36,12 +36,13 @@ export const Footer = () => {
                     <Box sx={{ height: "36px" }} />
                     <h2>Sign up for our newsletters!</h2>
                     <Typography variant="caption" sx={{ mt: 1.5, marginTop: "2px" }}>
-                        Get monthly updates with plant tips, invitations to events and other fun stuff!
+                        Get monthly updates with plant tips, invitations to events and other fun stuff
                     </Typography>
                     <TextField
-                        placeholder="Enter E-mail here!"
+                        placeholder="Enter email here"
+                        size="small"
                         sx={{
-                            marginTop: "5px",
+                            marginTop: "7px",
                             width: "30%",
                             opacity: 0.9,
                             "& .MuiOutlinedInput-root": {
@@ -65,7 +66,7 @@ export const Footer = () => {
                     <Typography variant="caption" sx={{ mt: 1.5 }}>
                         PlantHub 2023
                     </Typography>
-                    <box><img sx={{ marginTop: "50px" }} src={logo} width="170px" /></box>
+                    <box style={{ marginTop: "7px"}}><img src={logo} width="170px" /></box>
 
                 </Box>
             </Container>
