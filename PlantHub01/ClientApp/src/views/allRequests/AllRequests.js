@@ -43,7 +43,7 @@ export const AllRequests = () => {
                                 </div>
                             )
                         })
-                        : "No conversations available"
+                        : "I haven't asked for any cuttings"
                     }
                 </div>
 
@@ -56,7 +56,7 @@ export const AllRequests = () => {
                                 </div>
                             )
                         })
-                        : "No conversations available"
+                        : "No one has asked me for any cuttings"
                     }
                 </div>
             </div>

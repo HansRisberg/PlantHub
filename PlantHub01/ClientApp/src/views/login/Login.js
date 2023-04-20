@@ -76,8 +76,26 @@ export const Login = () => {
 
                         }
                     }} />
+                <div>
+                    <TextField id="outlined-basic" label="Password" variant="outlined" type="password"
+                        sx={{
+                            width: "100%", opacity: 0.9,
+
+                            "& .MuiOutlinedInput-root": {
+                                "&.Mui-focused fieldset": {
+                                    borderColor: "#609966"
+                                }
+                            },
+
+                            "& label.Mui-focused": {
+
+                                color: "#609966"
+
+                            }
+                        }} />
+                </div>
                 <Stack direction="column" spacing={2}>
-                    <Button type="submit" variant="contained" style={{ backgroundColor: "#609966"}}>Login</Button>
+                    <Button type="submit" variant="contained" style={{ backgroundColor: "#609966", marginTop: "5px"}}>Login</Button>
                     <Link href="/register" variant="body2" style={{ color: "#40513B", textDecorationColor: "#40513B"}}>
                         Don't have an account? Register
                     </Link>

@@ -131,7 +131,15 @@ export const RequestCard = ({ conversation }) => {
                                 onClick={handleAddToYourPlants}
                             >
                                 Add to Your Plants?
-                            </Button> : ""}
+                            </Button>
+                            : 
+                            <Button
+                                style={{ color: "#4CACBC" }}
+                            >
+                                Cancel
+                            </Button>  
+
+                            }
                     </CardActions>
                 </Card>
 
