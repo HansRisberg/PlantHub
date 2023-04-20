@@ -10,7 +10,7 @@ export const Hero = () => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentImage(currentImage === images.length - 1 ? 0 : currentImage + 1);
-        }, 5000);
+        }, 6500);
         return () => clearInterval(intervalId);
     }, [currentImage]);
 
@@ -30,12 +30,12 @@ export const Hero = () => {
             </div>
             <div style={{ position: "relative" }}>
                 <img src={images[currentImage]} style={{ width: "650px", height: "650px", objectFit: "cover", borderRadius: "20px", marginBottom: "30px", marginTop: "30px" }} />
-                <button onClick={handlePrev} style={{ position: "absolute", top: "50%", left: "10px", transform: "translateY(-50%)", fontSize: "24px" }}>
-                    {"<"}
-                </button>
-                <button onClick={handleNext} style={{ position: "absolute", top: "50%", right: "10px", transform: "translateY(-50%)", fontSize: "24px" }}>
-                    {">"}
-                </button>
+                {/*<button onClick={handlePrev} style={{ position: "absolute", top: "50%", left: "10px", transform: "translateY(-50%)", fontSize: "24px" }}>*/}
+                    
+                {/*</button>*/}
+                {/*<button onClick={handleNext} style={{ position: "absolute", top: "50%", right: "10px", transform: "translateY(-50%)", fontSize: "24px" }}>*/}
+                    
+                {/*</button>*/}
             </div>
         </div>
     );

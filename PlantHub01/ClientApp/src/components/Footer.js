@@ -14,7 +14,7 @@ export const Footer = () => {
         <Paper
             sx={{
                 marginTop: "20px",
-                height: "400px",
+                height: "300px",
                 bottom: 0,
                 width: "100%",
                 zIndex: 1300,
@@ -34,14 +34,15 @@ export const Footer = () => {
                     }}
                 >       
                     <Box sx={{ height: "36px" }} />
-                    <h1>Sign up for our newsletters!</h1>
+                    <h2>Sign up for our newsletters!</h2>
                     <Typography variant="caption" sx={{ mt: 1.5, marginTop: "2px" }}>
                         Get monthly updates with plant tips, invitations to events and other fun stuff!
                     </Typography>
                     <TextField
                         placeholder="Enter E-mail here!"
                         sx={{
-                            width: "50%",
+                            marginTop: "5px",
+                            width: "30%",
                             opacity: 0.9,
                             "& .MuiOutlinedInput-root": {
                                 "&.Mui-focused fieldset": {
@@ -57,7 +58,7 @@ export const Footer = () => {
                         }}
                     />
 
-                    <Typography variant="caption" sx={{ mt: 1.5, marginTop: "20px" }}>
+                    <Typography variant="caption" sx={{ mt: 1.5, marginTop: "10px" }}>
                         Contact us at heyheyhey@planthub.no
                     </Typography>
                     {/* e.g., input field, submit button */}
