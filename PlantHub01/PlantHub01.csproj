@@ -45,10 +45,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\public\images\3\" />
-    <Folder Include="ClientApp\public\images\4\" />
-    <Folder Include="ClientApp\public\images\1\" />
-    <Folder Include="ClientApp\public\images\2\" />
     <Folder Include="ClientApp\public\images\5\" />
     <Folder Include="ClientApp\src\views\sendRequest\" />
   </ItemGroup>

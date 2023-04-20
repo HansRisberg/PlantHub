@@ -210,7 +210,7 @@ namespace PlantHub01.Models
 
                     new Plant
                     {
-                        UserId = 5,
+                        UserId = 4,
                         Name = "Jinx",
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
@@ -221,7 +221,7 @@ namespace PlantHub01.Models
 
                     new Plant
                     {
-                        UserId = 5,
+                        UserId = 3,
                         Name = "Seraphine",
                         About = "My lovely!!",
                         PlantFamily = "Araceae",
@@ -232,7 +232,7 @@ namespace PlantHub01.Models
                     },
                     new Plant
                     {
-                        UserId = 5,
+                        UserId = 2,
                         Name = "Garren",
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
@@ -243,7 +243,7 @@ namespace PlantHub01.Models
                     },
                     new Plant
                     {
-                        UserId = 5,
+                        UserId = 1,
                         Name = "Veigar",
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
@@ -252,7 +252,188 @@ namespace PlantHub01.Models
                         Image = "veigar.png",
                         Available = true
 
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Alpakka",
+                        About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "String of pearls",
+                        Price = 0,
+                        Image = "alpakka.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Sau",
+                        About = "Got this from my ex. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "Maidenhair fern",
+                        Price = 0,
+                        Image = "sau.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Cashmeere",
+                        About = "Got this from my cat. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "Wendy",
+                        Price = 400,
+                        Image = "cashmeere.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Bambus",
+                        About = "Got this from my ant. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "Sølvranke",
+                        Price = 0,
+                        Image = "bambus.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Cotton",
+                        About = "Got this from my mum. Grows slow, but can share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "Philodendron",
+                        Price = 200,
+                        Image = "cotton.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Mohair",
+                        About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "Monstera adansonii",
+                        Price = 0,
+                        Image = "mohair.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Merino",
+                        About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Philodendron",
+                        PlantName = "White Knight",
+                        Price = 0,
+                        Image = "merino.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Viking",
+                        About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "Lewisia cotyledon",
+                        Price = 0,
+                        Image = "viking.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Rauma",
+                        About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "Philodendron gloriosum",
+                        Price = 100,
+                        Image = "rauma.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Hekla",
+                        About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "Rhaphidophora Tetrasperma",
+                        Price = 399,
+                        Image = "hekla.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Nøste",
+                        About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "Gjøksyre",
+                        Price = 0,
+                        Image = "nøste.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Maske",
+                        About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "Crassula Perforata",
+                        Price = 0,
+                        Image = "maske.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Tråd",
+                        About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "Hoya Carnosa Tricolor",
+                        Price = 900,
+                        Image = "tråd.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 5,
+                        Name = "Perle",
+                        About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "Aglaonema White Star",
+                        Price = 300,
+                        Image = "perle.jpg",
+                        Available = true
+
+                    },
+                    new Plant
+                    {
+                        UserId = 6,
+                        Name = "C#",
+                        About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
+                        PlantFamily = "Araceae",
+                        PlantName = "Bella palm",
+                        Price = 0,
+                        Image = "c#.jpg",
+                        Available = true
+
                     }
+
                 );
                 context.SaveChanges();
             }
