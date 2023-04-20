@@ -16,7 +16,7 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
-
+import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
 
 export const NavMenu = () => {
     const navigate = useNavigate();
@@ -118,7 +118,10 @@ export const NavMenu = () => {
                                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                             >
                                 <MenuItem onClick={() => navigate('/profile')}>
-                                    <Avatar /> Profile
+                                    Profile
+                                </MenuItem>
+                                <MenuItem onClick={() => navigate('/all-requests')}>
+                                   Messages
                                 </MenuItem>
                                 <Divider />
                                 <MenuItem onClick={handleLogout}>
