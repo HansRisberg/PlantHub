@@ -20,10 +20,10 @@ export const PlantCard = ({ plant, plantLocation }) => {
                 />
                 <CardContent>
                     <Typography variant="body2" color="text.secondary" style={{ textAlign: "center" }}>
-                        {plant.plantName}
+                        {plant.name}
                     </Typography>
                     <Typography gutterBottom variant="h6" component="div" style={{ textAlign: "center" }}>
-                        {plant.name}
+                        {plant.plantName}
                     </Typography>
 
                     {plant.price > 0 ? (

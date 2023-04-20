@@ -44,12 +44,13 @@ export const ViewPlant = () => {
 
     const fetchPlantInfo = async (commonName) => {
         console.log(commonName);
+        //console.log(`${process.env.REACT_APP_PLANT_API_KEY}`);
         const response = await fetch(
             `https://house-plants.p.rapidapi.com/common/${commonName}`,
             {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': `${process.env.REACT_APP_PLANT_API_KEY}`,
+                    'X-RapidAPI-Key': "dd434f6346msh493f02848f34a7fp1c9865jsn8cfd93ae63b3",
                     'X-RapidAPI-Host': 'house-plants.p.rapidapi.com',
                 },
             },
@@ -100,9 +101,9 @@ export const ViewPlant = () => {
                         Plant care
                     </Typography>
                     <Typography variant="body2" color="text.secondary" style={{ marginBottom: "10px" }}>
-                        Your plant has the beautiful latin name {/*{plantInfo.latin ? plantInfo.latin : "[No latin data]"}*/} and originates from {/*{plantInfo.origin ? plantInfo.origin : "[No origin data]"}*/}.
+                        Your plant has the beautiful latin name {plantInfo ? plantInfo.latin : "[No latin data]"} and originates from {plantInfo ? plantInfo.origin : "[No origin data]"}.
                         <br></br>
-                        It thrives in a {/*{plantInfo.climate ? plantInfo.climate : "[No climate data]"}*/} climate, and as all plant need care and love from it owner.
+                        It thrives in a {plantInfo ? plantInfo.climate : "[No climate data]"} climate, and as all plant need care and love from it owner.
                     </Typography>
                     <Typography variant="h6" color="text.secondary" style={{ marginBottom: "10px" }}>
                         Here's some tips on how to take well care of me
@@ -111,7 +112,7 @@ export const ViewPlant = () => {
                     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "350px" }}>
                         <Typography variant="body1">
                             <DeviceThermostat style={{ fill: "rgb(235, 110, 110)" }} />
-                            Max temperature is {/*{plantInfo.tempmax.celsius ? plantInfo.tempmax.celsius : "[No temp data]"}*/}
+                            Max temperature is {plantInfo ? plantInfo.tempmax.celsius : "[No temp data]"} celsius
                             <Typography variant="body2" color="text.secondary">
                                 You shouldn't expose your plant of higher temperatures than this.
                             </Typography>
@@ -121,7 +122,7 @@ export const ViewPlant = () => {
                     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "350px" }}>
                         <Typography variant="body1">
                             <DeviceThermostat style={{ fill: "rgb(129, 129, 218)" }} />
-                            Min temperature {/*{plantInfo.tempmin.celsius ? plantInfo.tempmin.celsius : "[No temp data]"}*/}
+                            Min temperature {plantInfo ? plantInfo.tempmin.celsius : "[No temp data]"} celsius
                             <Typography variant="body2" color="text.secondary">
                                 You shouldn't expose your plant of lower temperatures than this.
                             </Typography>
@@ -131,7 +132,7 @@ export const ViewPlant = () => {
                     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "350px" }}>
                         <Typography variant="body1">
                             <WbSunny style={{ fill: "rgb(215, 215, 125)" }} />
-                            Ideal light {/*{plantInfo.ideallight ? plantInfo.ideallight : "[No light data]"}*/}
+                            Ideal light is {plantInfo ? plantInfo.ideallight : "[No light data]"}
                             <Typography variant="body2" color="text.secondary">
                                 This is the perfect light for a happy plant.
                             </Typography>
@@ -141,7 +142,7 @@ export const ViewPlant = () => {
                     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "350px" }}>
                         <Typography variant="body1">
                             <WbSunny style={{ fill: "rgb(215, 215, 125)" }} />
-                            Tolerated light {/*{plantInfo.toleratedlight ? plantInfo.toleratedlight : "[No light data]"}*/}
+                            Tolerated light is {plantInfo ? plantInfo.toleratedlight : "[No light data]"}
                             <Typography variant="body2" color="text.secondary">
                                 You shouldn't expose your plant of more light than this.
                             </Typography>
@@ -151,7 +152,7 @@ export const ViewPlant = () => {
                     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "350px" }}>
                         <Typography variant="body1">
                             <WaterDrop style={{ fill: "rgb(129, 129, 218)" }} />
-                            Watering {/*{plantInfo.watering ? plantInfo.watering : "[No water data]"}*/}
+                            {plantInfo ? plantInfo.watering : "[No water data]"}
                             <Typography variant="body2" color="text.secondary">
                                 Make sure to plant your water the correct amount. Too much, and it dies. Too little, and it dies.
                             </Typography>
@@ -161,7 +162,7 @@ export const ViewPlant = () => {
                     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "350px" }}>
                         <Typography variant="body1">
                             <PestControl style={{ fill: "rgb(94, 165, 94)"}} />
-                            Insects {/*{plantInfo.insects ? plantInfo.insects : "[No insect data]"}*/}
+                            Insects {plantInfo ? plantInfo.insects : "[No insect data]"}
                             <Typography variant="body2" color="text.secondary">
                                 Avoid these buggy bugs.
                             </Typography>
@@ -171,7 +172,7 @@ export const ViewPlant = () => {
                     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "350px" }}>
                         <Typography variant="body1">
                             <Coronavirus style={{ fill: "grey" }} />
-                            Diseases {/*{plantInfo.diseases ? plantInfo.diseases : "[No light data]"}*/}
+                            Diseases {plantInfo ? plantInfo.diseases : "[No light data]"}
                             <Typography variant="body2" color="text.secondary">
                                 ..and look out for these diseases!
                             </Typography>
