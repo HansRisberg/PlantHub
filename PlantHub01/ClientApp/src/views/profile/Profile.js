@@ -8,7 +8,8 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import heroImage from "../../assets/dogPlant.png";
+import Ayoub from "../../assets/Ayoub.jpg";
+import Bella from "../../assets/BellaProfile.png";
 import Avatar from '@mui/material/Avatar';
 
 export const Profile = () => {
@@ -58,6 +59,7 @@ export const Profile = () => {
             <div style={{position: "relative" }}>
                 <Card sx={{
                     minWidth: 350,
+                    maxWidth: 350,
                     minHeight: 400,
                     marginTop: "50px",
                     display: "flex",
@@ -68,7 +70,7 @@ export const Profile = () => {
                     <CardContent>
                         <Avatar
                             alt="Profile Image"
-                            src={heroImage}
+                            src={Number(localStorage.getItem("userId")) === 6 ? Ayoub : Bella}
                             sx={{
                                 width: 150,
                                 height: 150,

@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Link from '@mui/material/Link';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export const SendMessage = ({ conversation }) => {
     const [message, setMessage] = useState("");
@@ -85,12 +86,14 @@ export const SendMessage = ({ conversation }) => {
                         <Link href="/all-requests"
                             variant="body2"
                             style={{ color: "#40513B", textDecorationColor: "#40513B", marginTop: "8px", textDecoration: "none" }}>
+                            <ArrowBackIcon style={{ fill: "#40513B", fontSize: "medium" }} />
                             Back
                         </Link>
                         <Button type="submit"
                             variant="contained"
                             style={{ backgroundColor: "#609966" }}
-                        >Send</Button>
+                        >
+                            Send</Button>
                     </Stack>
                 </div>
             </Box>

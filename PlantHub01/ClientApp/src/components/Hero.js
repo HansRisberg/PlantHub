@@ -1,6 +1,6 @@
 ﻿import { useState, useEffect } from "react";
 import heroImage1 from "../assets/plantimg.png";
-import heroImage2 from "../assets/BellaProfile.png";
+import heroImage2 from "../assets/stiklingscape11.jpeg";
 import heroImage3 from "../assets/dogPlant.png";
 
 export const Hero = () => {
@@ -14,13 +14,13 @@ export const Hero = () => {
         return () => clearInterval(intervalId);
     }, [currentImage]);
 
-    const handleNext = () => {
-        setCurrentImage(currentImage === images.length - 1 ? 0 : currentImage + 1);
-    };
+    //const handleNext = () => {
+    //    setCurrentImage(currentImage === images.length - 1 ? 0 : currentImage + 1);
+    //};
 
-    const handlePrev = () => {
-        setCurrentImage(currentImage === 0 ? images.length - 1 : currentImage - 1);
-    };
+    //const handlePrev = () => {
+    //    setCurrentImage(currentImage === 0 ? images.length - 1 : currentImage - 1);
+    //};
 
     return (
         <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
