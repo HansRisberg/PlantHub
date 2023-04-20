@@ -13,6 +13,8 @@ import WbSunny from '@mui/icons-material/WbSunny';
 import Coronavirus from '@mui/icons-material/Coronavirus';
 import PestControl from '@mui/icons-material/PestControl';
 import WaterDrop from '@mui/icons-material/WaterDrop';
+import Link from '@mui/material/Link';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 // link til rapidapisiden. Kun 40 calls/month
 // https://rapidapi.com/rosoemawd/api/house-plants
@@ -93,6 +95,12 @@ export const ViewPlant = () => {
                         <ToggleAvailable />
                     </CardActions>
                 </Card>
+                <Link href="/profile"
+                    variant="body2"
+                    style={{ color: "#40513B", textDecorationColor: "#40513B", marginTop: "8px", textDecoration: "none" }}>
+                    <ArrowBackIcon style={{ fill: "#40513B", fontSize: "medium" }} />
+                    Back to profile
+                </Link>
             </div>
 
             <div className="plant-info-container">

@@ -16,7 +16,8 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
-import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
+import Ayoub from "../assets/Ayoub.jpg";
+import Bella from "../assets/BellaProfile.png";
 
 export const NavMenu = () => {
     const navigate = useNavigate();
@@ -62,7 +63,7 @@ export const NavMenu = () => {
                                         aria-haspopup="true"
                                         aria-expanded={open ? 'true' : undefined}
                                     >
-                                        <Avatar sx={{ width: 32, height: 32 }}></Avatar>
+                                        <Avatar sx={{ width: 32, height: 32 }} src={Number(localStorage.getItem("userId")) === 6 ? Ayoub : Bella}></Avatar>
                                     </IconButton>
                                 </Tooltip>
                             ) : (

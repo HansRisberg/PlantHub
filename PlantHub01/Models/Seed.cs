@@ -53,9 +53,17 @@ namespace PlantHub01.Models
 
                     new User
                     {
-                        Name = "Bella Delfi",
-                        Bio = "Hiee, my name is Bella, and I'm an ESFJ, Libra, plantmommy and knitlover! I recently went through a break-up, and though it was sad I am now ready to mingle with all you other plant people and expand my collection.\r\n",
+                        Name = "Bella",
+                        Bio = "I'm an ESFJ, Libra, plantmommy and knitlover! I recently went through a break-up, and though it was sad I am now ready to mingle with all you other plant people and expand my collection.\r\n",
                         Location = "Oslo, Langkaia 1",
+
+                    },
+
+                    new User
+                    {
+                        Name = "Ayoub",
+                        Bio = "IT consultant. New to the plant game. Looking for inspo and tips.",
+                        Location = "Oslo, Slottsplassen 1",
 
                     }
                 );

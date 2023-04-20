@@ -43,7 +43,7 @@ export const ToggleAvailable = () => {
         }
     }
     return (
-        <FormGroup>
+        <FormGroup style={{ marginLeft: "10px", marginBottom: "10px"}}>
             <FormControlLabel control={<Switch
                 checked={available}
                 size="small"
