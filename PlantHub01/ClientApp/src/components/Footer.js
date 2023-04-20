@@ -6,9 +6,6 @@ import Paper from "@mui/material/Paper";
 import TextField from '@mui/material/TextField';
 import logo from '../assets/PlantHubLogo2.png';
 
-
-
-
 export const Footer = () => {
     return (
         <Paper
@@ -62,7 +59,7 @@ export const Footer = () => {
                     <Typography variant="caption" sx={{ mt: 1.5, marginTop: "10px" }}>
                         Contact us at heyheyhey@planthub.no
                     </Typography>
-                    {/* e.g., input field, submit button */}
+                     e.g., input field, submit button 
                     <Typography variant="caption" sx={{ mt: 1.5 }}>
                         PlantHub 2023
                     </Typography>
