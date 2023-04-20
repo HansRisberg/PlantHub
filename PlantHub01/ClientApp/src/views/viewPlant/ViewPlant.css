@@ -1,0 +1,43 @@
+﻿.view-plant {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.plant-details-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.plant-image-box {
+    flex: 1;
+    max-width: 50%;
+    padding: 10px;
+}
+
+.plant-info-box {
+    flex: 1;
+    max-width: 50%;
+    padding: 10px;
+}
+
+.plant-price-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.plant-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
