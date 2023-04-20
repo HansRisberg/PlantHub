@@ -30,7 +30,7 @@ export const RegisterUser = () => {
                 "Name": formData.get('name'),
                 "Bio": formData.get('bio'),
                 "Email": formData.get('email'),
-                "Location": `${formData.get('city')}, ${formData.get('adress')}`,
+                "Location": `${formData.get('city')}, ${formData.get('address')}`,
             })
         }
 
