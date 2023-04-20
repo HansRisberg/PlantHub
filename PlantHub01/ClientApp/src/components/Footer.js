@@ -59,7 +59,6 @@ export const Footer = () => {
                     <Typography variant="caption" sx={{ mt: 1.5, marginTop: "10px" }}>
                         Contact us at heyheyhey@planthub.no
                     </Typography>
-                     e.g., input field, submit button 
                     <Typography variant="caption" sx={{ mt: 1.5 }}>
                         PlantHub 2023
                     </Typography>
