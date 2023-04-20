@@ -161,20 +161,32 @@ export const Home = ({ mapsLoaded }) => {
                 {plants.map((plant) => {
                     const plantLocation = getCity(plant.userId);
                     return (
-                        <>
-                            {
-                                plant.available
-                                    ? 
-                                    <div key={plant.id} style={{ flexBasis: "25%", marginBottom: "30px" }}>
-                                        <PlantCard plant={plant} plantLocation={plantLocation} />
-                                    </div>  
-                                    :
-                                    null
-                            }
-                        </>
+                        plant.available && (
+                            <div key={plant.id} style={{ flexBasis: "25%", marginBottom: "30px" }}>
+                                <PlantCard plant={plant} plantLocation={plantLocation} />
+                            </div>
+                        )
                     );
                 })}
             </div>
         </div>
     );
 }
+
+//old plant map code. this genereated a error
+//{plants.map((plant) => {
+//        const plantLocation = getCity(plant.userId);
+//        return (
+//            <>
+//                {
+//                    plant.available
+//                        ?
+//                        <div key={plant.id} style={{ flexBasis: "25%", marginBottom: "30px" }}>
+//                            <PlantCard plant={plant} plantLocation={plantLocation} />
+//                        </div>
+//                        :
+//                        null
+//                }
+//            </>
+//        );
+//    })}

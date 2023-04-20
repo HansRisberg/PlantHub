@@ -55,13 +55,14 @@ app.UseCors(c =>
         .AllowAnyOrigin();
 });
 
-app.UseStaticFiles();
+
 app.UseRouting();
 
 app.UseSwagger();
 app.UseSwaggerUI();
-app.MapControllers();
-
 app.MapFallbackToFile("index.html");
+app.UseStaticFiles();
+
+app.MapControllers();
 
 app.Run();

@@ -140,7 +140,8 @@ export const Profile = () => {
                                 </div>
                             )
                         })
-                        : "I don't have any plants yet"
+
+                        : <div style={{marginTop: "35px"} }>"I don't have any plants yet"</div>
                     }
                 </div>
             </div>
