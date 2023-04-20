@@ -363,17 +363,6 @@
     "population_proper": "26811"
   }, 
   {
-    "city": "Eidsvoll", 
-    "lat": "60.3475", 
-    "lng": "11.2508", 
-    "country": "Norway", 
-    "iso2": "NO", 
-    "admin_name": "Akershus", 
-    "capital": "", 
-    "population": "25436", 
-    "population_proper": "25436"
-  }, 
-  {
     "city": "Nedre Eiker", 
     "lat": "59.7647", 
     "lng": "10.0333", 
@@ -504,17 +493,6 @@
     "capital": "minor", 
     "population": "20439", 
     "population_proper": "20439"
-  }, 
-  {
-    "city": "Os", 
-    "lat": "60.2269", 
-    "lng": "5.4758", 
-    "country": "Norway", 
-    "iso2": "NO", 
-    "admin_name": "Hordaland", 
-    "capital": "minor", 
-    "population": "19742", 
-    "population_proper": "19742"
   }, 
   {
     "city": "Nesoddtangen", 
@@ -1032,17 +1010,6 @@
     "capital": "minor", 
     "population": "10333", 
     "population_proper": "10333"
-  }, 
-  {
-    "city": "Sande", 
-    "lat": "59.5936", 
-    "lng": "10.2076", 
-    "country": "Norway", 
-    "iso2": "NO", 
-    "admin_name": "Vestfold", 
-    "capital": "", 
-    "population": "9904", 
-    "population_proper": "9904"
   }, 
   {
     "city": "Fauske", 
@@ -1637,18 +1604,7 @@
     "capital": "", 
     "population": "5050", 
     "population_proper": "5050"
-  }, 
-  {
-    "city": "Sand", 
-    "lat": "60.4422", 
-    "lng": "11.5681", 
-    "country": "Norway", 
-    "iso2": "NO", 
-    "admin_name": "Hedmark", 
-    "capital": "", 
-    "population": "5016", 
-    "population_proper": "5016"
-  }, 
+  },
   {
     "city": "Odda", 
     "lat": "60.0689", 
@@ -1725,18 +1681,7 @@
     "capital": "minor", 
     "population": "4523", 
     "population_proper": "4523"
-  }, 
-  {
-    "city": "Hol", 
-    "lat": "60.6150", 
-    "lng": "8.3022", 
-    "country": "Norway", 
-    "iso2": "NO", 
-    "admin_name": "Buskerud", 
-    "capital": "minor", 
-    "population": "4441", 
-    "population_proper": "4441"
-  }, 
+  },
   {
     "city": "Norheimsund", 
     "lat": "60.3667", 
@@ -1925,17 +1870,6 @@
     "population_proper": "3676"
   }, 
   {
-    "city": "Våler", 
-    "lat": "60.6784", 
-    "lng": "11.8331", 
-    "country": "Norway", 
-    "iso2": "NO", 
-    "admin_name": "Hedmark", 
-    "capital": "minor", 
-    "population": "3662", 
-    "population_proper": "3662"
-  }, 
-  {
     "city": "Tiller", 
     "lat": "63.3428", 
     "lng": "10.4261", 
@@ -2099,17 +2033,6 @@
     "capital": "minor", 
     "population": "3171", 
     "population_proper": "3171"
-  }, 
-  {
-    "city": "Hov", 
-    "lat": "59.5656", 
-    "lng": "10.0361", 
-    "country": "Norway", 
-    "iso2": "NO", 
-    "admin_name": "Buskerud", 
-    "capital": "", 
-    "population": "3163", 
-    "population_proper": "3163"
   }, 
   {
     "city": "Sør-Fron", 
@@ -2374,18 +2297,7 @@
     "capital": "minor", 
     "population": "2574", 
     "population_proper": "2574"
-  }, 
-  {
-    "city": "Bø", 
-    "lat": "68.6953", 
-    "lng": "14.5794", 
-    "country": "Norway", 
-    "iso2": "NO", 
-    "admin_name": "Nordland", 
-    "capital": "", 
-    "population": "2569", 
-    "population_proper": "2569"
-  }, 
+  },
   {
     "city": "Ballangen", 
     "lat": "68.3064", 
@@ -4233,18 +4145,7 @@
     "capital": "minor", 
     "population": "", 
     "population_proper": ""
-  }, 
-  {
-    "city": "Dale", 
-    "lat": "60.5833", 
-    "lng": "5.8167", 
-    "country": "Norway", 
-    "iso2": "NO", 
-    "admin_name": "Hordaland", 
-    "capital": "minor", 
-    "population": "", 
-    "population_proper": ""
-  }, 
+  },
   {
     "city": "Noresund", 
     "lat": "60.1667", 
@@ -4604,17 +4505,6 @@
     "country": "Norway", 
     "iso2": "NO", 
     "admin_name": "Troms", 
-    "capital": "minor", 
-    "population": "", 
-    "population_proper": ""
-  }, 
-  {
-    "city": "Årnes", 
-    "lat": "63.9611", 
-    "lng": "10.2274", 
-    "country": "Norway", 
-    "iso2": "NO", 
-    "admin_name": "Sør-Trøndelag", 
     "capital": "minor", 
     "population": "", 
     "population_proper": ""
@@ -5000,17 +4890,6 @@
     "country": "Norway", 
     "iso2": "NO", 
     "admin_name": "Vest-Agder", 
-    "capital": "minor", 
-    "population": "", 
-    "population_proper": ""
-  }, 
-  {
-    "city": "Straumen", 
-    "lat": "67.3481", 
-    "lng": "15.5972", 
-    "country": "Norway", 
-    "iso2": "NO", 
-    "admin_name": "Nordland", 
     "capital": "minor", 
     "population": "", 
     "population_proper": ""

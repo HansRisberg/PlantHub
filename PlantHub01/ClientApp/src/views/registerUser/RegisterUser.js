@@ -109,8 +109,8 @@ export const RegisterUser = () => {
 
                                 }
                             }}
-                            renderOption={(props, option) => (
-                                <li key={option} {...props}>
+                            renderOption={(props, option, index) => (
+                                <li key={`${option.city}-${index}`} {...props}>
                                     <Typography style={{ fontSize: "14px" }}>{option.city}</Typography>
                                 </li>
                             )}
