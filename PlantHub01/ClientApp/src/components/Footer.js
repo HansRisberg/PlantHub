@@ -66,7 +66,7 @@ export const Footer = () => {
                     <Typography variant="caption" sx={{ mt: 1.5 }}>
                         PlantHub 2023
                     </Typography>
-                    <box style={{ marginTop: "7px"}}><img src={logo} width="170px" /></box>
+                    <Box style={{ marginTop: "7px"}}><img src={logo} width="170px" /></Box>
 
                 </Box>
             </Container>
