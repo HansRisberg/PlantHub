@@ -178,10 +178,10 @@ namespace PlantHub01.Controllers
 
             _context.Plant.Add(newPlant);
             await _context.SaveChangesAsync();
-            //return Ok(newPlant);
+            return Ok(newPlant);
            
             //return CreatedAtAction("GetUser", newPlant);
-            return CreatedAtAction(nameof(GetPlant), new { id = newPlant.Id }, newPlant);
+            //return CreatedAtAction(nameof(GetPlant), new { id = newPlant.Id }, newPlant);
         }
 
         // POST: api/Plants/Duplicate
