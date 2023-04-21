@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using UserContext.Data;
 using PlantHub01.Models;
+
+
 namespace PlantHub01.Models
 {
 
@@ -365,7 +367,7 @@ namespace PlantHub01.Models
                         Name = "Hekla",
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
-                        PlantName = "Jade Plant",
+                        PlantName = "Rhaphidophora Tetrasperma",
                         Price = 399,
                         Image = "hekla.jpg",
                         Available = true
@@ -389,7 +391,7 @@ namespace PlantHub01.Models
                         Name = "Maske",
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
-                        PlantName = "Jade Plant",
+                        PlantName = "Crassula Perforata",
                         Price = 0,
                         Image = "maske.jpg",
                         Available = true
@@ -401,7 +403,7 @@ namespace PlantHub01.Models
                         Name = "Tråd",
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
-                        PlantName = "Jade Plant",
+                        PlantName = "Hoya Carnosa Tricolor",
                         Price = 900,
                         Image = "tråd.jpg",
                         Available = true
@@ -425,9 +427,9 @@ namespace PlantHub01.Models
                         Name = "C#",
                         About = "Got this from my mum. Grows fast, so plenty of cuttings to share!",
                         PlantFamily = "Araceae",
-                        PlantName = "Cactus",
+                        PlantName = "Bella palm",
                         Price = 0,
-                        Image = "csharp.jpg",
+                        Image = "c#.jpg",
                         Available = true
 
                     }
@@ -435,7 +437,7 @@ namespace PlantHub01.Models
                 );
                 context.SaveChanges();
             }
-
         }
+
     }
 }
