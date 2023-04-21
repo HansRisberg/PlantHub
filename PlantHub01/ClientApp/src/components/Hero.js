@@ -29,7 +29,7 @@ export const Hero = () => {
                 <h1>Propagate your passion</h1>
             </div>
             <div style={{ position: "relative" }}>
-                <img src={images[currentImage]} style={{ width: "450px", height: "450px", objectFit: "cover", borderRadius: "20px", marginBottom: "30px", marginTop: "30px" }} />
+                <img src={images[currentImage]} style={{ width: "600px", height: "500px", objectFit: "cover", borderRadius: "20px", marginBottom: "30px", marginTop: "30px", marginRight: "40px" }} />
                 {/*<button onClick={handlePrev} style={{ position: "absolute", top: "50%", left: "10px", transform: "translateY(-50%)", fontSize: "24px" }}>*/}
                     
                 {/*</button>*/}
